@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppNet.Domain\AppNet.Domain.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Logging\AppNet.Infrastructer.Logging.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Notification\AppNet.Infrastructer.Notification.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Persistence\AppNet.Infrastructer.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
