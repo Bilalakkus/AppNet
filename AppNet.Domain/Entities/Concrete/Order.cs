@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public class Order : BaseEntity, IEntity
+    public class Order : BaseEntity
     {
         public int OrderId { get; set; }
 

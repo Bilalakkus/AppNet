@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity:IEntity
     {
         public int AddingId { get; set; }
         public DateTime CreateDate { get; set; }

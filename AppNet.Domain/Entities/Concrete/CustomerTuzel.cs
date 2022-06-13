@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public sealed class CustomerTuzel:Customer, IEntity
+    public sealed class CustomerTuzel:Customer
     {
         public string Vergino { get; set; }
         public string SirketName { get; set; }

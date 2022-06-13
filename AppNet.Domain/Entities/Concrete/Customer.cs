@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public abstract class Customer : BaseEntity, IEntity
+    public abstract class Customer : BaseEntity
     {
         public int CustomerId { get; set; }
        

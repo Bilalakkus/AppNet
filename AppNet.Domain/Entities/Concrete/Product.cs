@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public class Product : BaseEntity, IEntity
+    public class Product : BaseEntity
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public class Safe : BaseEntity, IEntity
+    public class Safe : BaseEntity
     {
         public int SafeId { get; set; }
         public SafeType Type { get; set; }

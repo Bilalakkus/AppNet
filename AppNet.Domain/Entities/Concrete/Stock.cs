@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public class Stock : BaseEntity, IEntity
+    public class Stock : BaseEntity
     {
         public int StockId { get; set; }
         public int Piece { get; set; }
-        public Customer Customer { get; set; }
+        public Product Product { get; set; }
     }
 }

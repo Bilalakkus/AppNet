@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Concrete
 {
-    public class Employee : BaseEntity, IEntity
+    public class Employee : BaseEntity
     {
         public int EmployeeId { get; set; }
         public string Tc { get; set; }
