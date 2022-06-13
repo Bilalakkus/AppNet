@@ -36,5 +36,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Customer Update(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabNewEmployee = new System.Windows.Forms.TabPage();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTc = new System.Windows.Forms.TextBox();
@@ -55,14 +57,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEmployeeList = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSearchLastName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSearchTc = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnEmployeeSearch = new System.Windows.Forms.Button();
             this.gridEmployee = new System.Windows.Forms.DataGridView();
+            this.ctxEmployee = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.GuncelleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SilToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabNewEmployee.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,6 +76,7 @@
             this.panel1.SuspendLayout();
             this.tabEmployeeList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployee)).BeginInit();
+            this.ctxEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,6 +99,7 @@
             // tabNewEmployee
             // 
             this.tabNewEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabNewEmployee.Controls.Add(this.txtId);
             this.tabNewEmployee.Controls.Add(this.panel3);
             this.tabNewEmployee.Controls.Add(this.panel2);
             this.tabNewEmployee.Controls.Add(this.panel1);
@@ -103,6 +111,14 @@
             this.tabNewEmployee.Size = new System.Drawing.Size(970, 561);
             this.tabNewEmployee.TabIndex = 0;
             this.tabNewEmployee.Text = "Personel Ekle";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(67, 516);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 29);
+            this.txtId.TabIndex = 23;
+            this.txtId.Visible = false;
             // 
             // panel3
             // 
@@ -315,9 +331,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(776, 519);
+            this.btnSave.Location = new System.Drawing.Point(761, 519);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 35);
+            this.btnSave.Size = new System.Drawing.Size(90, 35);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Kaydet";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -326,11 +342,11 @@
             // tabEmployeeList
             // 
             this.tabEmployeeList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabEmployeeList.Controls.Add(this.textBox4);
+            this.tabEmployeeList.Controls.Add(this.txtSearchLastName);
             this.tabEmployeeList.Controls.Add(this.label14);
-            this.tabEmployeeList.Controls.Add(this.textBox3);
+            this.tabEmployeeList.Controls.Add(this.txtSearchName);
             this.tabEmployeeList.Controls.Add(this.label13);
-            this.tabEmployeeList.Controls.Add(this.textBox2);
+            this.tabEmployeeList.Controls.Add(this.txtSearchTc);
             this.tabEmployeeList.Controls.Add(this.label12);
             this.tabEmployeeList.Controls.Add(this.btnEmployeeSearch);
             this.tabEmployeeList.Controls.Add(this.gridEmployee);
@@ -342,12 +358,12 @@
             this.tabEmployeeList.TabIndex = 1;
             this.tabEmployeeList.Text = "Personeller";
             // 
-            // textBox4
+            // txtSearchLastName
             // 
-            this.textBox4.Location = new System.Drawing.Point(688, 15);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(193, 29);
-            this.textBox4.TabIndex = 7;
+            this.txtSearchLastName.Location = new System.Drawing.Point(688, 15);
+            this.txtSearchLastName.Name = "txtSearchLastName";
+            this.txtSearchLastName.Size = new System.Drawing.Size(193, 29);
+            this.txtSearchLastName.TabIndex = 7;
             // 
             // label14
             // 
@@ -358,12 +374,12 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "Soyadı";
             // 
-            // textBox3
+            // txtSearchName
             // 
-            this.textBox3.Location = new System.Drawing.Point(389, 15);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 29);
-            this.textBox3.TabIndex = 5;
+            this.txtSearchName.Location = new System.Drawing.Point(389, 15);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(205, 29);
+            this.txtSearchName.TabIndex = 5;
             // 
             // label13
             // 
@@ -374,12 +390,12 @@
             this.label13.TabIndex = 4;
             this.label13.Text = "Adı";
             // 
-            // textBox2
+            // txtSearchTc
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 15);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 29);
-            this.textBox2.TabIndex = 3;
+            this.txtSearchTc.Location = new System.Drawing.Point(130, 15);
+            this.txtSearchTc.Name = "txtSearchTc";
+            this.txtSearchTc.Size = new System.Drawing.Size(211, 29);
+            this.txtSearchTc.TabIndex = 3;
             // 
             // label12
             // 
@@ -398,27 +414,60 @@
             this.btnEmployeeSearch.TabIndex = 1;
             this.btnEmployeeSearch.Text = "Bul";
             this.btnEmployeeSearch.UseVisualStyleBackColor = true;
+            this.btnEmployeeSearch.Click += new System.EventHandler(this.btnEmployeeSearch_Click_1);
             // 
             // gridEmployee
             // 
             this.gridEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridEmployee.ContextMenuStrip = this.ctxEmployee;
             this.gridEmployee.Location = new System.Drawing.Point(8, 55);
             this.gridEmployee.Name = "gridEmployee";
             this.gridEmployee.RowTemplate.Height = 25;
+            this.gridEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridEmployee.Size = new System.Drawing.Size(954, 500);
-            this.gridEmployee.TabIndex = 0;
+            this.gridEmployee.StandardTab = true;
+            this.gridEmployee.TabIndex = 1;
+            // 
+            // ctxEmployee
+            // 
+            this.ctxEmployee.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GuncelleToolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.SilToolStripMenuItem2});
+            this.ctxEmployee.Name = "ctxEmployee";
+            this.ctxEmployee.Size = new System.Drawing.Size(121, 54);
+            // 
+            // GuncelleToolStripMenuItem1
+            // 
+            this.GuncelleToolStripMenuItem1.Name = "GuncelleToolStripMenuItem1";
+            this.GuncelleToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.GuncelleToolStripMenuItem1.Text = "Güncelle";
+            this.GuncelleToolStripMenuItem1.Click += new System.EventHandler(this.GuncelleToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(117, 6);
+            // 
+            // SilToolStripMenuItem2
+            // 
+            this.SilToolStripMenuItem2.Name = "SilToolStripMenuItem2";
+            this.SilToolStripMenuItem2.Size = new System.Drawing.Size(120, 22);
+            this.SilToolStripMenuItem2.Text = "Sil";
+            this.SilToolStripMenuItem2.Click += new System.EventHandler(this.SilToolStripMenuItem2_Click);
             // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 638);
+            this.ClientSize = new System.Drawing.Size(978, 719);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmEmployee";
             this.Text = "Çalışanlar";
             this.Load += new System.EventHandler(this.FrmEmployee_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabNewEmployee.ResumeLayout(false);
+            this.tabNewEmployee.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -428,6 +477,7 @@
             this.tabEmployeeList.ResumeLayout(false);
             this.tabEmployeeList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployee)).EndInit();
+            this.ctxEmployee.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -461,12 +511,17 @@
         private Label label11;
         private TextBox txtTc;
         private DataGridView gridEmployee;
-        private TextBox textBox4;
+        private TextBox txtSearchLastName;
         private Label label14;
-        private TextBox textBox3;
+        private TextBox txtSearchName;
         private Label label13;
-        private TextBox textBox2;
+        private TextBox txtSearchTc;
         private Label label12;
         private Button btnEmployeeSearch;
+        private ContextMenuStrip ctxEmployee;
+        private ToolStripMenuItem GuncelleToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem SilToolStripMenuItem2;
+        private TextBox txtId;
     }
 }

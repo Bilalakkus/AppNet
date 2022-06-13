@@ -36,5 +36,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Order Update(Order entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

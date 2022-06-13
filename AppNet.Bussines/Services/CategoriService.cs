@@ -38,5 +38,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Category Update(Category entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

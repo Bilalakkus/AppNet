@@ -9,7 +9,9 @@ namespace AppNet.Bussines.Abstract
 {
     public interface IEmployeeService
     {
-        List<Employee> LoadEmployee();
-        
+        Employee SearchName(string name);
+        Employee SearchLastName(string lastName);
+        Employee SearchTc(string tc);
+
     }
 }

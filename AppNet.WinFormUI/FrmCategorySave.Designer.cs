@@ -31,6 +31,7 @@
             this.btnCategorySave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKategoriName = new System.Windows.Forms.TextBox();
+            this.txtCategoryId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCategorySave
@@ -58,18 +59,26 @@
             this.txtKategoriName.Size = new System.Drawing.Size(465, 29);
             this.txtKategoriName.TabIndex = 2;
             // 
+            // txtCategoryId
+            // 
+            this.txtCategoryId.Location = new System.Drawing.Point(80, 216);
+            this.txtCategoryId.Name = "txtCategoryId";
+            this.txtCategoryId.Size = new System.Drawing.Size(100, 29);
+            this.txtCategoryId.TabIndex = 3;
+            // 
             // FrmCategorySave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(711, 257);
+            this.Controls.Add(this.txtCategoryId);
             this.Controls.Add(this.txtKategoriName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCategorySave);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Green;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCategorySave";
             this.Text = "Kategori Ekleme";
             this.ResumeLayout(false);
@@ -78,9 +87,9 @@
         }
 
         #endregion
-
-        private Button btnCategorySave;
         private Label label1;
-        private TextBox txtKategoriName;
+        public TextBox txtKategoriName;
+        public TextBox txtCategoryId;
+        public Button btnCategorySave;
     }
 }

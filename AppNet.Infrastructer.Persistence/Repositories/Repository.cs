@@ -35,5 +35,10 @@ namespace AppNet.Bussines
         {
             throw new NotImplementedException();
         }
+
+        public TEntity Update(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

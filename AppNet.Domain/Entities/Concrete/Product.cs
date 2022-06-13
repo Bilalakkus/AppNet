@@ -15,7 +15,8 @@ namespace AppNet.Domain.Entities.Concrete
         public decimal UnitPrice { get; set; }
         public int Stock { get; set; }
         public short StockMin { get; set; }
-        public Stock Stoc { get; set; }
+        //public Stock Stock { get; set; }
+
         //public ICollection<Order> Orders { get; set; } = new List<Order>();
 
     }

@@ -36,5 +36,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Supplier Update(Supplier entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

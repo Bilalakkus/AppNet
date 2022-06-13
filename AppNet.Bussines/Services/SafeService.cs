@@ -36,5 +36,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Safe Update(Safe entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

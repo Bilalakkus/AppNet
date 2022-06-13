@@ -36,5 +36,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public Stock Update(Stock entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

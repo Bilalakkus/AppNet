@@ -4,6 +4,7 @@ using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppNet.Infrastructer.Persistence.Migrations
 {
     [DbContext(typeof(AppNetDbContext))]
-    partial class AppNetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220613175057_DbiliskiDuzenlendi")]
+    partial class DbiliskiDuzenlendi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,9 +41,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
 
                     b.HasKey("CategoryId");
 
@@ -70,9 +69,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -100,9 +96,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -152,9 +145,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
                     b.Property<int?>("CustomerGercekCustomerId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
-
                     b.Property<short>("Qantity")
                         .HasColumnType("smallint");
 
@@ -184,9 +174,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -233,9 +220,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
-
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
@@ -266,9 +250,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Piece")
                         .HasColumnType("int");
 
@@ -297,9 +278,6 @@ namespace AppNet.Infrastructer.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsItPassive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Phone")
                         .IsRequired()

@@ -11,6 +11,7 @@ namespace AppNet.Domain.Entities.Abstract
     public interface IRepository<TEntity> where TEntity : BaseEntity
     {
         TEntity Add(TEntity entity);
+        TEntity Update(TEntity entity);
         bool Remove(int id);
         TEntity GetById(int id);
         List<TEntity> GetAll();
