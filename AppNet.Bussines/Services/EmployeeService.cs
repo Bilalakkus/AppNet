@@ -23,12 +23,10 @@ namespace AppNet.Bussines.Concrete
         //}
         public Employee Add(Employee entity)
         {
-
             try
             {
                 //validationlar ve iş kuralları
                 entity.Name.NullOrEmpty(nameof(entity.Name));
-
                 using (var context = new AppNetDbContext())
                 {
                     context.Employees.Add(entity);
@@ -42,7 +40,6 @@ namespace AppNet.Bussines.Concrete
                 throw;
             }
         }
-
         public List<Employee> GetAll()
         {
             throw new NotImplementedException();

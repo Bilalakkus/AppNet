@@ -55,10 +55,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabEmployeeList = new System.Windows.Forms.TabPage();
-            this.tabEmployeeSalary = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnEmployeeSearch = new System.Windows.Forms.Button();
             this.gridEmployee = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabNewEmployee.SuspendLayout();
@@ -66,7 +69,6 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabEmployeeList.SuspendLayout();
-            this.tabEmployeeSalary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +77,6 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabNewEmployee);
             this.tabControl1.Controls.Add(this.tabEmployeeList);
-            this.tabControl1.Controls.Add(this.tabEmployeeSalary);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.ItemSize = new System.Drawing.Size(150, 35);
@@ -99,7 +100,7 @@
             this.tabNewEmployee.Location = new System.Drawing.Point(4, 39);
             this.tabNewEmployee.Name = "tabNewEmployee";
             this.tabNewEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNewEmployee.Size = new System.Drawing.Size(908, 561);
+            this.tabNewEmployee.Size = new System.Drawing.Size(970, 561);
             this.tabNewEmployee.TabIndex = 0;
             this.tabNewEmployee.Text = "Personel Ekle";
             // 
@@ -325,6 +326,13 @@
             // tabEmployeeList
             // 
             this.tabEmployeeList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabEmployeeList.Controls.Add(this.textBox4);
+            this.tabEmployeeList.Controls.Add(this.label14);
+            this.tabEmployeeList.Controls.Add(this.textBox3);
+            this.tabEmployeeList.Controls.Add(this.label13);
+            this.tabEmployeeList.Controls.Add(this.textBox2);
+            this.tabEmployeeList.Controls.Add(this.label12);
+            this.tabEmployeeList.Controls.Add(this.btnEmployeeSearch);
             this.tabEmployeeList.Controls.Add(this.gridEmployee);
             this.tabEmployeeList.ForeColor = System.Drawing.Color.Teal;
             this.tabEmployeeList.Location = new System.Drawing.Point(4, 39);
@@ -334,52 +342,70 @@
             this.tabEmployeeList.TabIndex = 1;
             this.tabEmployeeList.Text = "Personeller";
             // 
-            // tabEmployeeSalary
+            // textBox4
             // 
-            this.tabEmployeeSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabEmployeeSalary.Controls.Add(this.textBox1);
-            this.tabEmployeeSalary.Controls.Add(this.label1);
-            this.tabEmployeeSalary.Controls.Add(this.button1);
-            this.tabEmployeeSalary.ForeColor = System.Drawing.Color.Teal;
-            this.tabEmployeeSalary.Location = new System.Drawing.Point(4, 39);
-            this.tabEmployeeSalary.Name = "tabEmployeeSalary";
-            this.tabEmployeeSalary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmployeeSalary.Size = new System.Drawing.Size(908, 561);
-            this.tabEmployeeSalary.TabIndex = 2;
-            this.tabEmployeeSalary.Text = "Maaş";
+            this.textBox4.Location = new System.Drawing.Point(688, 15);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(193, 29);
+            this.textBox4.TabIndex = 7;
             // 
-            // textBox1
+            // label14
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
-            this.textBox1.TabIndex = 2;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(609, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 21);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Soyadı";
             // 
-            // label1
+            // textBox3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.textBox3.Location = new System.Drawing.Point(389, 15);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(205, 29);
+            this.textBox3.TabIndex = 5;
             // 
-            // button1
+            // label13
             // 
-            this.button1.Location = new System.Drawing.Point(328, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(347, 18);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(36, 21);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Adı";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(130, 15);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(211, 29);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 21);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "T.C. Kimlik No";
+            // 
+            // btnEmployeeSearch
+            // 
+            this.btnEmployeeSearch.Location = new System.Drawing.Point(887, 12);
+            this.btnEmployeeSearch.Name = "btnEmployeeSearch";
+            this.btnEmployeeSearch.Size = new System.Drawing.Size(75, 34);
+            this.btnEmployeeSearch.TabIndex = 1;
+            this.btnEmployeeSearch.Text = "Bul";
+            this.btnEmployeeSearch.UseVisualStyleBackColor = true;
             // 
             // gridEmployee
             // 
             this.gridEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridEmployee.Location = new System.Drawing.Point(8, 173);
+            this.gridEmployee.Location = new System.Drawing.Point(8, 55);
             this.gridEmployee.Name = "gridEmployee";
             this.gridEmployee.RowTemplate.Height = 25;
-            this.gridEmployee.Size = new System.Drawing.Size(892, 382);
+            this.gridEmployee.Size = new System.Drawing.Size(954, 500);
             this.gridEmployee.TabIndex = 0;
             // 
             // FrmEmployee
@@ -400,8 +426,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabEmployeeList.ResumeLayout(false);
-            this.tabEmployeeSalary.ResumeLayout(false);
-            this.tabEmployeeSalary.PerformLayout();
+            this.tabEmployeeList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmployee)).EndInit();
             this.ResumeLayout(false);
 
@@ -410,11 +435,7 @@
         #endregion
         private TabPage tabNewEmployee;
         private TabPage tabEmployeeList;
-        private TabPage tabEmployeeSalary;
         public TabControl tabControl1;
-        private TextBox textBox1;
-        private Label label1;
-        private Button button1;
         private TextBox txtName;
         private Label label2;
         private Button btnSave;
@@ -440,5 +461,12 @@
         private Label label11;
         private TextBox txtTc;
         private DataGridView gridEmployee;
+        private TextBox textBox4;
+        private Label label14;
+        private TextBox textBox3;
+        private Label label13;
+        private TextBox textBox2;
+        private Label label12;
+        private Button btnEmployeeSearch;
     }
 }

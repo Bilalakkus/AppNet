@@ -1,4 +1,6 @@
 ﻿using AppNet.Bussines.Concrete;
+using AppNet.Bussines.Utilities;
+using AppNet.Bussines.Validation;
 using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Persistence.Contexts;
 using System;
@@ -22,27 +24,38 @@ namespace AppNet.WinFormUI
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee
+            try
             {
-                Name = txtName.Text.Trim(),
-                AddingId = 1,
-                CreateDate = DateTime.Now,
-                DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
-                LastName = txtLastName.Text.Trim(),
-                Password = txtPasword.Text.Trim(),
-                Salary = Convert.ToDecimal(txtSalary.Text.Trim()),
-                User = txtuser.Text.Trim(),
-                WDate = Convert.ToDateTime(txtWDate.Text),
-                Tc = txtTc.Text.Trim()
-            };
-
-            EmployeeService employeeService = new EmployeeService();
-            var result = employeeService.Add(employee);
-            EmptyForm();
-            MessageBox.Show($"{result.Name} {result.LastName} adlı personel eklendi.");
-
+                if (!txtTc.Text.TcVerify())
+                {
+                    MessageBox.Show("T.C. Kimlik Numarsı Hatalı");
+                    return;
+                }
+                txtName.Text.NullOrEmpty(nameof(txtName.Text));
+                txtLastName.Text.NullOrEmpty(nameof(txtLastName.Text));
+                Employee employee = new Employee
+                {
+                    Name = txtName.Text.Trim(),
+                    AddingId = 1,
+                    CreateDate = DateTime.Now,
+                    DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                    LastName = txtLastName.Text.Trim(),
+                    Password = txtPasword.Text.Trim(),
+                    Salary = Convert.ToDecimal(txtSalary.Text.Trim()),
+                    User = txtuser.Text.Trim(),
+                    WDate = Convert.ToDateTime(txtWDate.Text),
+                    Tc = txtTc.Text.Trim()
+                };
+                EmployeeService employeeService = new EmployeeService();
+                var result = employeeService.Add(employee);
+                EmptyForm();
+                MessageBox.Show($"{result.Name} {result.LastName} adlı personel eklendi.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
-
         private void EmptyForm()
         {
             txtName.Text = "";
@@ -99,5 +112,7 @@ namespace AppNet.WinFormUI
 
             gridEmployee.Rows.Add(row);
         }
+
+        
     }
 }

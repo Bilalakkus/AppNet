@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace AppNet.WinFormUI
 {
-    public partial class FrmCustomer : Form
+    public partial class FrmCustomerSave : Form
     {
-        public FrmCustomer()
+        public FrmCustomerSave()
         {
             InitializeComponent();
+        }
+
+        private void btnCustomerSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

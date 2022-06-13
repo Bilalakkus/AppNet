@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace AppNet.WinFormUI
 {
-    public partial class frmCategory : Form
+    public partial class FrmCustomerList : Form
     {
-        public frmCategory()
+        public FrmCustomerList()
         {
             InitializeComponent();
         }
+
+       
     }
 }
