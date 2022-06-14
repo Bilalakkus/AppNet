@@ -1,3 +1,5 @@
+using AppNet.Infrastructer.Notification;
+
 namespace AppNet.WinFormUI
 {
     public partial class FrmUser : Form
@@ -11,6 +13,12 @@ namespace AppNet.WinFormUI
         {
             FrmEmployee frmEmployee = new FrmEmployee();
             frmEmployee.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SentTelegram sent = new SentTelegram();
+            sent.TelegramMesjGonder("Deneme");
         }
     }
 }
