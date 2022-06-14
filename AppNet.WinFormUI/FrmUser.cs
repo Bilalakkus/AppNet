@@ -18,7 +18,19 @@ namespace AppNet.WinFormUI
         private void button2_Click(object sender, EventArgs e)
         {
             SentTelegram sent = new SentTelegram();
-            sent.TelegramMesjGonder("Deneme");
+            sent.TelegramMesjGonder("Gülsüm telefonumu ver");
+        }
+
+        private void btnKategori_Click(object sender, EventArgs e)
+        {
+            FrmCategorySave frmCategorySave = new FrmCategorySave();
+            frmCategorySave.ShowDialog();
+        }
+
+        private void btnGiris_Click(object sender, EventArgs e)
+        {
+            MDIDashboard mDIDashboard = new MDIDashboard();
+            mDIDashboard.Show();
         }
     }
 }

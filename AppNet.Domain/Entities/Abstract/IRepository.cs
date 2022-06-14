@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities.Abstract
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface IRepository<TEntity> 
     {
         TEntity Add(TEntity entity);
         TEntity Update(TEntity entity);

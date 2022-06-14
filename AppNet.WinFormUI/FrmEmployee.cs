@@ -1,4 +1,5 @@
-﻿using AppNet.Bussines.Concrete;
+﻿using AppNet.Bussines.Abstract;
+using AppNet.Bussines.Concrete;
 using AppNet.Bussines.Utilities;
 using AppNet.Bussines.Validation;
 using AppNet.Domain.Entities.Concrete;
@@ -17,7 +18,7 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmEmployee : Form
     {
-        EmployeeService _EmployeeService = new EmployeeService();
+        private EmployeeService _EmployeeService;
         public FrmEmployee()
         {
             InitializeComponent();

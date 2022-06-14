@@ -9,12 +9,27 @@ namespace AppNet.Domain.Entities.Concrete
 {
     public class Product : BaseEntity
     {
+        public event StockLowerLimitDelegate StockLowerLimitEvent;
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string Type { get; set; }
         public decimal UnitPrice { get; set; }
-        public int Stock { get; set; }
         public short StockMin { get; set; }
+        private int _stock;
+        public int Stock
+        {
+            get { return _stock; }
+            set { 
+
+                _stock = value;
+                if (value <= StockMin && StockLowerLimitEvent != null) StockLowerLimitEvent();
+            }
+        }
+        public void ProductSell(int miktar)
+        {
+            Stock -= miktar;
+        }
+
         //public Stock Stock { get; set; }
 
         //public ICollection<Order> Orders { get; set; } = new List<Order>();

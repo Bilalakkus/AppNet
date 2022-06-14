@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabNewEmployee = new System.Windows.Forms.TabPage();
+            this.btnListe = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.GuncelleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SilToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabNewEmployee.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -99,6 +101,8 @@
             // tabNewEmployee
             // 
             this.tabNewEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabNewEmployee.Controls.Add(this.btnClearForm);
+            this.tabNewEmployee.Controls.Add(this.btnListe);
             this.tabNewEmployee.Controls.Add(this.txtId);
             this.tabNewEmployee.Controls.Add(this.panel3);
             this.tabNewEmployee.Controls.Add(this.panel2);
@@ -111,6 +115,16 @@
             this.tabNewEmployee.Size = new System.Drawing.Size(970, 561);
             this.tabNewEmployee.TabIndex = 0;
             this.tabNewEmployee.Text = "Personel Ekle";
+            // 
+            // btnListe
+            // 
+            this.btnListe.Location = new System.Drawing.Point(662, 521);
+            this.btnListe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListe.Name = "btnListe";
+            this.btnListe.Size = new System.Drawing.Size(93, 34);
+            this.btnListe.TabIndex = 24;
+            this.btnListe.Text = "Liste";
+            this.btnListe.UseVisualStyleBackColor = true;
             // 
             // txtId
             // 
@@ -331,7 +345,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(761, 519);
+            this.btnSave.Location = new System.Drawing.Point(565, 521);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 35);
             this.btnSave.TabIndex = 10;
@@ -456,6 +470,15 @@
             this.SilToolStripMenuItem2.Text = "Sil";
             this.SilToolStripMenuItem2.Click += new System.EventHandler(this.SilToolStripMenuItem2_Click);
             // 
+            // btnClearForm
+            // 
+            this.btnClearForm.Location = new System.Drawing.Point(762, 521);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(141, 34);
+            this.btnClearForm.TabIndex = 25;
+            this.btnClearForm.Text = "Formu Temizle";
+            this.btnClearForm.UseVisualStyleBackColor = true;
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -523,5 +546,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem SilToolStripMenuItem2;
         private TextBox txtId;
+        private Button btnListe;
+        private Button btnClearForm;
     }
 }

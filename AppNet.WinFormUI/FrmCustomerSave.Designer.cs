@@ -42,6 +42,7 @@
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnClearForm = new System.Windows.Forms.Button();
+            this.btnListe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTcVergino
@@ -55,7 +56,7 @@
             // 
             // btnCustomerSave
             // 
-            this.btnCustomerSave.Location = new System.Drawing.Point(455, 459);
+            this.btnCustomerSave.Location = new System.Drawing.Point(354, 459);
             this.btnCustomerSave.Name = "btnCustomerSave";
             this.btnCustomerSave.Size = new System.Drawing.Size(83, 46);
             this.btnCustomerSave.TabIndex = 1;
@@ -166,12 +167,23 @@
             this.btnClearForm.Text = "Formu Temizle";
             this.btnClearForm.UseVisualStyleBackColor = true;
             // 
+            // btnListe
+            // 
+            this.btnListe.Location = new System.Drawing.Point(444, 459);
+            this.btnListe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListe.Name = "btnListe";
+            this.btnListe.Size = new System.Drawing.Size(93, 46);
+            this.btnListe.TabIndex = 17;
+            this.btnListe.Text = "Liste";
+            this.btnListe.UseVisualStyleBackColor = true;
+            // 
             // FrmCustomerSave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(760, 630);
+            this.Controls.Add(this.btnListe);
             this.Controls.Add(this.btnClearForm);
             this.Controls.Add(this.txtAdress);
             this.Controls.Add(this.label4);
@@ -188,7 +200,7 @@
             this.Controls.Add(this.lblTcVergino);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.DarkGreen;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCustomerSave";
             this.Text = "Müşteri Ekleme";
             this.ResumeLayout(false);
@@ -212,5 +224,6 @@
         private TextBox txtAdress;
         private Label label4;
         private Button btnClearForm;
+        private Button btnListe;
     }
 }

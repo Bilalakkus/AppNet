@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppNet.Bussines.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmCategoryList : Form
     {
+        private readonly ICategoriService _CategoriService;
         public FrmCategoryList()
         {
             InitializeComponent();
+            gridCategories.DataSource = _CategoriService.GetAll();
         }
     }
 }

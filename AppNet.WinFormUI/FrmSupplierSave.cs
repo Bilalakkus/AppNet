@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppNet.WinFormUI
 {
-    public partial class FrmSupplier : Form
+    public partial class FrmSupplierSave : Form
     {
-        public FrmSupplier()
+        public FrmSupplierSave()
         {
             InitializeComponent();
         }
