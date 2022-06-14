@@ -10,36 +10,42 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class SuplierService : IRepository<Supplier>,ISuplierService
+    public class SuplierService : ISuplierService
     {
+        private readonly IRepository<Supplier> _suplierRepository;
+        public SuplierService(IRepository<Supplier> suplplierRepository)
+        {
+            _suplierRepository=suplplierRepository;
+        }
+
         public Supplier Add(Supplier entity)
         {
-            throw new NotImplementedException();
+            return _suplierRepository.Add(entity);
         }
 
         public List<Supplier> GetAll()
         {
-            throw new NotImplementedException();
+            return _suplierRepository.GetAll();
         }
 
         public Supplier GetById(int id)
         {
-            throw new NotImplementedException();
+            return _suplierRepository.GetById(id);
         }
 
         public ICollection<Supplier> GetList(Expression<Func<Supplier, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return _suplierRepository.GetList(expression);
         }
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            return _suplierRepository.Remove(id);
         }
 
         public Supplier Update(Supplier entity)
         {
-            throw new NotImplementedException();
+            return _suplierRepository.Update(entity);
         }
     }
 }

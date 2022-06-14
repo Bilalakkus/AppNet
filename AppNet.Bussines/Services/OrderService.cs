@@ -10,36 +10,37 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class OrderService : IRepository<Order>, IOrderService
+    public class OrderService : IOrderService
     {
+        private readonly IRepository<Order> _orderService;
+        public OrderService(IRepository<Order> orderRepository)
+        {
+            this._orderService=orderRepository;
+        }
         public Order Add(Order entity)
         {
-            throw new NotImplementedException();
+            return _orderService.Add(entity);
         }
-
         public List<Order> GetAll()
         {
-            throw new NotImplementedException();
+            return _orderService.GetAll();
         }
-
         public Order GetById(int id)
         {
-            throw new NotImplementedException();
+            return _orderService.GetById(id);
         }
-
         public ICollection<Order> GetList(Expression<Func<Order, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return _orderService.GetList(expression);
         }
-
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            bool result = _orderService.Remove(id);
+            return result;
         }
-
         public Order Update(Order entity)
         {
-            throw new NotImplementedException();
+            return _orderService.Update(entity);
         }
     }
 }

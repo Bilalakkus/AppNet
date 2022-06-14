@@ -1,47 +1,44 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using AppNet.Bussines.Abstract;
-using AppNet.Bussines.Abstract;
-
 namespace AppNet.Bussines.Concrete
 {
-    public class CategoriService : IRepository<Category>,ICategoriService
+    public class CategoriService : ICategoriService
     {
+        private readonly IRepository<Category> repository;
+        public CategoriService(IRepository<Category> repository)
+        {
+            this.repository = repository;
+        }
         public Category Add(Category entity)
         {
-            throw new NotImplementedException();
+           return repository.Add(entity);
         }
-
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return repository.GetAll();
         }
-
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            return repository.GetById(id);
         }
-
+        public Category GetCategory(string name)
+        {
+            return repository.GetAll().SingleOrDefault(c=>c.CategoryName == name);
+        }
         public ICollection<Category> GetList(Expression<Func<Category, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return repository.GetList(expression);
         }
-
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            bool result=repository.Remove(id);
+            return result;
         }
-
         public Category Update(Category entity)
         {
-            throw new NotImplementedException();
+            return repository.Update(entity);
         }
     }
 }

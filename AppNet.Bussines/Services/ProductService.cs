@@ -10,36 +10,47 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class ProductService : IRepository<Product>,IProductService
+    public class ProductService : IProductService
     {
+        private readonly IRepository<Product> _productRepository;
+        public ProductService(IRepository<Product> productRepository)
+        {
+            _productRepository = productRepository;
+        }
         public Product Add(Product entity)
         {
-            throw new NotImplementedException();
+            return _productRepository.Add(entity);
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _productRepository.GetAll();
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetById(id);
         }
 
         public ICollection<Product> GetList(Expression<Func<Product, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return GetList(expression);
         }
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+           bool result = _productRepository.Remove(id);
+            return result;
+        }
+
+        public Product SearchProductName(string name)
+        {
+            return _productRepository.GetAll().FirstOrDefault(p=>p.ProductName==name);
         }
 
         public Product Update(Product entity)
         {
-            throw new NotImplementedException();
+            return _productRepository.Update(entity);
         }
     }
 }

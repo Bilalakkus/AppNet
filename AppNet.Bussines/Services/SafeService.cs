@@ -10,36 +10,37 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class SafeService : IRepository<Safe>,ISafeService
+    public class SafeService : ISafeService
     {
+        private readonly IRepository<Safe> _safeRepository;
+        public SafeService(IRepository<Safe> safeRepository)
+        {
+            _safeRepository=safeRepository;
+        }
         public Safe Add(Safe entity)
         {
-            throw new NotImplementedException();
+            return _safeRepository.Add(entity);
         }
-
         public List<Safe> GetAll()
         {
-            throw new NotImplementedException();
+            return _safeRepository.GetAll();
         }
-
         public Safe GetById(int id)
         {
-            throw new NotImplementedException();
+            return _safeRepository.GetById(id);
         }
-
         public ICollection<Safe> GetList(Expression<Func<Safe, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return _safeRepository.GetList(expression);
         }
-
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            bool result = _safeRepository.Remove(id);
+            return result;
         }
-
         public Safe Update(Safe entity)
         {
-            throw new NotImplementedException();
+            return _safeRepository.Update(entity);
         }
     }
 }

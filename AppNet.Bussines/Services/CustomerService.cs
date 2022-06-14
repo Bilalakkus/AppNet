@@ -10,36 +10,41 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class CustomerService : IRepository<Customer>, ICustomerService
+    public class CustomerService : ICustomerService
     {
+        private readonly IRepository<Customer> _customerRepository;
+        public CustomerService(IRepository<Customer> customerRepository)
+        {
+            this._customerRepository = customerRepository;
+        }
         public Customer Add(Customer entity)
         {
-            throw new NotImplementedException();
+            return _customerRepository.Add(entity);
         }
-
         public List<Customer> GetAll()
         {
-            throw new NotImplementedException();
+            return _customerRepository.GetAll();
         }
 
         public Customer GetById(int id)
         {
-            throw new NotImplementedException();
+           return _customerRepository.GetById(id);
         }
 
         public ICollection<Customer> GetList(Expression<Func<Customer, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return GetList(expression);
         }
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            bool result = _customerRepository.Remove(id);
+            return result;
         }
 
         public Customer Update(Customer entity)
         {
-            throw new NotImplementedException();
+            return _customerRepository.Update(entity);
         }
     }
 }

@@ -10,36 +10,41 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Concrete
 {
-    public class StockService : IRepository<Stock>,IStockService
+    public class StockService : IStockService
     {
+        private readonly IRepository<Stock> _stockRepository;
+        public StockService(IRepository<Stock> stokRepository)
+        {
+            _stockRepository= stokRepository;
+        }
         public Stock Add(Stock entity)
         {
-            throw new NotImplementedException();
+            return _stockRepository.Add(entity);
         }
 
         public List<Stock> GetAll()
         {
-            throw new NotImplementedException();
+            return _stockRepository.GetAll();
         }
 
         public Stock GetById(int id)
         {
-            throw new NotImplementedException();
+            return _stockRepository.GetById(id);
         }
 
         public ICollection<Stock> GetList(Expression<Func<Stock, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            return _stockRepository.GetList(expression);
         }
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            return _stockRepository.Remove(id);
         }
 
         public Stock Update(Stock entity)
         {
-            throw new NotImplementedException();
+            return _stockRepository.Update(entity);
         }
     }
 }
