@@ -29,10 +29,10 @@ namespace AppNet.WinFormUI
             }
             else
             {
-                Category category = new Category { CategoryName = txtCategoriName.Text.Trim() };
-                var result= _CategoriService.Add(category);
-                MessageBox.Show($"{result.CategoryName} Kaydedildi.");
-                txtCategoriName.Text = "";
+                //Category category = new Category { CategoryName = txtCategoriName.Text.Trim() };
+                //var result= _CategoriService.AddAsync(category);
+                //MessageBox.Show($"{result.CategoryName} Kaydedildi.");
+                //txtCategoriName.Text = "";
             }
 
         }

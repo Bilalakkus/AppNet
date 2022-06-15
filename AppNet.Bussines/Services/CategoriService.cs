@@ -18,37 +18,34 @@ namespace AppNet.Bussines.Concrete
             //var result = repository.GetAllAsync();
             throw new NotImplementedException();
         }
-       
-
-        public bool RemoveAsync(int id)
+        Task<Category> IRepository<Category>.Add(Category entity)
         {
-            bool result = repository.RemoveAsync(id);
-            return  result;
+            return repository.Add(entity);
         }
 
-        Task<Category> IRepository<Category>.AddAsync(Category entity)
+        public List<Category> GetAll()
         {
-            return repository.AddAsync(entity);
+            return repository.GetAll();
         }
 
-        Task<List<Category>> IRepository<Category>.GetAllAsync()
+        Task<Category> IRepository<Category>.GetById(int id)
         {
-            throw new NotImplementedException();
+            return repository.GetById(id);
         }
 
-        Task<Category> IRepository<Category>.GetByIdAsync(int id)
+        Task<ICollection<Category>> IRepository<Category>.GetList(Expression<Func<Category, bool>> expression)
         {
-            return repository.GetByIdAsync(id);
+            return repository.GetList(expression);
         }
 
-        Task<ICollection<Category>> IRepository<Category>.GetListAsync(Expression<Func<Category, bool>> expression)
+        Task<Category> IRepository<Category>.Update(Category entity)
         {
-            return repository.GetListAsync(expression);
+            return repository.Update(entity);
         }
 
-        Task<Category> IRepository<Category>.UpdateAsync(Category entity)
+        public bool Remove(int id)
         {
-            return repository.UpdateAsync(entity);
+            return repository.Remove(id);
         }
     }
 }

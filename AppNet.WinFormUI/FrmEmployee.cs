@@ -18,13 +18,13 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmEmployee : Form
     {
-        private EmployeeService _EmployeeService;
+        private readonly IEmployeeService _EmployeeService;
         public FrmEmployee()
         {
             InitializeComponent();
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private async void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var result = _EmployeeService.Add(employee);
+                    var result = await _EmployeeService.Add(employee);
                 }
                 else
                 {
@@ -70,7 +70,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var resaltUpdate = _EmployeeService.Update(employeeUpdate);
+                    var resaltUpdate =await _EmployeeService.Update(employeeUpdate);
                 }
 
                 EmptyForm();
@@ -101,13 +101,10 @@ namespace AppNet.WinFormUI
             LoadEmployee();
         }
 
-        private void LoadEmployee()
+        private async void LoadEmployee()
         {
-            var data= _EmployeeService.GetAll();
-                gridEmployee.DataSource = data;
+                //gridEmployee.DataSource = _EmployeeService.GetAll();
         }
-
-
         private void gridAddEmployee(Employee model)
         {
             DataGridView DataGridView = new DataGridView();// gridEmployee.Rows[0].Clone();
@@ -153,12 +150,8 @@ namespace AppNet.WinFormUI
                  MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-
-               
                 if (_EmployeeService.Remove(employeeId)) MessageBox.Show($"{name} silindi...");
                 else MessageBox.Show("Sorun oluştu!");
-
-                
             }
         }
 

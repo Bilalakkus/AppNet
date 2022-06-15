@@ -18,32 +18,32 @@ namespace AppNet.Bussines.Concrete
             _stockRepository= stokRepository;
         }
 
-        public Task<Stock> AddAsync(Stock entity)
+        public Task<Stock> Add(Stock entity)
         {
-            return _stockRepository.AddAsync(entity);
+            return _stockRepository.Add(entity);
         }
 
-        public Task<List<Stock>> GetAllAsync()
+        public List<Stock> GetAll()
         {
-            return _stockRepository.GetAllAsync();
+            return _stockRepository.GetAll();
         }
-        public Task<Stock> GetByIdAsync(int id)
+        public Task<Stock> GetById(int id)
         {
-            return _stockRepository.GetByIdAsync(id);
+            return _stockRepository.GetById(id);
         }
 
 
-        public Task<ICollection<Stock>> GetListAsync(Expression<Func<Stock, bool>> expression = null)
+        public Task<ICollection<Stock>> GetList(Expression<Func<Stock, bool>> expression = null)
         {
-            return _stockRepository.GetListAsync(expression);
+            return _stockRepository.GetList(expression);
         }
-        public bool RemoveAsync(int id)
+        public bool Remove(int id)
         {
-            return _stockRepository.RemoveAsync(id);
+            return _stockRepository.Remove(id);
         }
-        public Task<Stock> UpdateAsync(Stock entity)
+        public Task<Stock> Update(Stock entity)
         {
-            return _stockRepository.UpdateAsync(entity);
+            return _stockRepository.Update(entity);
         }
     }
 }

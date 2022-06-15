@@ -13,29 +13,34 @@ namespace AppNet.Bussines.Concrete
             this.repository = repository;
         }
 
-        public Task<Employee> AddAsync(Employee entity)
+        public Task<Employee> Add(Employee entity)
         {
-            return repository.AddAsync(entity);
+            return repository.Add(entity);
         }
 
-        public Task<List<Employee>> GetAllAsync()
+        public List<Employee> GetAll()
         {
-            return repository.GetAllAsync();
+            return repository.GetAll();
         }
 
-        public Task<Employee> GetByIdAsync(int id)
+        public Task<Employee> GetById(int id)
         {
-            return repository.GetByIdAsync(id);
+            return repository.GetById(id);
         }
 
-        public Task<ICollection<Employee>> GetListAsync(Expression<Func<Employee, bool>> expression = null)
+        public Task<ICollection<Employee>> GetList(Expression<Func<Employee, bool>> expression = null)
         {
-            return repository.GetListAsync(expression);
+            return repository.GetList(expression);
         }
 
-        public bool RemoveAsync(int id)
+        public bool Remove(int id)
         {
-                return repository.RemoveAsync(id);;
+                return repository.Remove(id);;
+        }
+
+        public List<Employee> SearchAll()
+        {
+            return repository.GetAll();
         }
 
         public Employee SearchLastName(string lastName)
@@ -46,7 +51,8 @@ namespace AppNet.Bussines.Concrete
 
         public Employee SearchName(string name)
         {
-           //return  repository.GetAllAsync().SingleOrDefault(n => n.Name == name);
+            //return  repository.GetAllAsync().SingleOrDefault(n => n.Name == name);
+            //return await repository.GetAll().Select(x => x.Name).FirstOrDefault();
             throw new NotImplementedException();
         }
 
@@ -56,9 +62,9 @@ namespace AppNet.Bussines.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<Employee> UpdateAsync(Employee entity)
+        public Task<Employee> Update(Employee entity)
         {
-            return repository.UpdateAsync(entity);
+            return repository.Update(entity);
         }
     }
 }

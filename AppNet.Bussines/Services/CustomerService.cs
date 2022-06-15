@@ -17,34 +17,32 @@ namespace AppNet.Bussines.Concrete
         {
             this._customerRepository = customerRepository;
         }
-        public ICollection<Customer> GetList(Expression<Func<Customer, bool>> expression = null)
+
+        Task<Customer> IRepository<Customer>.Add(Customer entity)
         {
-            return GetList(expression);
+            return _customerRepository.Add(entity);
         }
-        public Task<ICollection<Customer>> GetListAsync(Expression<Func<Customer, bool>> expression = null)
+        public List<Customer> GetAll()
         {
-            throw new NotImplementedException();
+            return _customerRepository.GetAll();
         }
-        public bool RemoveAsync(int id)
+        Task<Customer> IRepository<Customer>.GetById(int id)
         {
-            bool result = _customerRepository.RemoveAsync(id);
-            return result;
+            return _customerRepository.GetById(id);
         }
-        Task<Customer> IRepository<Customer>.AddAsync(Customer entity)
+        Task<Customer> IRepository<Customer>.Update(Customer entity)
         {
-            return _customerRepository.AddAsync(entity);
+            return _customerRepository.Update(entity);
         }
-        Task<List<Customer>> IRepository<Customer>.GetAllAsync()
+
+        public bool Remove(int id)
         {
-            return _customerRepository.GetAllAsync();
+            return _customerRepository.Remove(id);
         }
-        Task<Customer> IRepository<Customer>.GetByIdAsync(int id)
+
+        Task<ICollection<Customer>> IRepository<Customer>.GetList(Expression<Func<Customer, bool>> expression)
         {
-            return _customerRepository.GetByIdAsync(id);
-        }
-        Task<Customer> IRepository<Customer>.UpdateAsync(Customer entity)
-        {
-            return _customerRepository.UpdateAsync(entity);
+            return _customerRepository.GetList(expression);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace AppNet.Bussines.Abstract
         Employee SearchName(string name);
         Employee SearchLastName(string lastName);
         Employee SearchTc(string tc);
+        List<Employee> SearchAll();
 
     }
 }

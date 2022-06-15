@@ -17,30 +17,30 @@ namespace AppNet.Bussines.Concrete
         {
             this._orderService=orderRepository;
         }
-        public Task<Order> AddAsync(Order entity)
+        public Task<Order> Add(Order entity)
         {
-            return _orderService.AddAsync(entity);
+            return _orderService.Add(entity);
         }
-        public Task<List<Order>> GetAllAsync()
+        public List<Order> GetAll()
         {
-            return _orderService.GetAllAsync();
+            return _orderService.GetAll();
         }
-        public Task<Order> GetByIdAsync(int id)
+        public Task<Order> GetById(int id)
         {
-           return _orderService.GetByIdAsync(id);
+           return _orderService.GetById(id);
         }
-        public Task<ICollection<Order>> GetListAsync(Expression<Func<Order, bool>> expression = null)
+        public Task<ICollection<Order>> GetList(Expression<Func<Order, bool>> expression = null)
         {
-            return _orderService.GetListAsync(expression);
+            return _orderService.GetList(expression);
         }
-        public bool RemoveAsync(int id)
+        public bool Remove(int id)
         {
-           bool result = _orderService.RemoveAsync(id);
+           bool result = _orderService.Remove(id);
             return result;
         }
-        public Task<Order> UpdateAsync(Order entity)
+        public Task<Order> Update(Order entity)
         {
-            return _orderService.UpdateAsync(entity);
+            return _orderService.Update(entity);
         }
     }
 }

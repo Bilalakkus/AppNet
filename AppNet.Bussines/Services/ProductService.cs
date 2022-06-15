@@ -18,25 +18,25 @@ namespace AppNet.Bussines.Concrete
             _productRepository = productRepository;
         }
 
-        public Task<Product> AddAsync(Product entity)
+        public Task<Product> Add(Product entity)
         {
-            return _productRepository.AddAsync(entity);
+            return _productRepository.Add(entity);
         }
-        public Task<List<Product>> GetAllAsync()
+        public List<Product> GetAll()
         {
-            return _productRepository.GetAllAsync();
+            return _productRepository.GetAll();
         }
-        public Task<Product> GetByIdAsync(int id)
+        public Task<Product> GetById(int id)
         {
-            return _productRepository.GetByIdAsync(id);
+            return _productRepository.GetById(id);
         }
-        public Task<ICollection<Product>> GetListAsync(Expression<Func<Product, bool>> expression = null)
+        public Task<ICollection<Product>> GetList(Expression<Func<Product, bool>> expression = null)
         {
-            return GetListAsync(expression);
+            return GetList(expression);
         }
-        public bool RemoveAsync(int id)
+        public bool Remove(int id)
         {
-            bool result = _productRepository.RemoveAsync(id);
+            bool result = _productRepository.Remove(id);
             return result;
         }
 
@@ -45,9 +45,9 @@ namespace AppNet.Bussines.Concrete
             //return _productRepository.GetAllAsync().FirstOrDefault(p=>p.ProductName==name);
             throw new NotImplementedException();
         }
-        public Task<Product> UpdateAsync(Product entity)
+        public Task<Product> Update(Product entity)
         {
-            return _productRepository.UpdateAsync(entity);
+            return _productRepository.Update(entity);
         }
     }
 }
