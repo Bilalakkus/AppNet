@@ -9,34 +9,34 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        public TEntity Add(TEntity entity)
+        public Task<TEntity> AddAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<TEntity> GetAll()
+        public Task<List<TEntity>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public TEntity GetById(int id)
+        public Task<TEntity> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<TEntity> GetList(Expression<Func<TEntity, bool>> expression = null)
+        public Task<ICollection<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> expression = null)
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(int id)
+        public bool RemoveAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity Update(TEntity entity)
+        public Task<TEntity> UpdateAsync(TEntity entity)
         {
             throw new NotImplementedException();
         }

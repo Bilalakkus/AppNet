@@ -17,34 +17,34 @@ namespace AppNet.Bussines.Concrete
         {
             this._customerRepository = customerRepository;
         }
-        public Customer Add(Customer entity)
-        {
-            return _customerRepository.Add(entity);
-        }
-        public List<Customer> GetAll()
-        {
-            return _customerRepository.GetAll();
-        }
-
-        public Customer GetById(int id)
-        {
-           return _customerRepository.GetById(id);
-        }
-
         public ICollection<Customer> GetList(Expression<Func<Customer, bool>> expression = null)
         {
             return GetList(expression);
         }
-
-        public bool Remove(int id)
+        public Task<ICollection<Customer>> GetListAsync(Expression<Func<Customer, bool>> expression = null)
         {
-            bool result = _customerRepository.Remove(id);
+            throw new NotImplementedException();
+        }
+        public bool RemoveAsync(int id)
+        {
+            bool result = _customerRepository.RemoveAsync(id);
             return result;
         }
-
-        public Customer Update(Customer entity)
+        Task<Customer> IRepository<Customer>.AddAsync(Customer entity)
         {
-            return _customerRepository.Update(entity);
+            return _customerRepository.AddAsync(entity);
+        }
+        Task<List<Customer>> IRepository<Customer>.GetAllAsync()
+        {
+            return _customerRepository.GetAllAsync();
+        }
+        Task<Customer> IRepository<Customer>.GetByIdAsync(int id)
+        {
+            return _customerRepository.GetByIdAsync(id);
+        }
+        Task<Customer> IRepository<Customer>.UpdateAsync(Customer entity)
+        {
+            return _customerRepository.UpdateAsync(entity);
         }
     }
 }

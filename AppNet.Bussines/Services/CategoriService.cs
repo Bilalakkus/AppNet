@@ -2,6 +2,7 @@
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
 using System.Linq.Expressions;
+
 namespace AppNet.Bussines.Concrete
 {
     public class CategoriService : ICategoriService
@@ -11,34 +12,43 @@ namespace AppNet.Bussines.Concrete
         {
             this.repository = repository;
         }
-        public Category Add(Category entity)
-        {
-           return repository.Add(entity);
-        }
-        public List<Category> GetAll()
-        {
-            return repository.GetAll();
-        }
-        public Category GetById(int id)
-        {
-            return repository.GetById(id);
-        }
+       
         public Category GetCategory(string name)
         {
-            return repository.GetAll().SingleOrDefault(c=>c.CategoryName == name);
+            //var result = repository.GetAllAsync();
+            throw new NotImplementedException();
         }
-        public ICollection<Category> GetList(Expression<Func<Category, bool>> expression = null)
+       
+
+        public bool RemoveAsync(int id)
         {
-            return repository.GetList(expression);
+            bool result = repository.RemoveAsync(id);
+            return  result;
         }
-        public bool Remove(int id)
+
+        Task<Category> IRepository<Category>.AddAsync(Category entity)
         {
-            bool result=repository.Remove(id);
-            return result;
+            return repository.AddAsync(entity);
         }
-        public Category Update(Category entity)
+
+        Task<List<Category>> IRepository<Category>.GetAllAsync()
         {
-            return repository.Update(entity);
+            throw new NotImplementedException();
+        }
+
+        Task<Category> IRepository<Category>.GetByIdAsync(int id)
+        {
+            return repository.GetByIdAsync(id);
+        }
+
+        Task<ICollection<Category>> IRepository<Category>.GetListAsync(Expression<Func<Category, bool>> expression)
+        {
+            return repository.GetListAsync(expression);
+        }
+
+        Task<Category> IRepository<Category>.UpdateAsync(Category entity)
+        {
+            return repository.UpdateAsync(entity);
         }
     }
 }

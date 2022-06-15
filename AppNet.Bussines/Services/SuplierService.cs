@@ -17,35 +17,29 @@ namespace AppNet.Bussines.Concrete
         {
             _suplierRepository=suplplierRepository;
         }
-
-        public Supplier Add(Supplier entity)
+        public Task<Supplier> AddAsync(Supplier entity)
         {
-            return _suplierRepository.Add(entity);
+            return _suplierRepository.AddAsync(entity);
         }
-
-        public List<Supplier> GetAll()
+        public Task<List<Supplier>> GetAllAsync()
         {
-            return _suplierRepository.GetAll();
+            return _suplierRepository.GetAllAsync();
         }
-
-        public Supplier GetById(int id)
+        public Task<Supplier> GetByIdAsync(int id)
         {
-            return _suplierRepository.GetById(id);
+            return _suplierRepository.GetByIdAsync(id);
         }
-
-        public ICollection<Supplier> GetList(Expression<Func<Supplier, bool>> expression = null)
+        public Task<ICollection<Supplier>> GetListAsync(Expression<Func<Supplier, bool>> expression = null)
         {
-            return _suplierRepository.GetList(expression);
+            return _suplierRepository.GetListAsync(expression);
         }
-
-        public bool Remove(int id)
+        public bool RemoveAsync(int id)
         {
-            return _suplierRepository.Remove(id);
+            return _suplierRepository.RemoveAsync(id);
         }
-
-        public Supplier Update(Supplier entity)
+        public Task<Supplier> UpdateAsync(Supplier entity)
         {
-            return _suplierRepository.Update(entity);
+            return _suplierRepository.UpdateAsync(entity);
         }
     }
 }

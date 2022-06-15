@@ -17,30 +17,34 @@ namespace AppNet.Bussines.Concrete
         {
             _safeRepository=safeRepository;
         }
-        public Safe Add(Safe entity)
+
+        public Task<Safe> AddAsync(Safe entity)
         {
-            return _safeRepository.Add(entity);
+            return _safeRepository.AddAsync(entity);
         }
-        public List<Safe> GetAll()
+
+        public Task<List<Safe>> GetAllAsync()
         {
-            return _safeRepository.GetAll();
+            return _safeRepository.GetAllAsync();
         }
-        public Safe GetById(int id)
+        public Task<Safe> GetByIdAsync(int id)
         {
-            return _safeRepository.GetById(id);
+            return _safeRepository.GetByIdAsync(id);
         }
-        public ICollection<Safe> GetList(Expression<Func<Safe, bool>> expression = null)
+
+
+        public Task<ICollection<Safe>> GetListAsync(Expression<Func<Safe, bool>> expression = null)
         {
-            return _safeRepository.GetList(expression);
+            return _safeRepository.GetListAsync(expression);
         }
-        public bool Remove(int id)
+        public bool RemoveAsync(int id)
         {
-            bool result = _safeRepository.Remove(id);
+            bool result = _safeRepository.RemoveAsync(id);
             return result;
         }
-        public Safe Update(Safe entity)
+        public Task<Safe> UpdateAsync(Safe entity)
         {
-            return _safeRepository.Update(entity);
+            return _safeRepository.UpdateAsync(entity);
         }
     }
 }

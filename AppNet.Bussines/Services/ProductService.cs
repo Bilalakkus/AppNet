@@ -17,40 +17,37 @@ namespace AppNet.Bussines.Concrete
         {
             _productRepository = productRepository;
         }
-        public Product Add(Product entity)
-        {
-            return _productRepository.Add(entity);
-        }
 
-        public List<Product> GetAll()
+        public Task<Product> AddAsync(Product entity)
         {
-            return _productRepository.GetAll();
+            return _productRepository.AddAsync(entity);
         }
-
-        public Product GetById(int id)
+        public Task<List<Product>> GetAllAsync()
         {
-            return _productRepository.GetById(id);
+            return _productRepository.GetAllAsync();
         }
-
-        public ICollection<Product> GetList(Expression<Func<Product, bool>> expression = null)
+        public Task<Product> GetByIdAsync(int id)
         {
-            return GetList(expression);
+            return _productRepository.GetByIdAsync(id);
         }
-
-        public bool Remove(int id)
+        public Task<ICollection<Product>> GetListAsync(Expression<Func<Product, bool>> expression = null)
         {
-           bool result = _productRepository.Remove(id);
+            return GetListAsync(expression);
+        }
+        public bool RemoveAsync(int id)
+        {
+            bool result = _productRepository.RemoveAsync(id);
             return result;
         }
 
         public Product SearchProductName(string name)
         {
-            return _productRepository.GetAll().FirstOrDefault(p=>p.ProductName==name);
+            //return _productRepository.GetAllAsync().FirstOrDefault(p=>p.ProductName==name);
+            throw new NotImplementedException();
         }
-
-        public Product Update(Product entity)
+        public Task<Product> UpdateAsync(Product entity)
         {
-            return _productRepository.Update(entity);
+            return _productRepository.UpdateAsync(entity);
         }
     }
 }

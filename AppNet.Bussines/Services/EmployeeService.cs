@@ -2,6 +2,7 @@
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
 using System.Linq.Expressions;
+
 namespace AppNet.Bussines.Concrete
 {
     public class EmployeeService : IEmployeeService
@@ -11,43 +12,53 @@ namespace AppNet.Bussines.Concrete
         {
             this.repository = repository;
         }
-        public Employee Add(Employee entity)
+
+        public Task<Employee> AddAsync(Employee entity)
         {
-            repository.Add(entity);
-            return entity;
+            return repository.AddAsync(entity);
         }
-        public List<Employee> GetAll()
+
+        public Task<List<Employee>> GetAllAsync()
         {
-            return repository.GetAll();
+            return repository.GetAllAsync();
         }
-        public Employee GetById(int id)
+
+        public Task<Employee> GetByIdAsync(int id)
         {
-            return repository.GetById(id);
+            return repository.GetByIdAsync(id);
         }
-        public ICollection<Employee> GetList(Expression<Func<Employee, bool>> expression = null)
+
+        public Task<ICollection<Employee>> GetListAsync(Expression<Func<Employee, bool>> expression = null)
         {
-            return repository.GetList(expression);
+            return repository.GetListAsync(expression);
         }
-        public bool Remove(int id)
+
+        public bool RemoveAsync(int id)
         {
-            var result=repository.Remove(id);
-            return result;
+                return repository.RemoveAsync(id);;
         }
+
         public Employee SearchLastName(string lastName)
         {
-            return repository.GetAll().SingleOrDefault(n=>n.LastName==lastName);
+            //return repository.GetAllAsync().SingleOrDefaultAsync(n => n.LastName == lastName);
+            throw new NotImplementedException();
         }
+
         public Employee SearchName(string name)
         {
-            return repository.GetAll().SingleOrDefault(n => n.Name == name);
+           //return  repository.GetAllAsync().SingleOrDefault(n => n.Name == name);
+            throw new NotImplementedException();
         }
+
         public Employee SearchTc(string tc)
         {
-            return repository.GetAll().SingleOrDefault(n => n.Tc == tc);
+            //return repository.GetAllAsync().SingleOrDefault(n => n.Tc == tc);
+            throw new NotImplementedException();
         }
-        public Employee Update(Employee entity)
+
+        public Task<Employee> UpdateAsync(Employee entity)
         {
-            return repository.Update(entity);
+            return repository.UpdateAsync(entity);
         }
     }
 }
