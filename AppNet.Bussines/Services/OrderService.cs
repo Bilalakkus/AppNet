@@ -17,7 +17,7 @@ namespace AppNet.Bussines.Concrete
         {
             this._orderService=orderRepository;
         }
-        public Task<Order> Add(Order entity)
+        public Order Add(Order entity)
         {
             return _orderService.Add(entity);
         }

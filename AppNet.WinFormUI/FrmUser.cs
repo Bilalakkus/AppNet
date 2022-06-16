@@ -17,16 +17,20 @@ namespace AppNet.WinFormUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmployeeService service = new EmployeeService(Repository);
-
-            FrmEmployee frmEmployee = new FrmEmployee(service);
+            var services = new ServiceCollection();
+            using (ServiceProvider sp = services.BuildServiceProvider())
+            {
+            var employee = sp.GetRequiredService<IEmployeeService>();
+            FrmEmployee frmEmployee = new FrmEmployee(employee);
             frmEmployee.ShowDialog();
+            }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             SentTelegram sent = new SentTelegram();
-            sent.TelegramMesjGonder("Gülsüm telefonumu ver");
+            sent.TelegramMesjGonder("telegram test mesaj");
         }
 
         private void btnKategori_Click(object sender, EventArgs e)

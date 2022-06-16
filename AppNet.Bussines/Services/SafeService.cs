@@ -18,7 +18,7 @@ namespace AppNet.Bussines.Concrete
             _safeRepository=safeRepository;
         }
 
-        public Task<Safe> Add(Safe entity)
+        public Safe Add(Safe entity)
         {
             return _safeRepository.Add(entity);
         }

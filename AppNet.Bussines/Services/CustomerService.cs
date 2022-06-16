@@ -18,7 +18,7 @@ namespace AppNet.Bussines.Concrete
             this._customerRepository = customerRepository;
         }
 
-        Task<Customer> IRepository<Customer>.Add(Customer entity)
+        Customer Add(Customer entity)
         {
             return _customerRepository.Add(entity);
         }
@@ -26,13 +26,13 @@ namespace AppNet.Bussines.Concrete
         {
             return _customerRepository.GetAll();
         }
-        Task<Customer> IRepository<Customer>.GetById(int id)
+        Customer GetById(int id)
         {
-            return _customerRepository.GetById(id);
+            return GetById(id);
         }
-        Task<Customer> IRepository<Customer>.Update(Customer entity)
+        Customer Update(Customer entity)
         {
-            return _customerRepository.Update(entity);
+            return Update(entity);
         }
 
         public bool Remove(int id)
@@ -40,9 +40,29 @@ namespace AppNet.Bussines.Concrete
             return _customerRepository.Remove(id);
         }
 
+        ICollection<Customer> GetList(Expression<Func<Customer, bool>> expression)
+        {
+            return GetList(expression);
+        }
+
+        Customer IRepository<Customer>.Add(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Customer> IRepository<Customer>.Update(Customer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Customer> IRepository<Customer>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         Task<ICollection<Customer>> IRepository<Customer>.GetList(Expression<Func<Customer, bool>> expression)
         {
-            return _customerRepository.GetList(expression);
+            throw new NotImplementedException();
         }
     }
 }

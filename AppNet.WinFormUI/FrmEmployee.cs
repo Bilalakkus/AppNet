@@ -54,7 +54,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var result = await _EmployeeService.Add(employee);
+                    var result = _EmployeeService.Add(employee);
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var resaltUpdate = await _EmployeeService.Update(employeeUpdate);
+                    var resaltUpdate =  _EmployeeService.Update(employeeUpdate);
                 }
 
                 EmptyForm();

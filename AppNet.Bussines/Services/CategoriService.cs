@@ -18,8 +18,9 @@ namespace AppNet.Bussines.Concrete
             //var result = repository.GetAllAsync();
             throw new NotImplementedException();
         }
-        Task<Category> IRepository<Category>.Add(Category entity)
+        public Category Add(Category entity)
         {
+            // validations
             return repository.Add(entity);
         }
 
@@ -28,17 +29,17 @@ namespace AppNet.Bussines.Concrete
             return repository.GetAll();
         }
 
-        Task<Category> IRepository<Category>.GetById(int id)
+       public  Task<Category> GetById(int id)
         {
             return repository.GetById(id);
         }
 
-        Task<ICollection<Category>> IRepository<Category>.GetList(Expression<Func<Category, bool>> expression)
+        public Task<ICollection<Category>> GetList(Expression<Func<Category, bool>> expression)
         {
             return repository.GetList(expression);
         }
 
-        Task<Category> IRepository<Category>.Update(Category entity)
+        public Task<Category> Update(Category entity)
         {
             return repository.Update(entity);
         }

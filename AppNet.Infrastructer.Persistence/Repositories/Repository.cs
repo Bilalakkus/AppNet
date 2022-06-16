@@ -20,12 +20,12 @@ namespace AppNet.Domain
             this.context = context;
         }
 
-        public Task<TEntity> Add(TEntity entity)
+        public  TEntity Add(TEntity entity)
         {
-            //context.Set<TEntity>().AddAsync(entity);
-            //   context.SaveChanges();
-            //   return entity;
-            throw new NotImplementedException();
+            context.Set<TEntity>().Add(entity);
+            context.SaveChanges();
+            return entity;
+            //throw new NotImplementedException();
         }
 
         public List<TEntity> GetAll()

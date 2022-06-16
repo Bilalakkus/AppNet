@@ -18,7 +18,7 @@ namespace AppNet.Bussines.Concrete
             _stockRepository= stokRepository;
         }
 
-        public Task<Stock> Add(Stock entity)
+        public Stock Add(Stock entity)
         {
             return _stockRepository.Add(entity);
         }

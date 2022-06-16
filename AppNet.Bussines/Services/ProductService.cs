@@ -18,7 +18,7 @@ namespace AppNet.Bussines.Concrete
             _productRepository = productRepository;
         }
 
-        public Task<Product> Add(Product entity)
+        public Product Add(Product entity)
         {
             return _productRepository.Add(entity);
         }

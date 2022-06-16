@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppNet.Bussines.Abstract;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,18 +66,28 @@ namespace AppNet.WinFormUI
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmEmployee employeeSave = new FrmEmployee();
-            employeeSave.MdiParent = this;
+            var services = new ServiceCollection();
+            using (ServiceProvider sp = services.BuildServiceProvider())
+            {
+                var employee = sp.GetRequiredService<IEmployeeService>();
+                FrmEmployee frmEmployee = new FrmEmployee(employee);
+                frmEmployee.MdiParent = this;
+                frmEmployee.ShowDialog();
+            }
             //childForm.Text = "Window " + childFormNumber++;
-            employeeSave.Show();
         }
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmEmployee employeeSave = new FrmEmployee();
-            employeeSave.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            employeeSave.Show();
+            var services = new ServiceCollection();
+            using (ServiceProvider sp = services.BuildServiceProvider())
+            {
+                var employee = sp.GetRequiredService<IEmployeeService>();
+                FrmEmployee frmEmployee = new FrmEmployee(employee);
+                frmEmployee.MdiParent = this;
+                frmEmployee.ShowDialog();
+            }
+            
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,6 +155,6 @@ namespace AppNet.WinFormUI
             customerList.Show();
         }
 
-        
+
     }
 }

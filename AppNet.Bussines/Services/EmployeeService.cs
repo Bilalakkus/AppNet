@@ -13,7 +13,7 @@ namespace AppNet.Bussines.Concrete
             this.repository = repository;
         }
 
-        public Task<Employee> Add(Employee entity)
+        public Employee Add(Employee entity)
         {
             return repository.Add(entity);
         }

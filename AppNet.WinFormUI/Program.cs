@@ -1,3 +1,5 @@
+using AppNet.Bussines.Abstract;
+using AppNet.Bussines.Concrete;
 using AppNet.Bussines.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,9 +28,7 @@ namespace AppNet.WinFormUI
         }
         private static void ConfigureServices(IServiceCollection services)
         {
-            //winform servislerini burada register edebiliriz.
-
-            services.RegisterBusinessServices();
+             services.RegisterBusinessServices();
         }
     }
 }

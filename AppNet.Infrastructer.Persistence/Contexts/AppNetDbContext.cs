@@ -26,7 +26,7 @@ namespace AppNet.Infrastructer.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Product>(b => b.Property(p => p.UnitPrice).HasColumnType("decimal(9,2)"));
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }

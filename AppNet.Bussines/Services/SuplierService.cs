@@ -17,7 +17,7 @@ namespace AppNet.Bussines.Concrete
         {
             _suplierRepository=suplplierRepository;
         }
-        public Task<Supplier> Add(Supplier entity)
+        public Supplier Add(Supplier entity)
         {
             return _suplierRepository.Add(entity);
         }

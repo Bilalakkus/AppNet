@@ -10,11 +10,11 @@ namespace AppNet.Domain.Entities.Abstract
 {
     public interface IRepository<TEntity> where TEntity : BaseEntity
     {
-        public Task<TEntity> Add(TEntity entity);
-        public Task<TEntity> Update(TEntity entity);
-        public bool Remove(int id);
-        public Task<TEntity> GetById(int id);
-        public List<TEntity> GetAll();
-        public Task<ICollection<TEntity>> GetList(Expression<Func<TEntity, bool>> expression=null);
+       TEntity Add(TEntity entity);
+       Task<TEntity> Update(TEntity entity);
+        bool Remove(int id);
+       Task<TEntity> GetById(int id);
+       List<TEntity> GetAll();
+       Task<ICollection<TEntity>> GetList(Expression<Func<TEntity, bool>> expression=null);
     }
 }
