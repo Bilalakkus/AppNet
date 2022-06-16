@@ -11,15 +11,15 @@ namespace AppNet.Infrastructer.Persistence.Contexts
 {
     public class AppNetDbContext : DbContext
     {
-        //public AppNetDbContext(DbContextOptions opt) : base(opt)
-        //{
+        public AppNetDbContext(DbContextOptions opt) : base(opt)
+        {
 
-        //}
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
-"Data Source=.\\MSSQLSERVER01;Initial Catalog=AppNetDb;Persist Security Info=True;User ID=sa;Password=sa1"
-                );
+//            optionsBuilder.UseSqlServer(
+//"Data Source=.\\MSSQLSERVER01;Initial Catalog=AppNetDb;Persist Security Info=True;User ID=sa;Password=sa1"
+//                );
         }
         //"Data Sourse=192.168.1.205;Initial Catalog=liftDb;User Id=sa;Password=u1234*"
         //"Data Source=192.168.1.205;Initial Catalog=liftDb;Persist Security Info=True;User ID=sa;Password=u1234*"

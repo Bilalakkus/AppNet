@@ -19,9 +19,11 @@ namespace AppNet.WinFormUI
     public partial class FrmEmployee : Form
     {
         private readonly IEmployeeService _EmployeeService;
-        public FrmEmployee()
+        public FrmEmployee(IEmployeeService employeeService)
         {
             InitializeComponent();
+
+            this._EmployeeService=employeeService;
         }
 
         private async void BtnSave_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace AppNet.WinFormUI
                 txtName.Text.NullOrEmpty(nameof(txtName.Text));
                 txtLastName.Text.NullOrEmpty(nameof(txtLastName.Text));
 
-               
+
                 if (btnSave.Text == "Kaydet")
                 {
                     Employee employee = new Employee
@@ -70,7 +72,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var resaltUpdate =await _EmployeeService.Update(employeeUpdate);
+                    var resaltUpdate = await _EmployeeService.Update(employeeUpdate);
                 }
 
                 EmptyForm();
@@ -103,7 +105,7 @@ namespace AppNet.WinFormUI
 
         private async void LoadEmployee()
         {
-                //gridEmployee.DataSource = _EmployeeService.GetAll();
+            //gridEmployee.DataSource = _EmployeeService.GetAll();
         }
         private void gridAddEmployee(Employee model)
         {
@@ -142,7 +144,7 @@ namespace AppNet.WinFormUI
         private void SilToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var employeeId = Convert.ToInt32(gridEmployee.CurrentRow.Cells[0].Value);
-            var name = gridEmployee.CurrentRow.Cells[1].Value.ToString()+ " "+ gridEmployee.CurrentRow.Cells[1].Value.ToString();
+            var name = gridEmployee.CurrentRow.Cells[1].Value.ToString() + " " + gridEmployee.CurrentRow.Cells[1].Value.ToString();
 
             DialogResult result = MessageBox.Show($"{Name} adlı personeli silmek istediğinizden emin misiniz?",
                  "Silme Onayı!",
@@ -157,9 +159,9 @@ namespace AppNet.WinFormUI
 
         private void btnEmployeeSearch_Click_1(object sender, EventArgs e)
         {
-            if(txtSearchTc.Text.Length==11)
+            if (txtSearchTc.Text.Length == 11)
                 gridEmployee.DataSource = _EmployeeService.SearchTc(txtTc.Text);
-            if (txtSearchName.Text.Length>=3)
+            if (txtSearchName.Text.Length >= 3)
                 gridEmployee.DataSource = _EmployeeService.SearchName(txtName.Text);
             if (txtSearchLastName.Text.Length >= 2)
                 gridEmployee.DataSource = _EmployeeService.SearchName(txtLastName.Text);

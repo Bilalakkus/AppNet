@@ -1,4 +1,5 @@
 ﻿using AppNet.Bussines;
+using AppNet.Domain;
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
