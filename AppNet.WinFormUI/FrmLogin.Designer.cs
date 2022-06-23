@@ -1,6 +1,6 @@
 ﻿namespace AppNet.WinFormUI
 {
-    partial class FrmUser
+    partial class FrmLogin
     {
         /// <summary>
         ///  Required designer variable.

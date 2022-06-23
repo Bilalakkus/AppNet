@@ -16,8 +16,11 @@ namespace AppNet.Infrastructer.Persistence.Repositories
     {
         public static void RegisterPersistenceService(this IServiceCollection services)
         {
+            //services.AddDbContext<AppNetDbContext>(opt =>
+            //opt.UseSqlServer("Data Source=.\\MSSQLSERVER01;Initial Catalog=AppNetDb;Persist Security Info=True;User ID=sa;Password=sa1"));
+            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddDbContext<AppNetDbContext>(opt =>
-            opt.UseSqlServer("Data Source=.\\MSSQLSERVER01;Initial Catalog=AppNetDb;Persist Security Info=True;User ID=sa;Password=sa1"));
+            opt.UseSqlServer(DatabaseInformation.Load().ConStr));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
     }

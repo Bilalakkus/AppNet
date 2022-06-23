@@ -9,5 +9,6 @@ namespace AppNet.Bussines.Utilities
     public class Constants
     {
         public const string LOG_FILE_PATH = "log.txt";
+        public const string DATABASE = "database.txt";
     }
 }
