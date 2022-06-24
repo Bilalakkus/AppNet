@@ -14,10 +14,11 @@ namespace AppNet.WinFormUI
     public partial class FrmCategoryList : Form
     {
         private readonly ICategoriService _CategoriService;
-        public FrmCategoryList()
+        public FrmCategoryList(ICategoriService categoriService)
         {
             InitializeComponent();
-            gridCategories.DataSource = _CategoriService.GetAll();
+            _CategoriService = categoriService;
+            //gridCategories.DataSource = _CategoriService.GetAll();
         }
     }
 }

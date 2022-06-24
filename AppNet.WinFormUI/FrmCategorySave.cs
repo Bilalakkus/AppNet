@@ -15,25 +15,39 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmCategorySave : Form
     {
-        private readonly CategoriService _CategoriService;
-        public FrmCategorySave()
+        private readonly ICategoriService _CategoriService;
+        public FrmCategorySave(ICategoriService categoriService)
         {
             InitializeComponent();
+            this._CategoriService = categoriService;
         }
 
         private void btnCategorySave_Click(object sender, EventArgs e)
         {
-            if (txtCategoriName.Text.Length < 2)
+            try
             {
-                MessageBox.Show("Kategori adı zorunlu!!!");
+                if (txtCategoriName.Text.Length < 2)
+                {
+                    MessageBox.Show("Kategori adı zorunlu!!!");
+                }
+                else
+                {
+                    Category category = new Category { CategoryName = txtCategoriName.Text };
+                    _CategoriService.Add(category);
+                    MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
+                    txtCategoriName.Text = "";
+                }
             }
-            else
+            catch (Exception)
             {
-                //Category category = new Category { CategoryName = txtCategoriName.Text.Trim() };
-                //var result= _CategoriService.AddAsync(category);
-                //MessageBox.Show($"{result.CategoryName} Kaydedildi.");
-                //txtCategoriName.Text = "";
+
+                MessageBox.Show("İşlem gerçekleştirilemedi!!!");
             }
+
+        }
+
+        private void FrmCategorySave_Load(object sender, EventArgs e)
+        {
 
         }
     }

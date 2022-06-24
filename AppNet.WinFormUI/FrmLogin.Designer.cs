@@ -35,9 +35,6 @@
             this.txtPasword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblWarning = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnKategori = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGiris
@@ -112,45 +109,12 @@
             this.lblWarning.Text = "Şifre";
             this.lblWarning.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(62, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Employee";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(62, 270);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "telegramMesaj";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnKategori
-            // 
-            this.btnKategori.Location = new System.Drawing.Point(62, 328);
-            this.btnKategori.Name = "btnKategori";
-            this.btnKategori.Size = new System.Drawing.Size(160, 23);
-            this.btnKategori.TabIndex = 9;
-            this.btnKategori.Text = "Kategori";
-            this.btnKategori.UseVisualStyleBackColor = true;
-            this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
-            // 
-            // FrmUser
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(486, 382);
-            this.Controls.Add(this.btnKategori);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.txtPasword);
             this.Controls.Add(this.label3);
@@ -159,7 +123,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGiris);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmUser";
+            this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -176,8 +140,5 @@
         private TextBox txtPasword;
         private Label label3;
         private Label lblWarning;
-        private Button button1;
-        private Button button2;
-        private Button btnKategori;
     }
 }

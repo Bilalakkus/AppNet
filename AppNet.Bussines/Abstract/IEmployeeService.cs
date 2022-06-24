@@ -14,6 +14,7 @@ namespace AppNet.Bussines.Abstract
         Employee SearchLastName(string lastName);
         Employee SearchTc(string tc);
         List<Employee> SearchAll();
+        ICollection<Employee> GetAll();
 
     }
 }

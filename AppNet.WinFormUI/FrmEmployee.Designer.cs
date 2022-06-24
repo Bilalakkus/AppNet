@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabNewEmployee = new System.Windows.Forms.TabPage();
+            this.btnClearForm = new System.Windows.Forms.Button();
             this.btnListe = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -70,7 +71,6 @@
             this.GuncelleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SilToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClearForm = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabNewEmployee.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,6 +115,16 @@
             this.tabNewEmployee.Size = new System.Drawing.Size(970, 561);
             this.tabNewEmployee.TabIndex = 0;
             this.tabNewEmployee.Text = "Personel Ekle";
+            // 
+            // btnClearForm
+            // 
+            this.btnClearForm.Location = new System.Drawing.Point(762, 521);
+            this.btnClearForm.Name = "btnClearForm";
+            this.btnClearForm.Size = new System.Drawing.Size(141, 34);
+            this.btnClearForm.TabIndex = 25;
+            this.btnClearForm.Text = "Formu Temizle";
+            this.btnClearForm.UseVisualStyleBackColor = true;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
             // btnListe
             // 
@@ -469,15 +479,6 @@
             this.SilToolStripMenuItem2.Size = new System.Drawing.Size(120, 22);
             this.SilToolStripMenuItem2.Text = "Sil";
             this.SilToolStripMenuItem2.Click += new System.EventHandler(this.SilToolStripMenuItem2_Click);
-            // 
-            // btnClearForm
-            // 
-            this.btnClearForm.Location = new System.Drawing.Point(762, 521);
-            this.btnClearForm.Name = "btnClearForm";
-            this.btnClearForm.Size = new System.Drawing.Size(141, 34);
-            this.btnClearForm.TabIndex = 25;
-            this.btnClearForm.Text = "Formu Temizle";
-            this.btnClearForm.UseVisualStyleBackColor = true;
             // 
             // FrmEmployee
             // 

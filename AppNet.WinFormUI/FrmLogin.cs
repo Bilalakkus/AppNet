@@ -10,17 +10,19 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmLogin : Form
     {
-        private readonly IProductService _ProductService;
         private readonly IServiceProvider sp;
-        public FrmLogin(ProductService ProductService, IServiceProvider sp)
-        {
-            this._ProductService = ProductService;
-            this.sp = sp;
-        }
-        public FrmLogin()
+        private readonly ICategoriService _CategoriService;
+        private readonly IEmployeeService _EmployeeService;
+        //private readonly IRepository<Employee> _Repository;
+        public FrmLogin(IServiceProvider sp, ICategoriService categoriService, IEmployeeService employeeService)
         {
             InitializeComponent();
+            this.sp = sp;
+            this._CategoriService = categoriService;
+            this._EmployeeService = employeeService;
+            //this._Repository = repository;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //var dashBoard=sp.GetRequiredService<FrmEmployee>();
@@ -36,14 +38,23 @@ namespace AppNet.WinFormUI
         }
         private void btnKategori_Click(object sender, EventArgs e)
         {
-            FrmCategorySave frmCategorySave = new FrmCategorySave();
-            frmCategorySave.ShowDialog();
+            var frmCategoriSave = sp.GetRequiredService<FrmCategorySave>();
+            frmCategoriSave.ShowDialog();
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            MDIDashboard mDIDashboard = new MDIDashboard();
-            mDIDashboard.Show();
+            //var list = (_EmployeeService.GetAll().ToList());
+            //var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
+            //if (tempUser == null)
+            //{
+            //    lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
+            //}
+            //else
+            //{
+            //    var mdiForm = sp.GetRequiredService<MDIDashboard>();
+            //    mdiForm.ShowDialog();
+            //}
         }
     }
 }

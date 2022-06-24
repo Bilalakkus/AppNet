@@ -19,14 +19,16 @@ namespace AppNet.Bussines.Services
         }
         public DataBase Add(DataBase entity)
         {
-            DataBase db = new DataBase()
-            {
-                Name = entity.Name,
-                Username = entity.Username,
-                Pasword = entity.Pasword,
-            };
-            _dataBaseRepository.Add(db);
-            return db;
+            //DataBase db = new DataBase()
+            //{
+            //    Name = entity.Name,
+            //    Username = entity.Username,
+            //    Pasword = entity.Pasword,
+            //};
+            //_dataBaseRepository.Add(db);
+            //return db;
+            _dataBaseRepository.Add(entity);
+            return entity;
         }
         
         async Task<ICollection<DataBase>> GetAll()

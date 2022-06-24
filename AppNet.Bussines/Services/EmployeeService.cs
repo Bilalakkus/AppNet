@@ -71,5 +71,12 @@ namespace AppNet.Bussines.Concrete
         {
             return repository.Update(entity);
         }
+
+       
+
+        ICollection<Employee> IEmployeeService.GetAll()
+        {
+            return repository.GetAll();
+        }
     }
 }

@@ -483,6 +483,7 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sipariş Listesi";
+            this.groupBox1.Visible = false;
             // 
             // groupBox2
             // 
@@ -495,6 +496,7 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "En Çok Satılanlar";
+            this.groupBox2.Visible = false;
             // 
             // groupBox3
             // 
@@ -507,6 +509,7 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cirosu Yüksek Olan Müşterler";
+            this.groupBox3.Visible = false;
             // 
             // groupBox4
             // 
@@ -519,6 +522,7 @@
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Stok Azalan Ürünler";
+            this.groupBox4.Visible = false;
             // 
             // groupBox5
             // 
@@ -531,6 +535,7 @@
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sipariş Listesi";
+            this.groupBox5.Visible = false;
             // 
             // groupBox6
             // 
@@ -543,6 +548,7 @@
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Sipariş Listesi";
+            this.groupBox6.Visible = false;
             // 
             // MDIDashboard
             // 

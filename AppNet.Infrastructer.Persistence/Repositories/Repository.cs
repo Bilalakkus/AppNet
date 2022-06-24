@@ -14,10 +14,12 @@ namespace AppNet.Domain
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly AppNetDbContext context;
+        private readonly IRepository<TEntity> repository;
 
-        public Repository(AppNetDbContext context)
+        public Repository(AppNetDbContext context, IRepository<TEntity> repository)
         {
             this.context = context;
+            this.repository=repository;
         }
 
         public  TEntity Add(TEntity entity)
@@ -28,7 +30,7 @@ namespace AppNet.Domain
             //throw new NotImplementedException();
         }
 
-        public List<TEntity> GetAll()
+        public  List<TEntity> GetAll()
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,7 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Bussines.Concrete;
+using AppNet.Domain;
+using AppNet.Domain.Entities.Abstract;
 using AppNet.Infrastructer.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,6 +17,7 @@ namespace AppNet.Bussines.Services
         {
             services.RegisterPersistenceService();
             services.AddScoped<ICategoriService, CategoriService>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IOrderService, OrderService>();

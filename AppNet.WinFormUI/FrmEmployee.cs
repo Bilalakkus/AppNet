@@ -55,6 +55,9 @@ namespace AppNet.WinFormUI
                         Tc = txtTc.Text.Trim()
                     };
                     var result = _EmployeeService.Add(employee);
+                    MessageBox.Show($"{txtName.Text} {txtLastName.Text} eklendi!!!");
+                    ClearForm();
+                    
                 }
                 else
                 {
@@ -165,6 +168,28 @@ namespace AppNet.WinFormUI
                 gridEmployee.DataSource = _EmployeeService.SearchName(txtName.Text);
             if (txtSearchLastName.Text.Length >= 2)
                 gridEmployee.DataSource = _EmployeeService.SearchName(txtLastName.Text);
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+        private void ClearForm()
+        {
+            txtAdress.Text = "";
+            txtSearchTc.Text = "";
+            txtTc.Text = "";
+            txtuser.Text = "";
+            txtWDate.Text = "";
+            txtDateOfBirth.Text = "";
+            txtLastName.Text = "";
+            txtName.Text = "";
+            txtPasword.Text = "";
+            txtPhone.Text = "";
+            txtSalary.Text = "";
+            txtSearchLastName.Text = "";
+            txtSearchName.Text = "";
+           
         }
     }
 }

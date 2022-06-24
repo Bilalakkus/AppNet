@@ -14,19 +14,23 @@ namespace AppNet.WinFormUI
 {
     public partial class MDIDashboard : Form
     {
-        private int childFormNumber = 0;
-
-        public MDIDashboard()
+        private readonly IServiceProvider _sp;
+        private readonly ICategoriService _CategoriService;
+        public MDIDashboard(IServiceProvider sp, ICategoriService categoriService)
         {
             InitializeComponent();
+            this._sp = sp;
+            this._CategoriService = categoriService;
         }
+        private int childFormNumber = 0;
 
+        
         private void ShowNewForm(object sender, EventArgs e)
         {
-            FrmProductSave productSave = new FrmProductSave();
-            productSave.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            productSave.Show();
+            //FrmProductSave productSave = new FrmProductSave();
+            //productSave.MdiParent = this;
+            ////childForm.Text = "Window " + childFormNumber++;
+            //productSave.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -79,15 +83,9 @@ namespace AppNet.WinFormUI
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var services = new ServiceCollection();
-            using (ServiceProvider sp = services.BuildServiceProvider())
-            {
-                var employee = sp.GetRequiredService<IEmployeeService>();
-                FrmEmployee frmEmployee = new FrmEmployee(employee);
-                frmEmployee.MdiParent = this;
-                frmEmployee.ShowDialog();
-            }
-            
+            var FrmEmployee =_sp.GetRequiredService<FrmEmployee>();
+            FrmEmployee.ShowDialog();
+
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,34 +123,20 @@ namespace AppNet.WinFormUI
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCategorySave categorySave = new FrmCategorySave();
-            categorySave.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            categorySave.Show();
+            var frm = _sp.GetRequiredService<FrmCategorySave>();
+            frm.ShowDialog();
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCategoryList categoryList = new FrmCategoryList();
-            categoryList.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            categoryList.Show();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCustomerSave customerSave = new FrmCustomerSave();
-            customerSave.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            customerSave.Show();
         }
 
         private void müşterilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCustomerList customerList = new FrmCustomerList();
-            customerList.MdiParent = this;
-            //childForm.Text = "Window " + childFormNumber++;
-            customerList.Show();
         }
 
 

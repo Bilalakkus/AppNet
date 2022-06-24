@@ -95,6 +95,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCategorySave";
             this.Text = "Kategori Ekleme";
+            this.Load += new System.EventHandler(this.FrmCategorySave_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
