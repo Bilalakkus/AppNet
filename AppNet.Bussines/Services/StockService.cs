@@ -35,8 +35,14 @@ namespace AppNet.Bussines.Concrete
 
         public Task<ICollection<Stock>> GetList(Expression<Func<Stock, bool>> expression = null)
         {
-            return _stockRepository.GetList(expression);
+            return _stockRepository.GetList();
         }
+
+        public Task<ICollection<Stock>> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(int id)
         {
             return _stockRepository.Remove(id);

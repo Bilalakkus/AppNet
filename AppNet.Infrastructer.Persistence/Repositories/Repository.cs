@@ -43,6 +43,11 @@ namespace AppNet.Domain
             throw new NotImplementedException();
         }
 
+        public Task<ICollection<TEntity>> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(int id)
         {
             throw new NotImplementedException();

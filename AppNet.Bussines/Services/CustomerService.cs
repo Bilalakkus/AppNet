@@ -60,7 +60,12 @@ namespace AppNet.Bussines.Concrete
             throw new NotImplementedException();
         }
 
-        Task<ICollection<Customer>> IRepository<Customer>.GetList(Expression<Func<Customer, bool>> expression)
+        async Task<ICollection<Customer>> IRepository<Customer>.GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<Customer>> GetList()
         {
             throw new NotImplementedException();
         }

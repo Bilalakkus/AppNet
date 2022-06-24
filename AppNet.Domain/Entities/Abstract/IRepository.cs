@@ -15,6 +15,6 @@ namespace AppNet.Domain.Entities.Abstract
         bool Remove(int id);
        Task<TEntity> GetById(int id);
        List<TEntity> GetAll();
-       Task<ICollection<TEntity>> GetList(Expression<Func<TEntity, bool>> expression=null);
+       Task<ICollection<TEntity>> GetList();
     }
 }

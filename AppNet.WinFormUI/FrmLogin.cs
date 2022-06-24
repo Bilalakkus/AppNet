@@ -26,7 +26,6 @@ namespace AppNet.WinFormUI
             //var dashBoard=sp.GetRequiredService<FrmEmployee>();
             var form = sp.GetRequiredService<FrmEmployee>();
             form.Show();
-
             //var loginFrm = sp.GetRequiredService<FrmLogin>();
             //Application.Run(loginFrm);
         }

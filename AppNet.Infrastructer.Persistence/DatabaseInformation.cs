@@ -11,22 +11,21 @@ namespace AppNet.Infrastructer.Persistence
     public class DatabaseInformation
     {
         public string Server { get; set; }
-        public string Db { get; set; }
-        public string User { get; set; }
-        public string Pass { get; set; }
+        public string DataBase { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         private string conStr;
 
         public string ConStr
         {
-            get { return $"Server={Server};Database={Db};User Id={User};Password={Pass}"; }
+            get { return $"Server={Server};Database={DataBase};User Id={Username};Password={Password}"; }
 
         }
         public void Save()
         {
             var json = JsonSerializer.Serialize(this);
             File.WriteAllText(Constants.DATABASE, json);
-
         }
 
         public static DatabaseInformation Load()

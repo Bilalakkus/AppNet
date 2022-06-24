@@ -17,6 +17,7 @@ namespace AppNet.WinFormUI
             var settings = DatabaseInformation.Load();
             var services = new ServiceCollection();
             ConfigureServices(services);
+
             ApplicationConfiguration.Initialize();
             services.AddScoped<FrmLogin>();
             services.AddScoped<FrmCategoryList>();
@@ -34,7 +35,6 @@ namespace AppNet.WinFormUI
             ConfigureServices(services);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
             using (ServiceProvider sp = services.BuildServiceProvider())
             {
                 if (settings != null && settings.Server != null)
@@ -44,9 +44,10 @@ namespace AppNet.WinFormUI
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen Veritabanınızı oluşturunuz!", "Programı ilk defa açtınız");
+                    MessageBox.Show("Lütfen Veritabanınızı oluşturunuz!", "Veri tabanı bilgilerine ulaşılamadı");
                     var frmDataBase = sp.GetRequiredService<FrmDateBaseInformation>();
-                    Application.Run(frmDataBase);
+                    frmDataBase.ShowDialog();
+                    //Application.Run(frmDataBase);
                 }
             }
         }

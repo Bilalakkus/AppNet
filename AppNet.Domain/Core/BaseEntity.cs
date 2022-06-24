@@ -10,7 +10,7 @@ namespace AppNet.Domain.Entities.Concrete
     public abstract class BaseEntity:IEntity
     {
         public int AddingId { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate = DateTime.Now;
         public bool IsItPassive { get; set; }
     }
 }

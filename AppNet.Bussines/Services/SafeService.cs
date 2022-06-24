@@ -35,8 +35,14 @@ namespace AppNet.Bussines.Concrete
 
         public Task<ICollection<Safe>> GetList(Expression<Func<Safe, bool>> expression = null)
         {
-            return _safeRepository.GetList(expression);
+            return _safeRepository.GetList();
         }
+
+        public Task<ICollection<Safe>> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(int id)
         {
             bool result = _safeRepository.Remove(id);

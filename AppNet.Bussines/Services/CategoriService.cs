@@ -34,19 +34,23 @@ namespace AppNet.Bussines.Concrete
             return repository.GetById(id);
         }
 
-        public Task<ICollection<Category>> GetList(Expression<Func<Category, bool>> expression)
+        async Task<ICollection<Category>> GetList()
         {
-            return repository.GetList(expression);
-        }
+            //return repository.GetList().To;
 
+            throw new NotImplementedException();
+        }
         public Task<Category> Update(Category entity)
         {
             return repository.Update(entity);
         }
-
         public bool Remove(int id)
         {
             return repository.Remove(id);
+        }
+        Task<ICollection<Category>> IRepository<Category>.GetList()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -34,6 +34,12 @@ namespace AppNet.Bussines.Concrete
         {
             return GetList(expression);
         }
+
+        public Task<ICollection<Product>> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(int id)
         {
             bool result = _productRepository.Remove(id);

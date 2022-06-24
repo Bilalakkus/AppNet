@@ -22,6 +22,7 @@ namespace AppNet.Bussines.Services
             services.AddScoped<ISafeService, SafeService>();
             services.AddScoped<IStockService, StockService>();
             services.AddScoped<ISuplierService, SuplierService>();
+            services.AddScoped <IDatabaseService, DataBaseService>();
         }
     }
 }

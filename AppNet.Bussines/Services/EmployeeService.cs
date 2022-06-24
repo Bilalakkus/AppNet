@@ -30,7 +30,12 @@ namespace AppNet.Bussines.Concrete
 
         public Task<ICollection<Employee>> GetList(Expression<Func<Employee, bool>> expression = null)
         {
-            return repository.GetList(expression);
+            return repository.GetList();
+        }
+
+        public Task<ICollection<Employee>> GetList()
+        {
+            throw new NotImplementedException();
         }
 
         public bool Remove(int id)

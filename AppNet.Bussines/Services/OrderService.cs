@@ -31,8 +31,14 @@ namespace AppNet.Bussines.Concrete
         }
         public Task<ICollection<Order>> GetList(Expression<Func<Order, bool>> expression = null)
         {
-            return _orderService.GetList(expression);
+            return _orderService.GetList();
         }
+
+        public Task<ICollection<Order>> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Remove(int id)
         {
            bool result = _orderService.Remove(id);
