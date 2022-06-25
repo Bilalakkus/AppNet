@@ -1,6 +1,7 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Bussines.Concrete;
 using AppNet.Domain.Entities.Concrete;
+using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence;
 using AppNet.Infrastructer.Persistence.Contexts;
@@ -24,17 +25,18 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider _sp;
         private readonly AppNetDbContext _db;
         private readonly IEmployeeService _employeeService;
-        public FrmDateBaseInformation(IDatabaseService databaseService, AppNetDbContext db, IServiceProvider sp, IEmployeeService emp)
+        private readonly Logger _Lg;
+        public FrmDateBaseInformation(IDatabaseService databaseService, AppNetDbContext db, IServiceProvider sp, IEmployeeService emp,Logger lg)
         {
             InitializeComponent();
             this._databaseService = databaseService;
             this._db = db;
             this._sp = sp;
             this._employeeService = emp;
+            this._Lg = lg;
         }
         private void FrmDateBaseInformation_Load(object sender, EventArgs e)
         {
-
             var settings = DatabaseInformation.Load();
             if (settings != null)
             {
@@ -48,7 +50,6 @@ namespace AppNet.WinFormUI
 
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             DatabaseInformation dbsettings = new DatabaseInformation
@@ -75,7 +76,7 @@ namespace AppNet.WinFormUI
             var frm = _sp.GetRequiredService<FrmLogin>();
             frm.ShowDialog();
             this.Close();
-
+            _Lg.AddLog("Veri tabanı oluşturuldu.");
             //veritabanı oluştuktan sonra admin kullanıcısını oluştur
             Employee employee = new Employee
             {
@@ -85,6 +86,7 @@ namespace AppNet.WinFormUI
                 User="admin"            
             };
             _employeeService.Add(employee);
+            _Lg.AddLog("Admin kullanıcısı eklendi.");
         }
     }
 }

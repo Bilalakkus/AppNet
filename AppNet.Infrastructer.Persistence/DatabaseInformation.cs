@@ -39,8 +39,6 @@ namespace AppNet.Infrastructer.Persistence
 
             File.WriteAllText(Constants.DATABASE, "{}");
             return null;
-
-
         }
     }
 }

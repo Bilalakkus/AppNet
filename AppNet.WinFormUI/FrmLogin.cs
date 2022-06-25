@@ -3,6 +3,7 @@ using AppNet.Bussines.Concrete;
 using AppNet.Domain;
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
+using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,13 +14,15 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider sp;
         private readonly ICategoriService _CategoriService;
         private readonly IEmployeeService _EmployeeService;
+        private readonly Logger _Lg;
         //private readonly IRepository<Employee> _Repository;
-        public FrmLogin(IServiceProvider sp, ICategoriService categoriService, IEmployeeService employeeService)
+        public FrmLogin(IServiceProvider sp, ICategoriService categoriService, IEmployeeService employeeService, Logger lg)
         {
             InitializeComponent();
             this.sp = sp;
             this._CategoriService = categoriService;
             this._EmployeeService = employeeService;
+            this._Lg = lg;
             //this._Repository = repository;
         }
 
@@ -44,17 +47,19 @@ namespace AppNet.WinFormUI
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            //var list = (_EmployeeService.GetAll().ToList());
-            //var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
-            //if (tempUser == null)
-            //{
-            //    lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-            //}
-            //else
-            //{
-            //    var mdiForm = sp.GetRequiredService<MDIDashboard>();
-            //    mdiForm.ShowDialog();
-            //}
+            var list = (_EmployeeService.GetAll().ToList());
+            var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
+            if (tempUser == null)
+            {
+                lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
+                _Lg.AddLog("Hatalý kullanýcý giriþi denemesi.");
+            }
+            else
+            {
+                var mdiForm = sp.GetRequiredService<MDIDashboard>();
+                _Lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
+                mdiForm.ShowDialog();
+            }
         }
     }
 }
