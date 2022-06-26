@@ -17,7 +17,6 @@ namespace AppNet.WinFormUI
             var settings = DatabaseInformation.Load();
             var services = new ServiceCollection();
             ConfigureServices(services);
-
             ApplicationConfiguration.Initialize();
             services.AddScoped<FrmLogin>();
             services.AddScoped<FrmCategoryList>();

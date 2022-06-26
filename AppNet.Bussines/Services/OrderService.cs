@@ -21,10 +21,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _orderService.Add(entity);
         }
-        public List<Order> GetAll()
-        {
-            return _orderService.GetAll();
-        }
+        //public List<Order> GetAll()
+        //{
+        //    return _orderService.GetAll();
+        //}
         public Task<Order> GetById(int id)
         {
            return _orderService.GetById(id);

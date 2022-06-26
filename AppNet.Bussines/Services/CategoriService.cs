@@ -24,10 +24,10 @@ namespace AppNet.Bussines.Concrete
             return repository.Add(entity);
         }
 
-        public List<Category> GetAll()
-        {
-            return repository.GetAll();
-        }
+        //public List<Category> GetAll()
+        //{
+        //    return repository.GetAll();
+        //}
 
        public  Task<Category> GetById(int id)
         {

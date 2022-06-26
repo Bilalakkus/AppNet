@@ -23,10 +23,10 @@ namespace AppNet.Bussines.Concrete
             return _stockRepository.Add(entity);
         }
 
-        public List<Stock> GetAll()
-        {
-            return _stockRepository.GetAll();
-        }
+        //public List<Stock> GetAll()
+        //{
+        //    return _stockRepository.GetAll();
+        //}
         public Task<Stock> GetById(int id)
         {
             return _stockRepository.GetById(id);

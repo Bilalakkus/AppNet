@@ -12,54 +12,41 @@ namespace AppNet.WinFormUI
     public partial class FrmLogin : Form
     {
         private readonly IServiceProvider sp;
-        private readonly ICategoriService _CategoriService;
-        private readonly IEmployeeService _EmployeeService;
-        private readonly Logger _Lg;
-        //private readonly IRepository<Employee> _Repository;
-        public FrmLogin(IServiceProvider sp, ICategoriService categoriService, IEmployeeService employeeService, Logger lg)
+      //Logger _Lg = new Logger();
+        public FrmLogin(IServiceProvider sp/*, Logger lg*/)
         {
             InitializeComponent();
             this.sp = sp;
-            this._CategoriService = categoriService;
-            this._EmployeeService = employeeService;
-            this._Lg = lg;
-            //this._Repository = repository;
+            
+           
+
+            //this._lg = lg;
+            //this._repository = repository;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //var dashBoard=sp.GetRequiredService<FrmEmployee>();
-            var form = sp.GetRequiredService<FrmEmployee>();
-            form.Show();
+            //var form = sp.GetRequiredService<FrmEmployee>();
+            //form.Show();
             //var loginFrm = sp.GetRequiredService<FrmLogin>();
             //Application.Run(loginFrm);
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SentTelegram sent = new SentTelegram();
-            sent.TelegramMesjGonder("telegram test mesaj");
-        }
-        private void btnKategori_Click(object sender, EventArgs e)
-        {
-            var frmCategoriSave = sp.GetRequiredService<FrmCategorySave>();
-            frmCategoriSave.ShowDialog();
-        }
-
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            var list = (_EmployeeService.GetAll().ToList());
-            var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
-            if (tempUser == null)
-            {
-                lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-                _Lg.AddLog("Hatalý kullanýcý giriþi denemesi.");
-            }
-            else
-            {
-                var mdiForm = sp.GetRequiredService<MDIDashboard>();
-                _Lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
-                mdiForm.ShowDialog();
-            }
+            //var list = (_employeeService.GetAll().ToList());
+            //var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
+            //if (tempUser == null)
+            //{
+            //    lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
+            //    _lg.AddLog("Hatalý kullanýcý giriþi denemesi.");
+            //}
+            //else
+            //{
+            //    var mdiForm = sp.GetRequiredService<MDIDashboard>();
+            //    _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
+            //    mdiForm.ShowDialog();
+            //}
         }
     }
 }

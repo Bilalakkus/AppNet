@@ -18,10 +18,10 @@ namespace AppNet.Bussines.Concrete
             return repository.Add(entity);
         }
 
-        public List<Employee> GetAll()
-        {
-            return repository.GetAll();
-        }
+        //public List<Employee> GetAll()
+        //{
+        //    return repository.GetAll();
+        //}
 
         public Task<Employee> GetById(int id)
         {
@@ -45,8 +45,13 @@ namespace AppNet.Bussines.Concrete
 
         public List<Employee> SearchAll()
         {
-            return repository.GetAll();
+            throw new NotImplementedException();
         }
+
+        //public List<Employee> SearchAll()
+        //{
+        //    return repository.GetAll();
+        //}
 
         public Employee SearchLastName(string lastName)
         {
@@ -74,9 +79,9 @@ namespace AppNet.Bussines.Concrete
 
        
 
-        ICollection<Employee> IEmployeeService.GetAll()
-        {
-            return repository.GetAll();
-        }
+        //ICollection<Employee> IEmployeeService.GetAll()
+        //{
+        //    return repository.GetAll();
+        //}
     }
 }

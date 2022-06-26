@@ -22,10 +22,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _customerRepository.Add(entity);
         }
-        public List<Customer> GetAll()
-        {
-            return _customerRepository.GetAll();
-        }
+        //public List<Customer> GetAll()
+        //{
+        //    return _customerRepository.GetAll();
+        //}
         Customer GetById(int id)
         {
             return GetById(id);

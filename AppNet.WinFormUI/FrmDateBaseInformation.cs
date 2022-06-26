@@ -1,5 +1,6 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Bussines.Concrete;
+using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
@@ -21,19 +22,21 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmDateBaseInformation : Form
     {
-        private readonly IDatabaseService _databaseService;
+        //private readonly IDatabaseService _databaseService;
         private readonly IServiceProvider _sp;
         private readonly AppNetDbContext _db;
+        //private readonly IRepository<DataBase> _repusitory;
         private readonly IEmployeeService _employeeService;
-        private readonly Logger _Lg;
-        public FrmDateBaseInformation(IDatabaseService databaseService, AppNetDbContext db, IServiceProvider sp, IEmployeeService emp,Logger lg)
+        //private readonly Logger _lg;
+        public FrmDateBaseInformation(/*IDatabaseService databaseService,*/ AppNetDbContext db, IServiceProvider sp/*, IRepository<DataBase> repository*/, IEmployeeService emp)
         {
             InitializeComponent();
-            this._databaseService = databaseService;
-            this._db = db;
+            //this._databaseService = databaseService;
             this._sp = sp;
+            this._db = db;
+            //this._repusitory = repository;
             this._employeeService = emp;
-            this._Lg = lg;
+           
         }
         private void FrmDateBaseInformation_Load(object sender, EventArgs e)
         {
@@ -69,24 +72,24 @@ namespace AppNet.WinFormUI
                 Username = txtUser.Text,
                 Pasword = txtPassword.Text
             };
-            _databaseService.Add(newdataBase);
+            //_databaseService.Add(newdataBase);
             MessageBox.Show("Database Oluşturuldu!");
             SentTelegram sent = new SentTelegram();
             sent.TelegramMesjGonder("Veritabanı Oluşturuldu");
             var frm = _sp.GetRequiredService<FrmLogin>();
             frm.ShowDialog();
             this.Close();
-            _Lg.AddLog("Veri tabanı oluşturuldu.");
+            // _Lg.AddLog("Veri tabanı oluşturuldu.");
             //veritabanı oluştuktan sonra admin kullanıcısını oluştur
             Employee employee = new Employee
             {
                 Name = "Yönetici",
-                LastName="Yetkili",
-                Password="a1234*",
-                User="admin"            
+                LastName = "Yetkili",
+                Password = "a1234*",
+                User = "admin"
             };
-            _employeeService.Add(employee);
-            _Lg.AddLog("Admin kullanıcısı eklendi.");
+            //_employeeService.Add(employee);
+            //_Lg.AddLog("Admin kullanıcısı eklendi.");
         }
     }
 }

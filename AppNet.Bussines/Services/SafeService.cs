@@ -23,10 +23,10 @@ namespace AppNet.Bussines.Concrete
             return _safeRepository.Add(entity);
         }
 
-        public List<Safe> GetAll()
-        {
-            return _safeRepository.GetAll();
-        }
+        //public List<Safe> GetAll()
+        //{
+        //    return _safeRepository.GetAll();
+        //}
         public Task<Safe> GetById(int id)
         {
             return _safeRepository.GetById(id);

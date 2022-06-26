@@ -21,10 +21,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _suplierRepository.Add(entity);
         }
-        public List<Supplier> GetAll()
-        {
-            return _suplierRepository.GetAll();
-        }
+        //public List<Supplier> GetAll()
+        //{
+        //    return _suplierRepository.GetAll();
+        //}
         public Task<Supplier> GetById(int id)
         {
             return _suplierRepository.GetById(id);
