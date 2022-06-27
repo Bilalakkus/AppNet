@@ -57,5 +57,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _safeRepository.Update(entity);
         }
+
+        ICollection<Safe> IRepository<Safe>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

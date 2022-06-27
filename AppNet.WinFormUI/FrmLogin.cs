@@ -5,6 +5,7 @@ using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
+using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AppNet.WinFormUI
@@ -12,12 +13,11 @@ namespace AppNet.WinFormUI
     public partial class FrmLogin : Form
     {
         private readonly IServiceProvider _sp;
-        private readonly IEmployeeService _emltyeeService;
-        public FrmLogin(IServiceProvider sp, IEmployeeService employeeService)
+        public FrmLogin(IServiceProvider sp)
         {
             InitializeComponent();
             this._sp = sp;
-            this._emltyeeService = employeeService;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,17 +30,24 @@ namespace AppNet.WinFormUI
         }
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            //var list = (_employeeService.GetAll().ToList());
+            var services=new ServiceCollection();
+            using (ServiceProvider sp = services.BuildServiceProvider())
+            {
+                var emp = _sp.GetRequiredService<IEmployeeService>();
+                var log = _sp.GetRequiredService<Logger>;
+            }
+
+            //var list = (emp.GetAll());
             //var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
             //if (tempUser == null)
             //{
             //    lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-            //    _lg.AddLog("Hatalý kullanýcý giriþi denemesi.");
+            //   //log.("Hatalý kullanýcý giriþi denemesi.");
             //}
             //else
             //{
-            //    var mdiForm = sp.GetRequiredService<MDIDashboard>();
-            //    _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
+            //    var mdiForm = _sp.GetRequiredService<MDIDashboard>();
+            //   // _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
             //    mdiForm.ShowDialog();
             //}
         }

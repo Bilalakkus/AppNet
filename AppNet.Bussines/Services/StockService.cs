@@ -56,5 +56,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _stockRepository.Update(entity);
         }
+
+        ICollection<Stock> IRepository<Stock>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

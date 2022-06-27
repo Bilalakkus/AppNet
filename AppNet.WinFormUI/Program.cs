@@ -27,22 +27,22 @@ namespace AppNet.WinFormUI
             //services.AddScoped<ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly())>;
 
             //services.AddScoped(Assembly.GetExecutingAssembly());
-            services.AddScoped(s => new AppNetDbContext(Configuration.GetConnectionString("AppNetDbContext")));
+            // services.AddScoped(s => new AppNetDbContext(Configuration.GetConnectionString("AppNetDbContext")));
 
-            //services.AddScoped<FrmLogin>();
-            //services.AddScoped<FrmCategoryList>();
-            //services.AddScoped<FrmCategorySave>();
-            //services.AddScoped<FrmCustomerList>();
-            //services.AddScoped<FrmCustomerSave>();
-            //services.AddScoped<FrmDashbord>();
-            //services.AddScoped<FrmEmployee>();
-            //services.AddScoped<FrmOrder>();
-            //services.AddScoped<FrmProductSave>();
-            //services.AddScoped<FrmSafe>();
-            //services.AddScoped<FrmSupplierSave>();
-            //services.AddScoped<MDIDashboard>();
-            //services.AddScoped<FrmDateBaseInformation>();
-            //services.AddScoped<Logger>();
+            services.AddScoped<FrmLogin>();
+            services.AddScoped<FrmCategoryList>();
+            services.AddScoped<FrmCategorySave>();
+            services.AddScoped<FrmCustomerList>();
+            services.AddScoped<FrmCustomerSave>();
+            services.AddScoped<FrmDashbord>();
+            services.AddScoped<FrmEmployee>();
+            services.AddScoped<FrmOrder>();
+            services.AddScoped<FrmProductSave>();
+            services.AddScoped<FrmSafe>();
+            services.AddScoped<FrmSupplierSave>();
+            services.AddScoped<MDIDashboard>();
+            services.AddScoped<FrmDateBaseInformation>();
+            services.AddScoped<Logger>();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             using (ServiceProvider sp = services.BuildServiceProvider())

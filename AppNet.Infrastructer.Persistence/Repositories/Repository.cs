@@ -27,10 +27,7 @@ namespace AppNet.Domain
             return entity;
             //throw new NotImplementedException();
         }
-        public  List<TEntity> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+      
         public Task<TEntity> GetById(int id)
         {
             throw new NotImplementedException();
@@ -48,6 +45,16 @@ namespace AppNet.Domain
             throw new NotImplementedException();
         }
         public Task<TEntity> Update(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<TEntity> GetAll()
+        {
+           return context.Set<TEntity>().AsNoTracking();
+        }
+
+        ICollection<TEntity> IRepository<TEntity>.GetAll()
         {
             throw new NotImplementedException();
         }

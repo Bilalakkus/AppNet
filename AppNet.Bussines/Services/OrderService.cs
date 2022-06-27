@@ -54,5 +54,10 @@ namespace AppNet.Bussines.Concrete
         {
             return _orderService.Update(entity);
         }
+
+        ICollection<Order> IRepository<Order>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

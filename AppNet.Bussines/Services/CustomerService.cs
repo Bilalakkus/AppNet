@@ -74,5 +74,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        ICollection<Customer> IRepository<Customer>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

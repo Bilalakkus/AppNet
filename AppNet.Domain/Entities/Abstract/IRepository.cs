@@ -14,7 +14,7 @@ namespace AppNet.Domain.Entities.Abstract
        Task<TEntity> Update(TEntity entity);
         bool Remove(int id);
        Task<TEntity> GetById(int id);
-       //List<TEntity> GetAll();
-       Task<ICollection<TEntity>> GetList();
+        ICollection<TEntity> GetAll();
+        Task<ICollection<TEntity>> GetList();
     }
 }
