@@ -23,6 +23,11 @@ namespace AppNet.Bussines.Concrete
             return _safeRepository.Add(entity);
         }
 
+        public List<Safe> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         //public List<Safe> GetAll()
         //{
         //    return _safeRepository.GetAll();

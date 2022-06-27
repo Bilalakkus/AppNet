@@ -18,6 +18,11 @@ namespace AppNet.Bussines.Concrete
             return repository.Add(entity);
         }
 
+        public List<Employee> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         //public List<Employee> GetAll()
         //{
         //    return repository.GetAll();

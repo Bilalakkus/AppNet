@@ -23,6 +23,11 @@ namespace AppNet.Bussines.Concrete
             return _stockRepository.Add(entity);
         }
 
+        public List<Stock> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         //public List<Stock> GetAll()
         //{
         //    return _stockRepository.GetAll();

@@ -22,6 +22,12 @@ namespace AppNet.Bussines.Concrete
         {
             return _productRepository.Add(entity);
         }
+
+        public List<Product> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         //public List<Product> GetAll()
         //{
         //    return _productRepository.GetAll();

@@ -1,8 +1,13 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Bussines.Concrete;
 using AppNet.Bussines.Services;
+using AppNet.Domain.Entities.Abstract;
+using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Persistence;
+using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
+using System.Reflection;
 
 namespace AppNet.WinFormUI
 {
@@ -18,19 +23,26 @@ namespace AppNet.WinFormUI
             var services = new ServiceCollection();
             ConfigureServices(services);
             ApplicationConfiguration.Initialize();
-            services.AddScoped<FrmLogin>();
-            services.AddScoped<FrmCategoryList>();
-            services.AddScoped<FrmCategorySave>();
-            services.AddScoped<FrmCustomerList>();
-            services.AddScoped<FrmCustomerSave>();
-            services.AddScoped<FrmDashbord>();
-            services.AddScoped<FrmEmployee>();
-            services.AddScoped<FrmOrder>();
-            services.AddScoped<FrmProductSave>();
-            services.AddScoped<FrmSafe>();
-            services.AddScoped<FrmSupplierSave>();
-            services.AddScoped<MDIDashboard>();
-            services.AddScoped<FrmDateBaseInformation>();
+
+            //services.AddScoped<ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly())>;
+
+            //services.AddScoped(Assembly.GetExecutingAssembly());
+            services.AddScoped(s => new AppNetDbContext(Configuration.GetConnectionString("AppNetDbContext")));
+
+            //services.AddScoped<FrmLogin>();
+            //services.AddScoped<FrmCategoryList>();
+            //services.AddScoped<FrmCategorySave>();
+            //services.AddScoped<FrmCustomerList>();
+            //services.AddScoped<FrmCustomerSave>();
+            //services.AddScoped<FrmDashbord>();
+            //services.AddScoped<FrmEmployee>();
+            //services.AddScoped<FrmOrder>();
+            //services.AddScoped<FrmProductSave>();
+            //services.AddScoped<FrmSafe>();
+            //services.AddScoped<FrmSupplierSave>();
+            //services.AddScoped<MDIDashboard>();
+            //services.AddScoped<FrmDateBaseInformation>();
+            //services.AddScoped<Logger>();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             using (ServiceProvider sp = services.BuildServiceProvider())

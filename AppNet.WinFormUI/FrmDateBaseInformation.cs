@@ -1,6 +1,4 @@
 ﻿using AppNet.Bussines.Abstract;
-using AppNet.Bussines.Concrete;
-using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
@@ -8,34 +6,19 @@ using AppNet.Infrastructer.Persistence;
 using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AppNet.WinFormUI
 {
     public partial class FrmDateBaseInformation : Form
     {
-        //private readonly IDatabaseService _databaseService;
         private readonly IServiceProvider _sp;
         private readonly AppNetDbContext _db;
-        //private readonly IRepository<DataBase> _repusitory;
-        private readonly IEmployeeService _employeeService;
-        //private readonly Logger _lg;
-        public FrmDateBaseInformation(/*IDatabaseService databaseService,*/ AppNetDbContext db, IServiceProvider sp/*, IRepository<DataBase> repository*/, IEmployeeService emp)
+        
+        public FrmDateBaseInformation( AppNetDbContext db, IServiceProvider sp)
         {
             InitializeComponent();
-            //this._databaseService = databaseService;
             this._sp = sp;
             this._db = db;
-            //this._repusitory = repository;
-            this._employeeService = emp;
            
         }
         private void FrmDateBaseInformation_Load(object sender, EventArgs e)
@@ -79,7 +62,8 @@ namespace AppNet.WinFormUI
             var frm = _sp.GetRequiredService<FrmLogin>();
             frm.ShowDialog();
             this.Close();
-            // _Lg.AddLog("Veri tabanı oluşturuldu.");
+            var log=_sp.GetRequiredService<Logger>();
+             log.AddLog("Veri tabanı oluşturuldu.");
             //veritabanı oluştuktan sonra admin kullanıcısını oluştur
             Employee employee = new Employee
             {
@@ -88,8 +72,8 @@ namespace AppNet.WinFormUI
                 Password = "a1234*",
                 User = "admin"
             };
-            //_employeeService.Add(employee);
-            //_Lg.AddLog("Admin kullanıcısı eklendi.");
+            var emp = _sp.GetRequiredService<IEmployeeService>();
+            emp.Add(employee);
         }
     }
 }

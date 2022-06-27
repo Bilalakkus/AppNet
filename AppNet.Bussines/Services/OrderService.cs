@@ -21,6 +21,12 @@ namespace AppNet.Bussines.Concrete
         {
             return _orderService.Add(entity);
         }
+
+        public List<Order> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         //public List<Order> GetAll()
         //{
         //    return _orderService.GetAll();

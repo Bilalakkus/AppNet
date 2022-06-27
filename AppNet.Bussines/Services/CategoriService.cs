@@ -52,5 +52,10 @@ namespace AppNet.Bussines.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Category> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

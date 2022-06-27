@@ -11,17 +11,13 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmLogin : Form
     {
-        private readonly IServiceProvider sp;
-      //Logger _Lg = new Logger();
-        public FrmLogin(IServiceProvider sp/*, Logger lg*/)
+        private readonly IServiceProvider _sp;
+        private readonly IEmployeeService _emltyeeService;
+        public FrmLogin(IServiceProvider sp, IEmployeeService employeeService)
         {
             InitializeComponent();
-            this.sp = sp;
-            
-           
-
-            //this._lg = lg;
-            //this._repository = repository;
+            this._sp = sp;
+            this._emltyeeService = employeeService;
         }
 
         private void button1_Click(object sender, EventArgs e)
