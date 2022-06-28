@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface ICategoriService:IRepository<Category>
+    public interface ICategoriService
     {
-        Category GetCategory(string name);
+        Category Add(string name);
+        Task<Category> Update(int CategoryID, string NewCategoryName);
+        Task<bool> Remove(int id);
+        Task<ICollection<Category>> GetAll();
     }
 }

@@ -12,54 +12,37 @@ namespace AppNet.Bussines.Concrete
         {
             this.repository = repository;
         }
-       
-        public Category GetCategory(string name)
+
+        public Category Add(string name)
         {
-            //var result = repository.GetAllAsync();
-            throw new NotImplementedException();
-        }
-        public Category Add(Category entity)
-        {
-            // validations
-            return repository.Add(entity);
+            Category category = new Category()
+            {
+                CategoryName = name
+            };
+            repository.Add(category);
+            return category;
         }
 
-        //public List<Category> GetAll()
-        //{
-        //    return repository.GetAll();
-        //}
-
-       public  Task<Category> GetById(int id)
+        public async Task<ICollection<Category>> GetAll()
         {
-            return repository.GetById(id);
+            return repository.GetAll().ToList();
         }
 
-        async Task<ICollection<Category>> GetList()
+        public async Task<bool> Remove(int id)
         {
-            //return repository.GetList().To;
-
-            throw new NotImplementedException();
-        }
-        public Task<Category> Update(Category entity)
-        {
-            return repository.Update(entity);
-        }
-        public bool Remove(int id)
-        {
-            return repository.Remove(id);
-        }
-        Task<ICollection<Category>> IRepository<Category>.GetList()
-        {
-            throw new NotImplementedException();
+            await repository.Remove(id);
+            return true;
         }
 
-        public List<Category> GetAll()
+        public Task<Category> Update(int CategoryID, string NewCategoryName)
         {
-            throw new NotImplementedException();
-        }
-
-        ICollection<Category> IRepository<Category>.GetAll()
-        {
+            //Category category = new Category()
+            //{
+            //    CategoryId = CategoryID,
+            //    CategoryName = NewCategoryName,
+            //};
+            //repository.Update(category.CategoryId, category);
+            //return category;
             throw new NotImplementedException();
         }
     }

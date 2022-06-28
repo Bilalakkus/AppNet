@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IProductService:IRepository<Product>
+    public interface IProductService//:IRepository<Product>
     {
-        Product SearchProductName(string name);
+        Product Add(string name);
+        Task<Product> Update(Product product);
+        Task<bool> Remove(int id);
+        Task<ICollection<Product>> GetAll();
     }
 }

@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IEmployeeService:IRepository<Employee>
+    public interface IEmployeeService//:IRepository<Employee>
     {
-        Employee SearchName(string name);
-        Employee SearchLastName(string lastName);
-        Employee SearchTc(string tc);
-        List<Employee> SearchAll();
-        //Task<ICollection<Employee>> GetAll();
+        Employee Add(Employee employee);
+        Task<Employee> Update(Employee employee);
+        bool Remove(int id);
+        Task<ICollection<Employee>> GetAll();
 
     }
 }

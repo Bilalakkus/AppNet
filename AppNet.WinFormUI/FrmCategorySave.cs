@@ -36,7 +36,7 @@ namespace AppNet.WinFormUI
                 else
                 {
                     Category category = new Category { CategoryName = txtCategoriName.Text };
-                    _CategoriService.Add(category);
+                    _CategoriService.Add(category.CategoryName);
                     MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
                     _Lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
                     txtCategoriName.Text = "";

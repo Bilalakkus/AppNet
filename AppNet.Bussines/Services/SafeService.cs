@@ -18,47 +18,22 @@ namespace AppNet.Bussines.Concrete
             _safeRepository=safeRepository;
         }
 
-        public Safe Add(Safe entity)
-        {
-            return _safeRepository.Add(entity);
-        }
-
-        public List<Safe> GetAll()
+        public Safe Add(string name)
         {
             throw new NotImplementedException();
         }
 
-        //public List<Safe> GetAll()
-        //{
-        //    return _safeRepository.GetAll();
-        //}
-        public Task<Safe> GetById(int id)
-        {
-            return _safeRepository.GetById(id);
-        }
-
-
-        public Task<ICollection<Safe>> GetList(Expression<Func<Safe, bool>> expression = null)
-        {
-            return _safeRepository.GetList();
-        }
-
-        public Task<ICollection<Safe>> GetList()
+        public Task<ICollection<Safe>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(int id)
+        public Task<bool> Remove(int id)
         {
-            bool result = _safeRepository.Remove(id);
-            return result;
-        }
-        public Task<Safe> Update(Safe entity)
-        {
-            return _safeRepository.Update(entity);
+            throw new NotImplementedException();
         }
 
-        ICollection<Safe> IRepository<Safe>.GetAll()
+        public Task<Safe> Update(Safe safe)
         {
             throw new NotImplementedException();
         }

@@ -18,51 +18,22 @@ namespace AppNet.Bussines.Concrete
             _productRepository = productRepository;
         }
 
-        public Product Add(Product entity)
-        {
-            return _productRepository.Add(entity);
-        }
-
-        public List<Product> GetAll()
+        public Product Add(string name)
         {
             throw new NotImplementedException();
         }
 
-        //public List<Product> GetAll()
-        //{
-        //    return _productRepository.GetAll();
-        //}
-        public Task<Product> GetById(int id)
-        {
-            return _productRepository.GetById(id);
-        }
-        public Task<ICollection<Product>> GetList(Expression<Func<Product, bool>> expression = null)
-        {
-            return GetList(expression);
-        }
-
-        public Task<ICollection<Product>> GetList()
+        public Task<ICollection<Product>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(int id)
+        public Task<bool> Remove(int id)
         {
-            bool result = _productRepository.Remove(id);
-            return result;
-        }
-
-        public Product SearchProductName(string name)
-        {
-            //return _productRepository.GetAllAsync().FirstOrDefault(p=>p.ProductName==name);
             throw new NotImplementedException();
         }
-        public Task<Product> Update(Product entity)
-        {
-            return _productRepository.Update(entity);
-        }
 
-        ICollection<Product> IRepository<Product>.GetAll()
+        public Task<Product> Update(Product product)
         {
             throw new NotImplementedException();
         }

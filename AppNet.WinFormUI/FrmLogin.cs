@@ -28,28 +28,25 @@ namespace AppNet.WinFormUI
             //var loginFrm = sp.GetRequiredService<FrmLogin>();
             //Application.Run(loginFrm);
         }
-        private void btnGiris_Click(object sender, EventArgs e)
+        private async void btnGiris_Click(object sender, EventArgs e)
         {
-            var services=new ServiceCollection();
-            using (ServiceProvider sp = services.BuildServiceProvider())
-            {
-                var emp = _sp.GetRequiredService<IEmployeeService>();
                 var log = _sp.GetRequiredService<Logger>;
-            }
+                var safe=_sp.GetRequiredService<IOrderService>();
+                var emp = _sp.GetRequiredService<IEmployeeService>();
 
-            //var list = (emp.GetAll());
-            //var tempUser = list.FirstOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
-            //if (tempUser == null)
-            //{
-            //    lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-            //   //log.("Hatalý kullanýcý giriþi denemesi.");
-            //}
-            //else
-            //{
-            //    var mdiForm = _sp.GetRequiredService<MDIDashboard>();
-            //   // _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
-            //    mdiForm.ShowDialog();
-            //}
+            var list = (await emp.GetAll());
+            var tempUser = list.SingleOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
+            if (tempUser == null)
+            {
+                lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
+                //log.("Hatalý kullanýcý giriþi denemesi.");
+            }
+            else
+            {
+                var mdiForm = _sp.GetRequiredService<MDIDashboard>();
+                // _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
+                mdiForm.ShowDialog();
+            }
         }
     }
 }

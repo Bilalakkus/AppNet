@@ -13,66 +13,27 @@ namespace AppNet.Bussines.Concrete
             this.repository = repository;
         }
 
-        public Employee Add(Employee entity)
+        public Employee Add(Employee employee)
         {
-            return repository.Add(entity);
+           
+            repository.Add(employee);
+            return employee;
         }
 
-        public ICollection<Employee> GetAll()
+        public async Task<ICollection<Employee>> GetAll()
         {
             return repository.GetAll().ToList();
         }
 
-        public Task<Employee> GetById(int id)
-        {
-            return repository.GetById(id);
-        }
-
-        public Task<ICollection<Employee>> GetList(Expression<Func<Employee, bool>> expression = null)
-        {
-            return repository.GetList();
-        }
-
-        public Task<ICollection<Employee>> GetList()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Remove(int id)
         {
-                return repository.Remove(id);;
+             repository.Remove(id);
+            return true;
         }
 
-        public List<Employee> SearchAll()
+        public Task<Employee> Update(Employee employee)
         {
             throw new NotImplementedException();
         }
-
-
-        public Employee SearchLastName(string lastName)
-        {
-            //return repository.GetAllAsync().SingleOrDefaultAsync(n => n.LastName == lastName);
-            throw new NotImplementedException();
-        }
-
-        public Employee SearchName(string name)
-        {
-            //return  repository.GetAllAsync().SingleOrDefault(n => n.Name == name);
-            //return await repository.GetAll().Select(x => x.Name).FirstOrDefault();
-            throw new NotImplementedException();
-        }
-
-        public Employee SearchTc(string tc)
-        {
-            //return repository.GetAllAsync().SingleOrDefault(n => n.Tc == tc);
-            throw new NotImplementedException();
-        }
-
-        public Task<Employee> Update(Employee entity)
-        {
-            return repository.Update(entity);
-        }
-
-       
     }
 }

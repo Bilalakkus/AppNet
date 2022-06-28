@@ -23,8 +23,6 @@ namespace AppNet.Infrastructer.Persistence.Contexts
             //"Data Source=.\\MSSQLSERVER01;Initial Catalog=AppNetDb;Persist Security Info=True;User ID=sa;Password=sa1"
             //                );
         }
-        //"Data Sourse=192.168.1.205;Initial Catalog=liftDb;User Id=sa;Password=u1234*"
-        //"Data Source=192.168.1.205;Initial Catalog=liftDb;Persist Security Info=True;User ID=sa;Password=u1234*"
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

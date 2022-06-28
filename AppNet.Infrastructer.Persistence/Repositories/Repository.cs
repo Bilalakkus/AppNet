@@ -14,49 +14,43 @@ namespace AppNet.Domain
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly AppNetDbContext context;
-        private readonly IRepository<TEntity> repository;
-        public Repository(AppNetDbContext context, IRepository<TEntity> repository)
+        public Repository(AppNetDbContext context)
         {
             this.context = context;
-            this.repository=repository;
         }
-        public  TEntity Add(TEntity entity)
+        public async Task<TEntity> Add(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
             context.SaveChanges();
             return entity;
-            //throw new NotImplementedException();
-        }
-      
-        public Task<TEntity> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<ICollection<TEntity>> GetList(Expression<Func<TEntity, bool>> expression = null)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<ICollection<TEntity>> GetList()
-        {
-            throw new NotImplementedException();
-        }
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<TEntity> Update(TEntity entity)
-        {
-            throw new NotImplementedException();
         }
 
         public IQueryable<TEntity> GetAll()
         {
-           return context.Set<TEntity>().AsNoTracking();
+            return context.Set<TEntity>().AsNoTracking();
         }
 
-        ICollection<TEntity> IRepository<TEntity>.GetAll()
+        public async Task<TEntity> GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().Find(id);
+        }
+
+        public async Task<bool> Remove(int id)
+        {
+            var entity = context.Set<TEntity>().Find(id);
+            if (entity == null)
+                return false;
+
+            context.Set<TEntity>().Remove(entity);
+            context.SaveChanges();
+            return true;
+        }
+
+        public async Task<TEntity> Update(int id, TEntity entity)
+        {
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
+            return entity;
         }
     }
 }

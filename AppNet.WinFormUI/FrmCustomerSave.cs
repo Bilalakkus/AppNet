@@ -46,7 +46,7 @@ namespace AppNet.WinFormUI
                     Phone = txtPhone.Text,
                     
                 };
-                _CustomerService.Add(customer);
+                _CustomerService.Add(customer.Name);
                 _Lg.AddLog($"{txtName.Text} {txtLastName} müşteri eklendi.");
             }
             catch (Exception)

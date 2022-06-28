@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IOrderService:IRepository<Order>
+    public interface IOrderService//:IRepository<Order>
     {
+        Order Add(string name);
+        Task<Order> Update(Order order);
+        Task<bool> Remove(int id);
+        Task<ICollection<Order>> GetAll();
     }
 }

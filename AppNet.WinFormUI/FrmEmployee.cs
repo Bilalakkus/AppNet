@@ -162,12 +162,12 @@ namespace AppNet.WinFormUI
 
         private void btnEmployeeSearch_Click_1(object sender, EventArgs e)
         {
-            if (txtSearchTc.Text.Length == 11)
-                gridEmployee.DataSource = _EmployeeService.SearchTc(txtTc.Text);
-            if (txtSearchName.Text.Length >= 3)
-                gridEmployee.DataSource = _EmployeeService.SearchName(txtName.Text);
-            if (txtSearchLastName.Text.Length >= 2)
-                gridEmployee.DataSource = _EmployeeService.SearchName(txtLastName.Text);
+            //if (txtSearchTc.Text.Length == 11)
+            //    gridEmployee.DataSource = _EmployeeService.SearchTc(txtTc.Text);
+            //if (txtSearchName.Text.Length >= 3)
+            //    gridEmployee.DataSource = _EmployeeService.SearchName(txtName.Text);
+            //if (txtSearchLastName.Text.Length >= 2)
+            //    gridEmployee.DataSource = _EmployeeService.SearchName(txtLastName.Text);
         }
 
         private void btnClearForm_Click(object sender, EventArgs e)

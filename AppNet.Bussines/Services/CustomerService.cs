@@ -18,64 +18,28 @@ namespace AppNet.Bussines.Concrete
             this._customerRepository = customerRepository;
         }
 
-        Customer Add(Customer entity)
+        public Customer Add(string name)
         {
-            return _customerRepository.Add(entity);
-        }
-        //public List<Customer> GetAll()
-        //{
-        //    return _customerRepository.GetAll();
-        //}
-        Customer GetById(int id)
-        {
-            return GetById(id);
-        }
-        Customer Update(Customer entity)
-        {
-            return Update(entity);
+            Customer customer = new Customer()
+            {
+                Name = name
+            };
+            _customerRepository.Add(customer);
+            return customer;
         }
 
-        public bool Remove(int id)
+        public async Task<ICollection<Customer>> GetAll()
         {
-            return _customerRepository.Remove(id);
+            return _customerRepository.GetAll().ToList();
         }
 
-        ICollection<Customer> GetList(Expression<Func<Customer, bool>> expression)
+        public async Task<bool> Remove(int id)
         {
-            return GetList(expression);
+            await _customerRepository.Remove(id);
+            return true;
         }
 
-        Customer IRepository<Customer>.Add(Customer entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Customer> IRepository<Customer>.Update(Customer entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Customer> IRepository<Customer>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        async Task<ICollection<Customer>> IRepository<Customer>.GetList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICollection<Customer>> GetList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Customer> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        ICollection<Customer> IRepository<Customer>.GetAll()
+        public Task<Customer> Update(int CustomerID, string NewCustomerName)
         {
             throw new NotImplementedException();
         }

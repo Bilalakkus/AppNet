@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IStockService:IRepository<Stock>
+    public interface IStockService//:IRepository<Stock>
     {
+        Stock Add(string name);
+        Task<Stock> Update(Stock stock);
+        Task<bool> Remove(int id);
+        Task<ICollection<Stock>> GetAll();
     }
 }

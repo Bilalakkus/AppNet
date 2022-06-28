@@ -1,6 +1,7 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Domain.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,48 +18,29 @@ namespace AppNet.Bussines.Services
         {
             this._dataBaseRepository=repository;
         }
-        public DataBase Add(DataBase entity)
+
+        public DataBase Add(string name)
         {
-            //DataBase db = new DataBase()
-            //{
-            //    Name = entity.Name,
-            //    Username = entity.Username,
-            //    Pasword = entity.Pasword,
-            //};
-            //_dataBaseRepository.Add(db);
-            //return db;
-            _dataBaseRepository.Add(entity);
-            return entity;
-        }
-        
-        async Task<ICollection<DataBase>> GetAll()
-        {
-            throw new NotImplementedException();
+            DataBase dataBase = new DataBase()
+            {
+                Name = name
+            };
+            _dataBaseRepository.Add(dataBase);
+            return dataBase;
         }
 
-        public Task<DataBase> GetById(int id)
+        public async Task<ICollection<DataBase>> GetAll()
         {
-            throw new NotImplementedException();
+            return _dataBaseRepository.GetAll().ToList();
         }
 
-        public Task<ICollection<DataBase>> GetList(Expression<Func<DataBase, bool>> expression = null)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            await _dataBaseRepository.Remove(id);
+            return true;
         }
 
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DataBase> Update(DataBase entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
-        public Task<ICollection<DataBase>> GetList()
+        public Task<DataBase> Update(int DatabaseID, string NewDatabaseName)
         {
             throw new NotImplementedException();
         }
