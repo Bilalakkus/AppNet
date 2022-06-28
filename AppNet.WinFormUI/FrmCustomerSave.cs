@@ -41,7 +41,7 @@ namespace AppNet.WinFormUI
                 Customer customer = new Customer
                 {
                     Name = txtName.Text,
-                    TC=txtTcVergiNo.Text,
+                    //TC=txtTcVergiNo.Text,
                     Address = txtAdress.Text,
                     Phone = txtPhone.Text,
                     

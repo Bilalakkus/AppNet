@@ -10,7 +10,7 @@ namespace AppNet.Domain.Entities.Concrete
     public class Customer : BaseEntity
     {
         public int CustomerId { get; set; }
-        public string TC { get; set; }
+       // public string TC { get; set; }
         public string Name { get; set; }
 
         public string Phone { get; set; }
