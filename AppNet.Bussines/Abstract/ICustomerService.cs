@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines
 {
-    public interface ICustomerService//:IRepository<Customer>
+    public interface ICustomerService
     {
-        Customer Add(string name);
-        Task<Customer> Update(int CustomerID, string NewCustomerName);
+        Customer Add(Customer customer);
+        Task<Customer> Update(Customer customer);
         Task<bool> Remove(int id);
         Task<ICollection<Customer>> GetAll();
     }

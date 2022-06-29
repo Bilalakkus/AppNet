@@ -9,10 +9,10 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IDatabaseService //: IRepository<DataBase>
+    public interface IDatabaseService 
     {
-        DataBase Add(string name);
-        Task<DataBase> Update(int DatabaseID, string NewDatabaseName);
+        DataBase Add(DataBase dataBase);
+        Task<DataBase> Update(DataBase dataBase);
         Task<bool> Remove(int id);
         Task<ICollection<DataBase>> GetAll();
     }

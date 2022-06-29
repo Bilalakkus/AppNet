@@ -12,25 +12,35 @@ namespace AppNet.Bussines.Concrete
 {
     public class OrderService : IOrderService
     {
-        private readonly IRepository<Order> repository;
+        private readonly IRepository<Order> _repository;
         public OrderService(IRepository<Order> repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
-        public Order Add(string name)
+        public Order Add(Order order)
         {
-            throw new NotImplementedException();
+            _repository.Add(order);
+            return order;
         }
 
-        public Task<ICollection<Order>> GetAll()
+        public async Task<ICollection<Order>> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll().ToList();
         }
 
-        public Task<bool> Remove(int id)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public Task<Order> Update(Order order)

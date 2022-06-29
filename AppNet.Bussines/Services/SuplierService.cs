@@ -18,22 +18,32 @@ namespace AppNet.Bussines.Concrete
             _suplierRepository=suplplierRepository;
         }
 
-        public Stock Add(string name)
+        public Supplier Add(Supplier supplier)
         {
-            throw new NotImplementedException();
+            _suplierRepository.Add(supplier);
+            return supplier;
         }
 
-        public Task<ICollection<Stock>> GetAll()
+        public async Task<ICollection<Supplier>> GetAll()
         {
-            throw new NotImplementedException();
+            return _suplierRepository.GetAll().ToList();
         }
 
-        public Task<bool> Remove(int id)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _suplierRepository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
-        public Task<Stock> Update(Stock stock)
+        public Task<Supplier> Update(Supplier supplier)
         {
             throw new NotImplementedException();
         }

@@ -18,19 +18,29 @@ namespace AppNet.Bussines.Concrete
             _productRepository = productRepository;
         }
 
-        public Product Add(string name)
+        public Product Add(Product product)
         {
-            throw new NotImplementedException();
+            _productRepository.Add(product);
+            return product;
         }
 
-        public Task<ICollection<Product>> GetAll()
+        public async Task<ICollection<Product>> GetAll()
         {
-            throw new NotImplementedException();
+           return _productRepository.GetAll().ToList();
         }
 
-        public Task<bool> Remove(int id)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _productRepository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public Task<Product> Update(Product product)

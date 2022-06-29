@@ -16,15 +16,11 @@ namespace AppNet.Bussines.Services
         private readonly IRepository<DataBase> _dataBaseRepository;
         public DataBaseService(IRepository<DataBase> repository)
         {
-            this._dataBaseRepository=repository;
+            this._dataBaseRepository = repository;
         }
 
-        public DataBase Add(string name)
+        public DataBase Add(DataBase dataBase)
         {
-            DataBase dataBase = new DataBase()
-            {
-                Name = name
-            };
             _dataBaseRepository.Add(dataBase);
             return dataBase;
         }
@@ -36,11 +32,19 @@ namespace AppNet.Bussines.Services
 
         public async Task<bool> Remove(int id)
         {
-            await _dataBaseRepository.Remove(id);
-            return true;
+            try
+            {
+                _dataBaseRepository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
-        public Task<DataBase> Update(int DatabaseID, string NewDatabaseName)
+        public Task<DataBase> Update(DataBase dataBase)
         {
             throw new NotImplementedException();
         }

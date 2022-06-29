@@ -7,10 +7,10 @@ namespace AppNet.Bussines.Concrete
 {
     public class CategoriService : ICategoriService
     {
-        private readonly IRepository<Category> repository;
+        private readonly IRepository<Category> _repository;
         public CategoriService(IRepository<Category> repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
         public Category Add(string name)
@@ -19,18 +19,18 @@ namespace AppNet.Bussines.Concrete
             {
                 CategoryName = name
             };
-            repository.Add(category);
+            _repository.Add(category);
             return category;
         }
 
         public async Task<ICollection<Category>> GetAll()
         {
-            return repository.GetAll().ToList();
+            return _repository.GetAll().ToList();
         }
 
         public async Task<bool> Remove(int id)
         {
-            await repository.Remove(id);
+            await _repository.Remove(id);
             return true;
         }
 

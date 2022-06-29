@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface ISafeService//:IRepository<Safe>
+    public interface ISafeService
     {
-        Safe Add(string name);
+        Safe Add(Safe safe);
         Task<Safe> Update(Safe safe);
         Task<bool> Remove(int id);
         Task<ICollection<Safe>> GetAll();

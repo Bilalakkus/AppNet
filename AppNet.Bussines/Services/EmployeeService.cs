@@ -7,28 +7,35 @@ namespace AppNet.Bussines.Concrete
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly IRepository<Employee> repository;
+        private readonly IRepository<Employee> _repository;
         public EmployeeService(IRepository<Employee> repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
         public Employee Add(Employee employee)
         {
-           
-            repository.Add(employee);
+            _repository.Add(employee);
             return employee;
         }
 
         public async Task<ICollection<Employee>> GetAll()
         {
-            return repository.GetAll().ToList();
+            return _repository.GetAll().ToList();
         }
 
         public bool Remove(int id)
         {
-             repository.Remove(id);
-            return true;
+            try
+            {
+                _repository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public Task<Employee> Update(Employee employee)

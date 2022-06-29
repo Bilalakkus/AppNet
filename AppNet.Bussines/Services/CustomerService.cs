@@ -18,28 +18,32 @@ namespace AppNet.Bussines.Concrete
             this._customerRepository = customerRepository;
         }
 
-        public Customer Add(string name)
+        public Customer Add(Customer customer)
         {
-            Customer customer = new Customer()
-            {
-                Name = name
-            };
-            _customerRepository.Add(customer);
+           _customerRepository.Add(customer);
             return customer;
         }
 
         public async Task<ICollection<Customer>> GetAll()
         {
-            return _customerRepository.GetAll().ToList();
+          return _customerRepository.GetAll().ToList();
         }
 
         public async Task<bool> Remove(int id)
         {
-            await _customerRepository.Remove(id);
-            return true;
+            try
+            {
+                _customerRepository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
-        public Task<Customer> Update(int CustomerID, string NewCustomerName)
+        public Task<Customer> Update(Customer customer)
         {
             throw new NotImplementedException();
         }

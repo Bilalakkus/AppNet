@@ -18,19 +18,29 @@ namespace AppNet.Bussines.Concrete
             _safeRepository=safeRepository;
         }
 
-        public Safe Add(string name)
+        public Safe Add(Safe safe)
         {
-            throw new NotImplementedException();
+           _safeRepository.Add(safe);
+            return safe;
         }
 
-        public Task<ICollection<Safe>> GetAll()
+        public async Task<ICollection<Safe>> GetAll()
         {
-            throw new NotImplementedException();
+          return  _safeRepository.GetAll().ToList();
         }
 
-        public Task<bool> Remove(int id)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _safeRepository.Remove(id);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public Task<Safe> Update(Safe safe)

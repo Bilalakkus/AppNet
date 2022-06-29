@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IOrderService//:IRepository<Order>
+    public interface IOrderService
     {
-        Order Add(string name);
+        Order Add(Order order);
         Task<Order> Update(Order order);
         Task<bool> Remove(int id);
         Task<ICollection<Order>> GetAll();

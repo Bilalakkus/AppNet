@@ -49,9 +49,10 @@
             this.ClientSize = new System.Drawing.Size(408, 630);
             this.Controls.Add(this.gridCategories);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCategoryList";
             this.Text = "Kategoriler";
+            this.Load += new System.EventHandler(this.FrmCategoryList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCategories)).EndInit();
             this.ResumeLayout(false);
 

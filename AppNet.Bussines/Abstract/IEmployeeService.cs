@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface IEmployeeService//:IRepository<Employee>
+    public interface IEmployeeService
     {
         Employee Add(Employee employee);
         Task<Employee> Update(Employee employee);

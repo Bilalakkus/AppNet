@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AppNet.Bussines.Abstract
 {
-    public interface ISuplierService //: IRepository<Supplier>
+    public interface ISuplierService 
     {
-        Stock Add(string name);
-        Task<Stock> Update(Stock stock);
+        Supplier Add(Supplier supplier);
+        Task<Supplier> Update(Supplier supplier);
         Task<bool> Remove(int id);
-        Task<ICollection<Stock>> GetAll();
+        Task<ICollection<Supplier>> GetAll();
     }
 }
