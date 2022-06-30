@@ -26,6 +26,7 @@ namespace AppNet.WinFormUI
             //services.AddScoped<ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly())>;
             //services.AddScoped(Assembly.GetExecutingAssembly());
             // services.AddScoped(s => new AppNetDbContext(Configuration.GetConnectionString("AppNetDbContext")));
+            //services.AddScoped<Assembly.GetAssembly().GetForwardedTypes>;
             services.AddScoped<FrmLogin>();
             services.AddScoped<FrmCategoryList>();
             services.AddScoped<FrmCategorySave>();
