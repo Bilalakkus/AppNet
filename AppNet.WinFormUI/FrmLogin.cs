@@ -46,6 +46,7 @@ namespace AppNet.WinFormUI
                 var mdiForm = _sp.GetRequiredService<MDIDashboard>();
                 // _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
                 mdiForm.ShowDialog();
+                this.Close();
             }
         }
     }

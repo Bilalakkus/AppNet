@@ -141,6 +141,18 @@ namespace AppNet.WinFormUI
         {
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void toolStripExit_Click(object sender, EventArgs e)
+        {
+            var exit = MessageBox.Show("Programı kapatmak istiyor musunuz?", "Çıkış", MessageBoxButtons.YesNo);
+            if (exit == DialogResult.Yes)   
+            Application.Exit();
+        }
+
+        
     }
 }
