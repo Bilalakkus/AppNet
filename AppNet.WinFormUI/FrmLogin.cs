@@ -6,6 +6,7 @@ using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence.Contexts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AppNet.WinFormUI
@@ -43,6 +44,7 @@ namespace AppNet.WinFormUI
             }
             else
             {
+                //Session.Add("Deger", TextBox1.Text);
                 var mdiForm = _sp.GetRequiredService<MDIDashboard>();
                 // _lg.AddLog($"{txtUser.Text} kullanýcýsý sisneme giriþ yaptý.");
                 mdiForm.ShowDialog();

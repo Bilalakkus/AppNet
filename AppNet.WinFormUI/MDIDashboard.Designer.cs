@@ -231,6 +231,7 @@
             // 
             // müşterilerToolStripMenuItem
             // 
+            this.müşterilerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.müşterilerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("müşterilerToolStripMenuItem.Image")));
             this.müşterilerToolStripMenuItem.Name = "müşterilerToolStripMenuItem";
             this.müşterilerToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
@@ -255,12 +256,15 @@
             this.tedarikçiEkleToolStripMenuItem.Name = "tedarikçiEkleToolStripMenuItem";
             this.tedarikçiEkleToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.tedarikçiEkleToolStripMenuItem.Text = "Tedarikçi Ekle";
+            this.tedarikçiEkleToolStripMenuItem.Click += new System.EventHandler(this.tedarikçiEkleToolStripMenuItem_Click);
             // 
             // tedarikçilerToolStripMenuItem
             // 
+            this.tedarikçilerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tedarikçilerToolStripMenuItem.Name = "tedarikçilerToolStripMenuItem";
             this.tedarikçilerToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.tedarikçilerToolStripMenuItem.Text = "Tedarikçiler";
+            this.tedarikçilerToolStripMenuItem.Click += new System.EventHandler(this.tedarikcilerToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
@@ -269,6 +273,7 @@
             // 
             // raporToolStripMenuItem
             // 
+            this.raporToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.raporToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
             this.raporToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
@@ -297,6 +302,7 @@
             // 
             // statusBarToolStripMenuItem
             // 
+            this.statusBarToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.statusBarToolStripMenuItem.Checked = true;
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -342,11 +348,13 @@
             // 
             // printPreviewToolStripMenuItem
             // 
+            this.printPreviewToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
             this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.printPreviewToolStripMenuItem.Text = "Ürün Listesi";
+            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.printPreviewToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -376,6 +384,7 @@
             // 
             // redoToolStripMenuItem
             // 
+            this.redoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";

@@ -45,6 +45,7 @@ namespace AppNet.WinFormUI
                     Address = txtAdress.Text,
                     Phone = txtPhone.Text,
                     
+                    
                 };
                 _CustomerService.Add(customer);
                 _Lg.AddLog($"{txtName.Text} {txtLastName} müşteri eklendi.");

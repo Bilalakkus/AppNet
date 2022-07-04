@@ -15,18 +15,21 @@ namespace AppNet.WinFormUI
     public partial class MDIDashboard : Form
     {
         private readonly IServiceProvider _sp;
-        private readonly ICategoriService _CategoriService;
-        public MDIDashboard(IServiceProvider sp, ICategoriService categoriService)
+        //private readonly ICategoriService _CategoriService;
+        public MDIDashboard(IServiceProvider sp/*, ICategoriService categoriService*/)
         {
             InitializeComponent();
             this._sp = sp;
-            this._CategoriService = categoriService;
+            //this._CategoriService = categoriService;
         }
         private int childFormNumber = 0;
 
         
         private void ShowNewForm(object sender, EventArgs e)
         {
+            var frmProduct=_sp.GetRequiredService<FrmProductSave>();
+            frmProduct.ShowDialog();
+
             //FrmProductSave productSave = new FrmProductSave();
             //productSave.MdiParent = this;
             ////childForm.Text = "Window " + childFormNumber++;
@@ -85,12 +88,16 @@ namespace AppNet.WinFormUI
         {
             var FrmEmployee =_sp.GetRequiredService<FrmEmployee>();
             FrmEmployee.ShowDialog();
+            FrmEmployee.tabControl1.SelectTab(1);
 
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+            //statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+            var frmEmployeeList = _sp.GetRequiredService<FrmEmployee>();
+            frmEmployeeList.ShowDialog();
+            frmEmployeeList.tabControl1.SelectTab(2);
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,10 +142,14 @@ namespace AppNet.WinFormUI
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          var frmCustomerSave=_sp.GetRequiredService<FrmCustomerSave>();
+            frmCustomerSave.ShowDialog();
         }
 
         private void müşterilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var frmCustomerList=_sp.GetRequiredService<FrmCustomerList>();
+            frmCustomerList.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -153,6 +164,22 @@ namespace AppNet.WinFormUI
             Application.Exit();
         }
 
-        
+        private void tedarikçiEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmSuplierSave=_sp.GetRequiredService<FrmSupplierSave>();
+            frmSuplierSave.ShowDialog();
+        }
+
+        private void tedarikcilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //var frmSuplier
+        }
+
+        private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //var frmProductList=_sp.GetRequiredService<ProductList>()
+            //    frmProductList.SowDialog();
+
+        }
     }
 }
