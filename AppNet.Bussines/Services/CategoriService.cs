@@ -34,16 +34,16 @@ namespace AppNet.Bussines.Concrete
             return true;
         }
 
-        public Task<Category> Update(int CategoryID, string NewCategoryName)
+        public async Task<Category> Update(int CategoryID, string NewCategoryName)
         {
-            //Category category = new Category()
-            //{
-            //    CategoryId = CategoryID,
-            //    CategoryName = NewCategoryName,
-            //};
-            //repository.Update(category.CategoryId, category);
-            //return category;
-            throw new NotImplementedException();
+            Category category = new Category()
+            {
+                CategoryId = CategoryID,
+                CategoryName = NewCategoryName,
+            };
+            _repository.Update(category);
+            return category;
+            //throw new NotImplementedException();
         }
     }
 }

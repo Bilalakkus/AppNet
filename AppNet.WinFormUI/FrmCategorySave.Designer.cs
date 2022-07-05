@@ -32,14 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategoriName = new System.Windows.Forms.TextBox();
             this.txtCategoryId = new System.Windows.Forms.TextBox();
-            this.btnListe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCategorySave
             // 
-            this.btnCategorySave.Location = new System.Drawing.Point(469, 148);
+            this.btnCategorySave.Location = new System.Drawing.Point(522, 144);
             this.btnCategorySave.Name = "btnCategorySave";
-            this.btnCategorySave.Size = new System.Drawing.Size(75, 34);
+            this.btnCategorySave.Size = new System.Drawing.Size(125, 34);
             this.btnCategorySave.TabIndex = 0;
             this.btnCategorySave.Text = "Kaydet";
             this.btnCategorySave.UseVisualStyleBackColor = true;
@@ -69,23 +68,12 @@
             this.txtCategoryId.TabIndex = 3;
             this.txtCategoryId.Visible = false;
             // 
-            // btnListe
-            // 
-            this.btnListe.Location = new System.Drawing.Point(554, 147);
-            this.btnListe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnListe.Name = "btnListe";
-            this.btnListe.Size = new System.Drawing.Size(93, 35);
-            this.btnListe.TabIndex = 17;
-            this.btnListe.Text = "Liste";
-            this.btnListe.UseVisualStyleBackColor = true;
-            // 
             // FrmCategorySave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(711, 257);
-            this.Controls.Add(this.btnListe);
             this.Controls.Add(this.txtCategoryId);
             this.Controls.Add(this.txtCategoriName);
             this.Controls.Add(this.label1);
@@ -106,6 +94,5 @@
         public TextBox txtCategoriName;
         public TextBox txtCategoryId;
         public Button btnCategorySave;
-        private Button btnListe;
     }
 }

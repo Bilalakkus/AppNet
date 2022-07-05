@@ -14,6 +14,6 @@ namespace AppNet.Domain.Entities.Abstract
         Task<bool> Remove(int id);
         Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
-        Task<TEntity> Update(int id, TEntity entity);
+        Task<TEntity> Update(TEntity entity);
     }
 }

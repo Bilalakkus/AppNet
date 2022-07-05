@@ -29,7 +29,7 @@ namespace AppNet.Domain.Entities.Concrete
         {
             Stock -= miktar;
         }
-
+        public int CategoryId { get; set; }
         //public Stock Stock { get; set; }
 
         //public ICollection<Order> Orders { get; set; } = new List<Order>();

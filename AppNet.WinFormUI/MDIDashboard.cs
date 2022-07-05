@@ -137,7 +137,7 @@ namespace AppNet.WinFormUI
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frmCategoriList=_sp.GetRequiredService<FrmCategoryList>();
-            frmCategoriList.ShowDialog();
+            frmCategoriList.Show();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)

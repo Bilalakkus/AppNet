@@ -16,39 +16,40 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmCategoryList : Form
     {
+        private readonly IServiceProvider _sp;
         private readonly ICategoriService _categoriService;
         private readonly Logger _lg;
-        public FrmCategoryList(ICategoriService categoriService, Logger lg)
+        public FrmCategoryList(IServiceProvider sp, ICategoriService categoriService, Logger lg)
         {
-            InitializeComponent();
+            this._sp = sp;
             this._categoriService = categoriService;
             this._lg = lg;
+
+            InitializeComponent();
+
         }
 
         private async void FrmCategoryList_Load(object sender, EventArgs e)
         {
             // LoadGridData();
-            var list = (await _categoriService.GetAll()).OrderBy(c=>c.CategoryName).ToList();
-
+            var list = (await _categoriService.GetAll()).OrderBy(c => c.CategoryName).ToList();
             gridCategories.DataSource = list;
-                
         }
-        private async void LoadGridData()
+        public async void LoadGridData()
         {
             var category = (await _categoriService.GetAll()).ToList();
             var data = from c in category
                        orderby c.CategoryName ascending
                        select new CategoriViewModel
                        {
-                           CategoriId =c.CategoryId,
-                           CategoriName = c.CategoryName                    
-                           
+                           CategoriId = c.CategoryId,
+                           CategoriName = c.CategoryName
+
                        };
             foreach (var item in data)
             {
                 AddRowToGrid(item);
             }
-
         }
         private void AddRowToGrid(CategoriViewModel model)
         {
@@ -76,10 +77,15 @@ namespace AppNet.WinFormUI
                 LoadGridData();
             }
         }
-
-        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void guncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var categoryId = Convert.ToInt32(gridCategories.CurrentRow.Cells[0].Value);
+            var categoryName = gridCategories.CurrentRow.Cells[1].Value.ToString();
+            var frmCategori = _sp.GetService(typeof(FrmCategorySave)) as FrmCategorySave;
+            frmCategori.txtCategoryId.Text = categoryId.ToString();
+            frmCategori.txtCategoriName.Text = categoryName;
+            frmCategori.btnCategorySave.Text = "Güncelle";
+            frmCategori.Show();
         }
     }
 }

@@ -16,13 +16,16 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmCategorySave : Form
     {
+        private readonly IServiceProvider _sp;
         private readonly ICategoriService _categoriService;
         private readonly Logger _lg;
-        public FrmCategorySave(ICategoriService categoriService, Logger lg)
+        public FrmCategorySave(IServiceProvider sp, ICategoriService categoriService, Logger lg)
         {
-            InitializeComponent();
+            this._sp = sp;
             this._categoriService = categoriService;
-            this._lg=lg;
+            this._lg = lg;
+            InitializeComponent();
+
         }
 
         private void btnCategorySave_Click(object sender, EventArgs e)
@@ -35,11 +38,21 @@ namespace AppNet.WinFormUI
                 }
                 else
                 {
-                    Category category = new Category { CategoryName = txtCategoriName.Text };
-                    _categoriService.Add(category.CategoryName);
-                    MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
-                    _lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
-                    txtCategoriName.Text = "";
+                    if (btnCategorySave.Text == "Kaydet")
+                    {
+                        Category category = new Category { CategoryName = txtCategoriName.Text };
+                        _categoriService.Add(category.CategoryName);
+                        MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
+                        _lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
+                        txtCategoriName.Text = "";
+                    }
+                    else
+                    {
+                        _categoriService.Update(Convert.ToInt32(txtCategoryId.Text), txtCategoriName.Text);
+                        var frmCategoriList = _sp.GetService(typeof(FrmCategoryList)) as FrmCategoryList;
+                        frmCategoriList.Show();
+                        this.Close();
+                    }
                 }
             }
             catch (ArgumentNullException ex)

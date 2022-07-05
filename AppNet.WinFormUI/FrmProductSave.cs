@@ -16,26 +16,68 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmProductSave : Form
     {
+        private readonly IServiceProvider _sp;
         private readonly IProductService _productService;
+        private readonly ICategoriService _categoriService;
         private readonly Logger _lg;
-        public FrmProductSave(IProductService productService,Logger lg)
+        public FrmProductSave(IServiceProvider sp, IProductService productService, Logger lg, ICategoriService categoriService)
         {
-            InitializeComponent();
+            this._sp = sp;
             this._productService = productService;
             this._lg = lg;
+            this._categoriService = categoriService;
+            InitializeComponent();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (cmbCategories.SelectedIndex==0)
+            {
+                MessageBox.Show("Lütfen kategori seçiniz.", "Uyarı!!!");
+                return;
+            }
+            if (txtProductName.Text.Trim().Length<2)
+            {
+                MessageBox.Show("Ürün adını giriniz.", "Uyarı!!!");
+                return;
+            }
             Product product = new Product
             {
-                ProductName=txtProductName.Text,
-                Stock= Convert.ToInt32(txtStock.Text),
-                StockMin= Convert.ToInt16(txtStockMin),
-                UnitPrice= Convert.ToDecimal(txtUnitPrice.Text)
+                ProductName = txtProductName.Text,
+                Stock = Convert.ToInt32(txtStock.Text),
+                StockMin = Convert.ToInt16(txtStockMin.Text),
+                UnitPrice = Convert.ToDecimal(txtUnitPrice.Text)
+                ,CategoryId=Convert.ToInt32(cmbCategories.SelectedValue)
+                
             };
             _productService.Add(product);
+            MessageBox.Show("Kayıt başarılı.","Bilgi mesajı");
             _lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!");
+            ClearForm();
+        }
+
+        private async void FrmProductSave_Load(object sender, EventArgs e)
+        {
+            cmbCategories.Items.Clear();
+            var list = (await _categoriService.GetAll()).OrderBy(c => c.CategoryName).ToList();
+            list.Insert( 0, new Category { CategoryId = 0, CategoryName = "Seçiniz" });
+            cmbCategories.DataSource = list;
+            cmbCategories.DisplayMember = "CategoryName";
+            cmbCategories.ValueMember = "CategoryId";
+
+        }
+
+        private void btnClearForm_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+        private void ClearForm()
+        {
+            cmbCategories.SelectedIndex = 0;
+            txtProductName.Text = "";
+            txtStock.Text = "";
+            txtStockMin.Text = "";
+            txtUnitPrice.Text = "";
         }
     }
 }
