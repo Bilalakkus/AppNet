@@ -16,13 +16,13 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmCategorySave : Form
     {
-        private readonly ICategoriService _CategoriService;
-        private readonly Logger _Lg;
+        private readonly ICategoriService _categoriService;
+        private readonly Logger _lg;
         public FrmCategorySave(ICategoriService categoriService, Logger lg)
         {
             InitializeComponent();
-            this._CategoriService = categoriService;
-            this._Lg=lg;
+            this._categoriService = categoriService;
+            this._lg=lg;
         }
 
         private void btnCategorySave_Click(object sender, EventArgs e)
@@ -36,9 +36,9 @@ namespace AppNet.WinFormUI
                 else
                 {
                     Category category = new Category { CategoryName = txtCategoriName.Text };
-                    _CategoriService.Add(category.CategoryName);
+                    _categoriService.Add(category.CategoryName);
                     MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
-                    _Lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
+                    _lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
                     txtCategoriName.Text = "";
                 }
             }
@@ -50,7 +50,7 @@ namespace AppNet.WinFormUI
             {
 
                 MessageBox.Show("İşlem gerçekleştirilemedi!!!");
-                _Lg.AddLog($"{txtCategoriName.Text} kategorisi eklenemedi kategorisi eklendi. (Hata:{xe.Message})");
+                _lg.AddLog($"{txtCategoriName.Text} kategorisi eklenemedi kategorisi eklendi. (Hata:{xe.Message})");
             }
 
         }

@@ -1,5 +1,7 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Domain.ViewModels;
+using AppNet.Infrastructer.Logging;
+using AppNet.Infrastructer.Notification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +17,12 @@ namespace AppNet.WinFormUI
     public partial class FrmCategoryList : Form
     {
         private readonly ICategoriService _categoriService;
-        public FrmCategoryList(ICategoriService categoriService)
+        private readonly Logger _lg;
+        public FrmCategoryList(ICategoriService categoriService, Logger lg)
         {
             InitializeComponent();
             this._categoriService = categoriService;
+            this._lg = lg;
         }
 
         private async void FrmCategoryList_Load(object sender, EventArgs e)
@@ -52,6 +56,30 @@ namespace AppNet.WinFormUI
             row.Cells[0].Value = model.CategoriId;
             row.Cells[1].Value = model.CategoriName;
             gridCategories.Rows.Add(row);
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var categoryId = Convert.ToInt32(gridCategories.CurrentRow.Cells[0].Value);
+            var categoryName = gridCategories.CurrentRow.Cells[1].Value.ToString();
+
+            DialogResult result = MessageBox.Show($"{categoryName} kategorisini silmek istediğinizden emin misiniz?",
+                 "Silme Onayı!",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                _categoriService.Remove(categoryId);
+                _lg.AddLog($"{categoryName} kategorisi silindi.");
+                SentTelegram sent = new SentTelegram();
+                sent.TelegramMesjGonder($"{categoryName} kategorisi silindi.");
+                LoadGridData();
+            }
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
