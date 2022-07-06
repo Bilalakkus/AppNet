@@ -14,6 +14,7 @@ namespace AppNet.Domain.Entities.Concrete
         public string ProductName { get; set; }
         public string Type { get; set; }
         public decimal UnitPrice { get; set; }
+        public string ImgPath { get; set; }
         public short StockMin { get; set; }
         private int _stock;
         public int Stock

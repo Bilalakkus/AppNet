@@ -40,6 +40,7 @@ namespace AppNet.WinFormUI
             services.AddScoped<FrmSupplierSave>();
             services.AddScoped<MDIDashboard>();
             services.AddScoped<FrmDateBaseInformation>();
+            services.AddScoped<FrmProductList>();
             services.AddScoped<Logger>();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

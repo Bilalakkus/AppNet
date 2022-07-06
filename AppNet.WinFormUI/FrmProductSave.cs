@@ -46,9 +46,9 @@ namespace AppNet.WinFormUI
                 ProductName = txtProductName.Text,
                 Stock = Convert.ToInt32(txtStock.Text),
                 StockMin = Convert.ToInt16(txtStockMin.Text),
-                UnitPrice = Convert.ToDecimal(txtUnitPrice.Text)
-                ,CategoryId=Convert.ToInt32(cmbCategories.SelectedValue)
-                
+                UnitPrice = Convert.ToDecimal(txtUnitPrice.Text),
+                CategoryId = Convert.ToInt32(cmbCategories.SelectedValue),
+                ImgPath = pictureProduct.Image.ToString()
             };
             _productService.Add(product);
             MessageBox.Show("Kayıt başarılı.","Bilgi mesajı");
@@ -78,6 +78,16 @@ namespace AppNet.WinFormUI
             txtStock.Text = "";
             txtStockMin.Text = "";
             txtUnitPrice.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureProduct.Image = new Bitmap(opnfd.FileName);
+            }
         }
     }
 }

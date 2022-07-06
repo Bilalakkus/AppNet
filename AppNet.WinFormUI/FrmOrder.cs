@@ -16,5 +16,17 @@ namespace AppNet.WinFormUI
         {
             InitializeComponent();
         }
+        private void button21_Click(object sender, EventArgs e)
+        {
+            txtCount.Text =(Convert.ToInt16(txtCount.Text.Trim()) + 1).ToString();
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (txtCount.Text!="1")
+            {
+                txtCount.Text = (Convert.ToInt16(txtCount.Text.Trim()) - 1).ToString();
+            }
+        }
     }
 }
