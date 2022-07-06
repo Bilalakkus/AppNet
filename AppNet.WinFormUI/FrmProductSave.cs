@@ -41,6 +41,7 @@ namespace AppNet.WinFormUI
                 MessageBox.Show("Ürün adını giriniz.", "Uyarı!!!");
                 return;
             }
+            var IMG=pictureProduct.Image;
             Product product = new Product
             {
                 ProductName = txtProductName.Text,
@@ -48,7 +49,11 @@ namespace AppNet.WinFormUI
                 StockMin = Convert.ToInt16(txtStockMin.Text),
                 UnitPrice = Convert.ToDecimal(txtUnitPrice.Text),
                 CategoryId = Convert.ToInt32(cmbCategories.SelectedValue),
-                ImgPath = pictureProduct.Image.ToString()
+                ImgPath = lblImgPath.Text,
+                AddingId=1,
+                IsItPassive=true,
+                Type="",
+                CreateDate=DateTime.Now,
             };
             _productService.Add(product);
             MessageBox.Show("Kayıt başarılı.","Bilgi mesajı");
@@ -58,7 +63,7 @@ namespace AppNet.WinFormUI
 
         private async void FrmProductSave_Load(object sender, EventArgs e)
         {
-            cmbCategories.Items.Clear();
+            //cmbCategories.Items.Clear();
             var list = (await _categoriService.GetAll()).OrderBy(c => c.CategoryName).ToList();
             list.Insert( 0, new Category { CategoryId = 0, CategoryName = "Seçiniz" });
             cmbCategories.DataSource = list;
@@ -78,16 +83,23 @@ namespace AppNet.WinFormUI
             txtStock.Text = "";
             txtStockMin.Text = "";
             txtUnitPrice.Text = "";
+            pictureProduct.Image = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opnfd = new OpenFileDialog();
-            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
-            if (opnfd.ShowDialog() == DialogResult.OK)
-            {
-                pictureProduct.Image = new Bitmap(opnfd.FileName);
-            }
+            //OpenFileDialog opnfd = new OpenFileDialog();
+            //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            //if (opnfd.ShowDialog() == DialogResult.OK)
+            //{
+            //    pictureProduct.Image = new Bitmap(opnfd.FileName);
+            //}
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "Resim Dosyası |*.jpg;*.nef;*.png |  Tüm Dosyalar |*.*";
+            file.ShowDialog();
+            string filePath = file.FileName;
+            lblImgPath.Text = filePath;
+            pictureProduct.ImageLocation = filePath;
         }
     }
 }

@@ -13,13 +13,13 @@ namespace AppNet.WinFormUI
     {
         private readonly IServiceProvider _sp;
         private readonly AppNetDbContext _db;
-        
-        public FrmDateBaseInformation( AppNetDbContext db, IServiceProvider sp)
+
+        public FrmDateBaseInformation(AppNetDbContext db, IServiceProvider sp)
         {
             InitializeComponent();
             this._sp = sp;
             this._db = db;
-           
+
         }
         private void FrmDateBaseInformation_Load(object sender, EventArgs e)
         {
@@ -59,21 +59,28 @@ namespace AppNet.WinFormUI
             MessageBox.Show("Database Oluşturuldu!");
             SentTelegram sent = new SentTelegram();
             sent.TelegramMesjGonder("Veritabanı Oluşturuldu");
-            var frm = _sp.GetRequiredService<FrmLogin>();
-            frm.ShowDialog();
-            this.Close();
-            var log=_sp.GetRequiredService<Logger>();
-             log.AddLog("Veri tabanı oluşturuldu.");
             //veritabanı oluştuktan sonra admin kullanıcısını oluştur
             Employee employee = new Employee
             {
                 Name = "Yönetici",
                 LastName = "Yetkili",
                 Password = "a1234*",
-                User = "admin"
+                User = "admin",
+                AddingId =1,
+                DateOfBirth=DateTime.Now,
+                IsItPassive=true,
+                Salary=0,
+                Tc="11111111111",
+                WDate=DateTime.Now,
+                CreateDate=DateTime.Now,
             };
             var emp = _sp.GetRequiredService<IEmployeeService>();
             emp.Add(employee);
+            var log = _sp.GetRequiredService<Logger>();
+            log.AddLog("Veri tabanı oluşturuldu.");
+            var frm = _sp.GetRequiredService<FrmLogin>();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }

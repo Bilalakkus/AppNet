@@ -58,7 +58,6 @@ namespace AppNet.WinFormUI
             row.Cells[1].Value = model.CategoriName;
             gridCategories.Rows.Add(row);
         }
-
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var categoryId = Convert.ToInt32(gridCategories.CurrentRow.Cells[0].Value);
