@@ -3,6 +3,7 @@ using AppNet.Bussines.Concrete;
 using AppNet.Bussines.Services;
 using AppNet.Domain.Entities.Abstract;
 using AppNet.Infrastructer.Logging;
+using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence;
 using AppNet.Infrastructer.Persistence.Contexts;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,12 +14,15 @@ namespace AppNet.WinFormUI
 {
     internal static class Program
     {
+        public delegate void Logger(string message,int id);
+        
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+
             var settings = DatabaseInformation.Load();
             var services = new ServiceCollection();
             ConfigureServices(services);
@@ -42,6 +46,7 @@ namespace AppNet.WinFormUI
             services.AddScoped<FrmDateBaseInformation>();
             services.AddScoped<FrmProductList>();
             services.AddScoped<Logger>();
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             using (ServiceProvider sp = services.BuildServiceProvider())

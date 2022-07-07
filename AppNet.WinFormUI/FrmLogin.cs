@@ -34,7 +34,7 @@ namespace AppNet.WinFormUI
                 var log = _sp.GetRequiredService<Logger>;
                 var safe=_sp.GetRequiredService<IOrderService>();
                 var emp = _sp.GetRequiredService<IEmployeeService>();
-
+            
             var list = (await emp.GetAll());
             var tempUser = list.SingleOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
             if (tempUser == null)

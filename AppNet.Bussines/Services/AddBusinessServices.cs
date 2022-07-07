@@ -2,6 +2,7 @@
 using AppNet.Bussines.Concrete;
 using AppNet.Domain;
 using AppNet.Domain.Entities.Abstract;
+using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -29,6 +30,7 @@ namespace AppNet.Bussines.Services
             services.AddScoped<IStockService, StockService>();
             services.AddScoped<ISuplierService, SuplierService>();
             services.AddScoped<IDatabaseService, DataBaseService>();
+            services.AddScoped<ILoggerDbService, LoggerDbService>();
             //services.AddScoped<Logger, Logger>();
         }
     }
