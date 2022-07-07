@@ -18,12 +18,12 @@ namespace AppNet.WinFormUI
     {
         private readonly IServiceProvider _sp;
         private readonly ICategoriService _categoriService;
-        private readonly Logger _lg;
-        public FrmCategoryList(IServiceProvider sp, ICategoriService categoriService, Logger lg)
+        //private readonly FileLogger _lg;
+        public FrmCategoryList(IServiceProvider sp, ICategoriService categoriService)
         {
             this._sp = sp;
             this._categoriService = categoriService;
-            this._lg = lg;
+            //this._lg = lg;
 
             InitializeComponent();
 
@@ -70,7 +70,7 @@ namespace AppNet.WinFormUI
             if (result == DialogResult.Yes)
             {
                 _categoriService.Remove(categoryId);
-                _lg.AddLog($"{categoryName} kategorisi silindi.");
+                //_lg.AddLog($"{categoryName} kategorisi silindi.",1);
                 SentTelegram sent = new SentTelegram();
                 sent.TelegramMesjGonder($"{categoryName} kategorisi silindi.");
                 LoadGridData();

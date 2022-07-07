@@ -19,12 +19,12 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider _sp;
         private readonly IProductService _productService;
         private readonly ICategoriService _categoriService;
-        private readonly Logger _lg;
-        public FrmProductSave(IServiceProvider sp, IProductService productService, Logger lg, ICategoriService categoriService)
+        //private readonly FileLogger _lg;
+        public FrmProductSave(IServiceProvider sp, IProductService productService, ICategoriService categoriService)
         {
             this._sp = sp;
             this._productService = productService;
-            this._lg = lg;
+            //this._lg = lg;
             this._categoriService = categoriService;
             InitializeComponent();
         }
@@ -57,7 +57,7 @@ namespace AppNet.WinFormUI
             };
             _productService.Add(product);
             MessageBox.Show("Kayıt başarılı.","Bilgi mesajı");
-            _lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!");
+            //_lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!",1);
             ClearForm();
         }
 

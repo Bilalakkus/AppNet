@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppNet.Infrastructer.Logging\AppNet.Infrastructer.Logging.csproj" />
+  </ItemGroup>
+
 </Project>

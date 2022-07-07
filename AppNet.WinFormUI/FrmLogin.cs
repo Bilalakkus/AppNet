@@ -13,6 +13,7 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmLogin : Form
     {
+        //public delegate void Islemci(int sayi1, int sayi2);
         private readonly IServiceProvider _sp;
         public FrmLogin(IServiceProvider sp)
         {
@@ -31,7 +32,7 @@ namespace AppNet.WinFormUI
         }
         private async void btnGiris_Click(object sender, EventArgs e)
         {
-                var log = _sp.GetRequiredService<Logger>;
+                //var log = _sp.GetRequiredService<FileLogger>;
                 var safe=_sp.GetRequiredService<IOrderService>();
                 var emp = _sp.GetRequiredService<IEmployeeService>();
             
@@ -40,7 +41,9 @@ namespace AppNet.WinFormUI
             if (tempUser == null)
             {
                 lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-                //log.("Hatalý kullanýcý giriþi denemesi.");
+                //log.();
+                LoggerWrite(AfterGetLogDelegate,"Hatalý kullanýcý giriþi denemesi.", 1);
+                //_afterGetLogDelegate();
             }
             else
             {
@@ -50,6 +53,11 @@ namespace AppNet.WinFormUI
                 mdiForm.ShowDialog();
                 this.Close();
             }
+        }
+
+        private static void LoggerWrite(AfterGetLogDelegate afterGetLog,string moment,int id)
+        {
+            afterGetLog.Invoke(moment, id);
         }
     }
 }

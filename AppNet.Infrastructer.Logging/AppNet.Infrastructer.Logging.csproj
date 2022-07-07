@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AppNet.Bussines\AppNet.Bussines.csproj" />
-    <ProjectReference Include="..\AppNet.Domain\AppNet.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

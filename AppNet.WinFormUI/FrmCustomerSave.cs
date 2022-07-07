@@ -18,12 +18,12 @@ namespace AppNet.WinFormUI
     public partial class FrmCustomerSave : Form
     {
         private readonly ICustomerService _CustomerService;
-        private readonly Logger _Lg;
-        public FrmCustomerSave(ICustomerService customerService, Logger lg)
+        //private readonly FileLogger _Lg;
+        public FrmCustomerSave(ICustomerService customerService)
         {
             InitializeComponent();
             this._CustomerService = customerService;
-            this._Lg = lg;
+            //this._Lg = lg;
         }
 
         private void btnCustomerSave_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace AppNet.WinFormUI
                 if (!txtTcVergiNo.Text.TcVerify())
                 {
                     MessageBox.Show("T.C. Kimlik Numarsı Hatalı");
-                    _Lg.AddLog($"{txtTcVergiNo.Text} Hatalı TC eklenmeye çalışıldı.");
+                    //_Lg.AddLog($"{txtTcVergiNo.Text} Hatalı TC eklenmeye çalışıldı.");
                     return;
                 }
                 txtName.Text.NullOrEmpty(nameof(txtName.Text));
@@ -48,7 +48,7 @@ namespace AppNet.WinFormUI
                     
                 };
                 _CustomerService.Add(customer);
-                _Lg.AddLog($"{txtName.Text} {txtLastName} müşteri eklendi.");
+                //_Lg.AddLog($"{txtName.Text} {txtLastName} müşteri eklendi.");
             }
             catch (Exception)
             {

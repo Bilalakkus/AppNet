@@ -19,7 +19,7 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider _sp;
         private readonly IProductService _productService;
         private readonly ICategoriService _categoriService;
-        private readonly Logger _lg;
+        //private readonly FileLogger _lg;
         public FrmProductList(IServiceProvider sp, IProductService productService, ICategoriService categoriService)
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace AppNet.WinFormUI
             if (result == DialogResult.Yes)
             {
                 _productService.Remove(Convert.ToInt32(txtPtoductId.Text));
-                _lg.AddLog($"{txtProductName.Text} ürünü silindi.");
+                //_lg.AddLog($"{txtProductName.Text} ürünü silindi.",1);
                 SentTelegram sent = new SentTelegram();
                 sent.TelegramMesjGonder($"{txtProductName.Text} ürünü silindi.");
                 LoadGridData();

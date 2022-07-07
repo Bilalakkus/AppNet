@@ -76,8 +76,8 @@ namespace AppNet.WinFormUI
             };
             var emp = _sp.GetRequiredService<IEmployeeService>();
             emp.Add(employee);
-            var log = _sp.GetRequiredService<Logger>();
-            log.AddLog("Veri tabanı oluşturuldu.");
+            //var log = _sp.GetRequiredService<FileLogger>();
+            //log.AddLog("Veri tabanı oluşturuldu.");
             var frm = _sp.GetRequiredService<FrmLogin>();
             frm.ShowDialog();
             this.Close();
