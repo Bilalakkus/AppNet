@@ -16,7 +16,7 @@ namespace AppNet.Infrastructer.Logging
         //{
         //    get { return $"İşlem Tarihi:{CreateDate}; İşlem:{moment};Ekleyen:{AddingId};,"; }
         //}
-        public static void AddLog( string moment,int IsItAddId)
+        public static void AddLog(string moment,int IsItAddId)
         {
             string logText= $"İşlem Tarihi:{DateTime.Now}; İşlem:{moment};Ekleyen:{IsItAddId};,";
             var json = JsonSerializer.Serialize(logText);
