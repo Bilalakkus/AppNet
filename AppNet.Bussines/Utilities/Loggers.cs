@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain
 {
-    public static class Loggers
+    public class Loggers
     {
-        public static void LoggerWrite(AfterGetLogDelegate log, string moment, int addingId)
+        //public delegate void AfterGetLogx(string moment, int AddingId);
+        public static void LoggerWrite(string moment, int addingId)
         {
-            log = FileLogger.AddLog;
-            log += LoggerDbWrite.AddLogDb;
-            log.Invoke(moment,addingId);
+            AfterGetLog logg;
+            logg = FileLogger.AddLog;
+            logg += LoggerDbWrite.AddLogDb;
+            logg.Invoke(moment,addingId);
         }
     }
 }

@@ -48,7 +48,7 @@
             // lblTcVergino
             // 
             this.lblTcVergino.AutoSize = true;
-            this.lblTcVergino.Location = new System.Drawing.Point(107, 131);
+            this.lblTcVergino.Location = new System.Drawing.Point(9, 61);
             this.lblTcVergino.Name = "lblTcVergino";
             this.lblTcVergino.Size = new System.Drawing.Size(112, 21);
             this.lblTcVergino.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             // btnCustomerSave
             // 
-            this.btnCustomerSave.Location = new System.Drawing.Point(354, 459);
+            this.btnCustomerSave.Location = new System.Drawing.Point(256, 321);
             this.btnCustomerSave.Name = "btnCustomerSave";
             this.btnCustomerSave.Size = new System.Drawing.Size(83, 46);
             this.btnCustomerSave.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             // txtTcVergiNo
             // 
-            this.txtTcVergiNo.Location = new System.Drawing.Point(232, 131);
+            this.txtTcVergiNo.Location = new System.Drawing.Point(134, 61);
             this.txtTcVergiNo.Name = "txtTcVergiNo";
             this.txtTcVergiNo.Size = new System.Drawing.Size(453, 29);
             this.txtTcVergiNo.TabIndex = 2;
@@ -74,7 +74,7 @@
             // radioGercek
             // 
             this.radioGercek.AutoSize = true;
-            this.radioGercek.Location = new System.Drawing.Point(233, 84);
+            this.radioGercek.Location = new System.Drawing.Point(135, 14);
             this.radioGercek.Name = "radioGercek";
             this.radioGercek.Size = new System.Drawing.Size(111, 25);
             this.radioGercek.TabIndex = 3;
@@ -85,7 +85,7 @@
             // radioTuzel
             // 
             this.radioTuzel.AutoSize = true;
-            this.radioTuzel.Location = new System.Drawing.Point(399, 84);
+            this.radioTuzel.Location = new System.Drawing.Point(301, 14);
             this.radioTuzel.Name = "radioTuzel";
             this.radioTuzel.Size = new System.Drawing.Size(68, 25);
             this.radioTuzel.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(232, 180);
+            this.txtName.Location = new System.Drawing.Point(134, 98);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(453, 29);
             this.txtName.TabIndex = 6;
@@ -103,7 +103,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 180);
+            this.label1.Location = new System.Drawing.Point(9, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 21);
             this.label1.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(232, 228);
+            this.txtLastName.Location = new System.Drawing.Point(134, 135);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(453, 29);
             this.txtLastName.TabIndex = 8;
@@ -119,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 228);
+            this.label2.Location = new System.Drawing.Point(9, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 21);
             this.label2.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(232, 278);
+            this.txtPhone.Location = new System.Drawing.Point(134, 172);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(453, 29);
             this.txtPhone.TabIndex = 10;
@@ -135,7 +135,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 278);
+            this.label3.Location = new System.Drawing.Point(9, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 21);
             this.label3.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             // txtAdress
             // 
-            this.txtAdress.Location = new System.Drawing.Point(232, 331);
+            this.txtAdress.Location = new System.Drawing.Point(134, 208);
             this.txtAdress.Multiline = true;
             this.txtAdress.Name = "txtAdress";
             this.txtAdress.Size = new System.Drawing.Size(453, 99);
@@ -152,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 331);
+            this.label4.Location = new System.Drawing.Point(9, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 21);
             this.label4.TabIndex = 11;
@@ -160,7 +160,7 @@
             // 
             // btnClearForm
             // 
-            this.btnClearForm.Location = new System.Drawing.Point(544, 459);
+            this.btnClearForm.Location = new System.Drawing.Point(446, 321);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(141, 46);
             this.btnClearForm.TabIndex = 13;
@@ -169,7 +169,7 @@
             // 
             // btnListe
             // 
-            this.btnListe.Location = new System.Drawing.Point(444, 459);
+            this.btnListe.Location = new System.Drawing.Point(346, 321);
             this.btnListe.Margin = new System.Windows.Forms.Padding(4);
             this.btnListe.Name = "btnListe";
             this.btnListe.Size = new System.Drawing.Size(93, 46);
@@ -182,7 +182,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(760, 630);
+            this.ClientSize = new System.Drawing.Size(602, 392);
             this.Controls.Add(this.btnListe);
             this.Controls.Add(this.btnClearForm);
             this.Controls.Add(this.txtAdress);

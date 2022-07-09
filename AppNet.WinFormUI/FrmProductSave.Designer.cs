@@ -43,6 +43,7 @@
             this.pictureProduct = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblImgPath = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,12 +179,21 @@
             this.lblImgPath.Size = new System.Drawing.Size(0, 21);
             this.lblImgPath.TabIndex = 22;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(249, 7);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 29);
+            this.txtId.TabIndex = 23;
+            this.txtId.Visible = false;
+            // 
             // FrmProductSave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(693, 339);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblImgPath);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureProduct);
@@ -212,21 +222,21 @@
         }
 
         #endregion
-
-        private Button btnSave;
-        private ComboBox cmbCategories;
         private Label label1;
-        private TextBox txtProductName;
         private Label label2;
         private Label label3;
-        private TextBox txtUnitPrice;
         private Label label4;
-        private TextBox txtStockMin;
         private Label label5;
-        private TextBox txtStock;
         private Button btnClearForm;
-        private PictureBox pictureProduct;
         private Button button1;
         private Label lblImgPath;
+        public ComboBox cmbCategories;
+        public TextBox txtProductName;
+        public TextBox txtUnitPrice;
+        public TextBox txtStockMin;
+        public TextBox txtStock;
+        public PictureBox pictureProduct;
+        public Button btnSave;
+        public TextBox txtId;
     }
 }

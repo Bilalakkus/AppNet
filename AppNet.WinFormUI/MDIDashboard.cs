@@ -178,7 +178,7 @@ namespace AppNet.WinFormUI
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frmProductList = _sp.GetRequiredService<FrmProductList>();
-                frmProductList.ShowDialog();
+                frmProductList.Show();
 
         }
     }

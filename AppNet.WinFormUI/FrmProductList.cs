@@ -67,18 +67,15 @@ namespace AppNet.WinFormUI
 
         private void dtGridProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            
-            txtProductName.Text= dtGridProduct.CurrentRow.Cells[1].Value.ToString();
+
+
+            txtProductName.Text = dtGridProduct.CurrentRow.Cells[1].Value.ToString();
             txtStock.Text = dtGridProduct.CurrentRow.Cells[6].Value.ToString();
             txtStockMin.Text = dtGridProduct.CurrentRow.Cells[5].Value.ToString();
             txtUnitPrice.Text = dtGridProduct.CurrentRow.Cells[3].Value.ToString();
-            pictureProduct.ImageLocation=dtGridProduct.CurrentRow.Cells[4].Value.ToString();
-            txtPtoductId.Text= dtGridProduct.CurrentRow.Cells[0].Value.ToString();
-
-
+            pictureProduct.ImageLocation = dtGridProduct.CurrentRow.Cells[4].Value.ToString();
+            txtPtoductId.Text = dtGridProduct.CurrentRow.Cells[0].Value.ToString();
         }
-
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show($"{txtProductName.Text} ürününü silmek istediğinizden emin misiniz?",
@@ -93,6 +90,17 @@ namespace AppNet.WinFormUI
                 sent.TelegramMesjGonder($"{txtProductName.Text} ürünü silindi.");
                 LoadGridData();
             }
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var frmProduct = _sp.GetService(typeof(FrmProductSave)) as FrmProductSave;
+            frmProduct.txtProductName.Text = txtProductName.Text;
+            frmProduct.txtStock.Text = txtStock.Text;
+            frmProduct.txtStockMin.Text = txtStockMin.Text;
+            frmProduct.txtUnitPrice.Text = txtUnitPrice.Text;
+            frmProduct.txtId.Text = txtPtoductId.Text;
+            frmProduct.btnSave.Text = "Güncelle";
+            frmProduct.ShowDialog();
         }
     }
 }

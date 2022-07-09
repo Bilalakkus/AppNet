@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain
 {
-    public delegate void AfterGetLogDelegate(string moment, int AddingId);
+    public delegate void AfterGetLog(string moment, int AddingId);
 }

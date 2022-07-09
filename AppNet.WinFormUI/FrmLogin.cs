@@ -13,7 +13,7 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmLogin : Form
     {
-        //public delegate void Islemci(int sayi1, int sayi2);
+        public delegate void Islemci(string sayi1, int sayi2);
         private readonly IServiceProvider _sp;
         public FrmLogin(IServiceProvider sp)
         {
@@ -32,17 +32,18 @@ namespace AppNet.WinFormUI
         }
         private async void btnGiris_Click(object sender, EventArgs e)
         {
-                //var log = _sp.GetRequiredService<FileLogger>;
-                var safe=_sp.GetRequiredService<IOrderService>();
-                var emp = _sp.GetRequiredService<IEmployeeService>();
-            
+            //var log = _sp.GetRequiredService<FileLogger>;
+            var safe = _sp.GetRequiredService<IOrderService>();
+            var emp = _sp.GetRequiredService<IEmployeeService>();
+
             var list = (await emp.GetAll());
             var tempUser = list.SingleOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
             if (tempUser == null)
             {
                 lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
                 //log.();
-                LoggerWrite(AfterGetLogDelegate,"Hatalý kullanýcý giriþi denemesi.", 1);
+
+                Loggers.LoggerWrite("Hatalý kullanýcý giriþi denemesi.", 1);
                 //_afterGetLogDelegate();
             }
             else
@@ -55,9 +56,10 @@ namespace AppNet.WinFormUI
             }
         }
 
-        private static void LoggerWrite(AfterGetLogDelegate afterGetLog,string moment,int id)
-        {
-            afterGetLog.Invoke(moment, id);
-        }
+        //private static void LoggerWrite(string moment, int id)
+        //{
+        //    AfterGetLog islem;
+        //    islem.Invoke(moment, id);
+        //}
     }
 }

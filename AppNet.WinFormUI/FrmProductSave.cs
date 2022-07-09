@@ -31,41 +31,69 @@ namespace AppNet.WinFormUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmbCategories.SelectedIndex==0)
+
+            if (cmbCategories.SelectedIndex == 0)
             {
                 MessageBox.Show("Lütfen kategori seçiniz.", "Uyarı!!!");
                 return;
             }
-            if (txtProductName.Text.Trim().Length<2)
+            if (txtProductName.Text.Trim().Length < 2)
             {
                 MessageBox.Show("Ürün adını giriniz.", "Uyarı!!!");
                 return;
             }
-            var IMG=pictureProduct.Image;
-            Product product = new Product
+            if (btnSave.Text == "Kaydet")
             {
-                ProductName = txtProductName.Text,
-                Stock = Convert.ToInt32(txtStock.Text),
-                StockMin = Convert.ToInt16(txtStockMin.Text),
-                UnitPrice = Convert.ToDecimal(txtUnitPrice.Text),
-                CategoryId = Convert.ToInt32(cmbCategories.SelectedValue),
-                ImgPath = lblImgPath.Text,
-                AddingId=1,
-                IsItPassive=true,
-                Type="",
-                CreateDate=DateTime.Now,
-            };
-            _productService.Add(product);
-            MessageBox.Show("Kayıt başarılı.","Bilgi mesajı");
-            //_lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!",1);
-            ClearForm();
+                var IMG = pictureProduct.Image;
+                Product product = new Product
+                {
+                    ProductName = txtProductName.Text,
+                    Stock = Convert.ToInt32(txtStock.Text),
+                    StockMin = Convert.ToInt16(txtStockMin.Text),
+                    UnitPrice = Convert.ToDecimal(txtUnitPrice.Text),
+                    CategoryId = Convert.ToInt32(cmbCategories.SelectedValue),
+                    ImgPath = lblImgPath.Text,
+                    AddingId = 1,
+                    IsItPassive = true,
+                    Type = "",
+                    CreateDate = DateTime.Now,
+                };
+                _productService.Add(product);
+                MessageBox.Show("Kayıt başarılı.", "Bilgi mesajı");
+                //_lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!",1);
+                ClearForm();
+            }
+            else
+            {
+                var IMG = pictureProduct.Image;
+                Product product = new Product
+                {
+                    ProductId = Convert.ToInt32(txtId.Text.Trim()),
+                    ProductName = txtProductName.Text,
+                    Stock = Convert.ToInt32(txtStock.Text),
+                    StockMin = Convert.ToInt16(txtStockMin.Text),
+                    UnitPrice = Convert.ToDecimal(txtUnitPrice.Text),
+                    CategoryId = Convert.ToInt32(cmbCategories.SelectedValue),
+                    ImgPath = lblImgPath.Text,
+                    AddingId = 1,
+                    IsItPassive = true,
+                    Type = "",
+                    CreateDate = DateTime.Now,
+                };
+                _productService.Update(product);
+                MessageBox.Show("Güncelleme başarılı.", "Bilgi mesajı");
+                //_lg.AddLog($"{txtProductName.Text} ürünü eklendi!!!",1);
+                ClearForm();
+            }
+
+
         }
 
         private async void FrmProductSave_Load(object sender, EventArgs e)
         {
             //cmbCategories.Items.Clear();
             var list = (await _categoriService.GetAll()).OrderBy(c => c.CategoryName).ToList();
-            list.Insert( 0, new Category { CategoryId = 0, CategoryName = "Seçiniz" });
+            list.Insert(0, new Category { CategoryId = 0, CategoryName = "Seçiniz" });
             cmbCategories.DataSource = list;
             cmbCategories.DisplayMember = "CategoryName";
             cmbCategories.ValueMember = "CategoryId";

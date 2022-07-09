@@ -186,6 +186,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(40, 39);
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label5
             // 
