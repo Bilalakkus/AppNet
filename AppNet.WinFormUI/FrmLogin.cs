@@ -13,6 +13,7 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmLogin : Form
     {
+        //public delegate void Islemci(int sayi1, int sayi2);
         private readonly IServiceProvider _sp;
         public FrmLogin(IServiceProvider sp)
         {
@@ -34,12 +35,15 @@ namespace AppNet.WinFormUI
                 //var log = _sp.GetRequiredService<FileLogger>;
                 var safe=_sp.GetRequiredService<IOrderService>();
                 var emp = _sp.GetRequiredService<IEmployeeService>();
+            
             var list = (await emp.GetAll());
             var tempUser = list.SingleOrDefault(e => e.User == txtUser.Text && e.Password == txtPasword.Text);
             if (tempUser == null)
             {
                 lblWarning.Text = "Kullanýcý adý veya þifre hatalý!";
-                Loggers.LoggerWrite("Hatalý kullanýcý giriþi denemesi.", 1);
+                //log.();
+                LoggerWrite(AfterGetLogDelegate,"Hatalý kullanýcý giriþi denemesi.", 1);
+                //_afterGetLogDelegate();
             }
             else
             {
@@ -49,6 +53,11 @@ namespace AppNet.WinFormUI
                 mdiForm.ShowDialog();
                 this.Close();
             }
+        }
+
+        private static void LoggerWrite(AfterGetLogDelegate afterGetLog,string moment,int id)
+        {
+            afterGetLog.Invoke(moment, id);
         }
     }
 }

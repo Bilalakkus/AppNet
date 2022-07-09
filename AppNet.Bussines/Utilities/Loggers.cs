@@ -13,11 +13,11 @@ namespace AppNet.Domain
 {
     public static class Loggers
     {
-        public static void LoggerWrite(string moment, int addingId)
+        public static void LoggerWrite(AfterGetLogDelegate log, string moment, int addingId)
         {
-            AfterGetLog logg = FileLogger.AddLog;
-            logg += LoggerDbWrite.AddLogDb;
-            logg.Invoke(moment,addingId);
+            log = FileLogger.AddLog;
+            log += LoggerDbWrite.AddLogDb;
+            log.Invoke(moment,addingId);
         }
     }
 }
