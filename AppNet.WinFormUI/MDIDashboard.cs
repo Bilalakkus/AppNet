@@ -1,4 +1,5 @@
-﻿using AppNet.Bussines.Abstract;
+﻿using AppNet.Bussines;
+using AppNet.Bussines.Abstract;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -27,24 +28,15 @@ namespace AppNet.WinFormUI
         
         private void ShowNewForm(object sender, EventArgs e)
         {
-            var frmProduct=_sp.GetRequiredService<FrmProductSave>();
+            var frmProduct=_sp.GetRequiredService<FrmOrder>();
             frmProduct.ShowDialog();
 
-            //FrmProductSave productSave = new FrmProductSave();
-            //productSave.MdiParent = this;
-            ////childForm.Text = "Window " + childFormNumber++;
-            //productSave.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
+            var frmProduct = _sp.GetRequiredService<FrmProductList>();
+            frmProduct.ShowDialog();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +80,7 @@ namespace AppNet.WinFormUI
         {
             var FrmEmployee =_sp.GetRequiredService<FrmEmployee>();
             FrmEmployee.ShowDialog();
-            FrmEmployee.tabControl1.SelectTab(1);
+            FrmEmployee.tabControl1.SelectTab(0);
 
         }
 
@@ -97,7 +89,7 @@ namespace AppNet.WinFormUI
             //statusStrip.Visible = statusBarToolStripMenuItem.Checked;
             var frmEmployeeList = _sp.GetRequiredService<FrmEmployee>();
             frmEmployeeList.ShowDialog();
-            frmEmployeeList.tabControl1.SelectTab(2);
+            frmEmployeeList.tabControl1.SelectTab(1);
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,6 +172,36 @@ namespace AppNet.WinFormUI
             var frmProductList = _sp.GetRequiredService<FrmProductList>();
                 frmProductList.Show();
 
+        }
+        public async void CountCustomer()
+        {
+            var employee = _sp.GetRequiredService<ICustomerService>();
+            var list = (await employee.GetAll()).ToList();
+            lblCountCustomer.Text = list.Count.ToString();
+        }
+        public async void CountEmployee()
+        {
+            var employee = _sp.GetRequiredService<IEmployeeService>();
+            var list = (await employee.GetAll()).ToList();
+            lblCountEmployee.Text = list.Count.ToString();
+        }
+
+        private void MDIDashboard_Load(object sender, EventArgs e)
+        {
+            CountCustomer();
+            CountEmployee();
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            var frmCustomer = _sp.GetRequiredService<FrmCustomerSave>();
+            frmCustomer.Show();
+        }
+
+        private void printToolStripButton_Click(object sender, EventArgs e)
+        {
+            var frmEmployee = _sp.GetRequiredService<FrmEmployee>();
+            frmEmployee.Show();
         }
     }
 }

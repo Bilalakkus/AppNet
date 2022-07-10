@@ -42,7 +42,7 @@
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnClearForm = new System.Windows.Forms.Button();
-            this.btnListe = new System.Windows.Forms.Button();
+            this.txtCustomerId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTcVergino
@@ -56,10 +56,10 @@
             // 
             // btnCustomerSave
             // 
-            this.btnCustomerSave.Location = new System.Drawing.Point(256, 321);
+            this.btnCustomerSave.Location = new System.Drawing.Point(357, 321);
             this.btnCustomerSave.Name = "btnCustomerSave";
             this.btnCustomerSave.Size = new System.Drawing.Size(83, 46);
-            this.btnCustomerSave.TabIndex = 1;
+            this.btnCustomerSave.TabIndex = 8;
             this.btnCustomerSave.Text = "Kaydet";
             this.btnCustomerSave.UseVisualStyleBackColor = true;
             this.btnCustomerSave.Click += new System.EventHandler(this.btnCustomerSave_Click);
@@ -69,7 +69,7 @@
             this.txtTcVergiNo.Location = new System.Drawing.Point(134, 61);
             this.txtTcVergiNo.Name = "txtTcVergiNo";
             this.txtTcVergiNo.Size = new System.Drawing.Size(453, 29);
-            this.txtTcVergiNo.TabIndex = 2;
+            this.txtTcVergiNo.TabIndex = 3;
             // 
             // radioGercek
             // 
@@ -77,10 +77,11 @@
             this.radioGercek.Location = new System.Drawing.Point(135, 14);
             this.radioGercek.Name = "radioGercek";
             this.radioGercek.Size = new System.Drawing.Size(111, 25);
-            this.radioGercek.TabIndex = 3;
+            this.radioGercek.TabIndex = 1;
             this.radioGercek.TabStop = true;
             this.radioGercek.Text = "Gerçek Kişi";
             this.radioGercek.UseVisualStyleBackColor = true;
+            this.radioGercek.CheckedChanged += new System.EventHandler(this.radioGercek_CheckedChanged);
             // 
             // radioTuzel
             // 
@@ -88,17 +89,18 @@
             this.radioTuzel.Location = new System.Drawing.Point(301, 14);
             this.radioTuzel.Name = "radioTuzel";
             this.radioTuzel.Size = new System.Drawing.Size(68, 25);
-            this.radioTuzel.TabIndex = 4;
+            this.radioTuzel.TabIndex = 2;
             this.radioTuzel.TabStop = true;
             this.radioTuzel.Text = "Tüzel";
             this.radioTuzel.UseVisualStyleBackColor = true;
+            this.radioTuzel.CheckedChanged += new System.EventHandler(this.radioTuzel_CheckedChanged);
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(134, 98);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(453, 29);
-            this.txtName.TabIndex = 6;
+            this.txtName.TabIndex = 4;
             // 
             // label1
             // 
@@ -114,7 +116,7 @@
             this.txtLastName.Location = new System.Drawing.Point(134, 135);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(453, 29);
-            this.txtLastName.TabIndex = 8;
+            this.txtLastName.TabIndex = 5;
             // 
             // label2
             // 
@@ -130,7 +132,7 @@
             this.txtPhone.Location = new System.Drawing.Point(134, 172);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(453, 29);
-            this.txtPhone.TabIndex = 10;
+            this.txtPhone.TabIndex = 6;
             // 
             // label3
             // 
@@ -147,7 +149,7 @@
             this.txtAdress.Multiline = true;
             this.txtAdress.Name = "txtAdress";
             this.txtAdress.Size = new System.Drawing.Size(453, 99);
-            this.txtAdress.TabIndex = 12;
+            this.txtAdress.TabIndex = 7;
             // 
             // label4
             // 
@@ -163,19 +165,18 @@
             this.btnClearForm.Location = new System.Drawing.Point(446, 321);
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(141, 46);
-            this.btnClearForm.TabIndex = 13;
+            this.btnClearForm.TabIndex = 9;
             this.btnClearForm.Text = "Formu Temizle";
             this.btnClearForm.UseVisualStyleBackColor = true;
+            this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
-            // btnListe
+            // txtCustomerId
             // 
-            this.btnListe.Location = new System.Drawing.Point(346, 321);
-            this.btnListe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnListe.Name = "btnListe";
-            this.btnListe.Size = new System.Drawing.Size(93, 46);
-            this.btnListe.TabIndex = 17;
-            this.btnListe.Text = "Liste";
-            this.btnListe.UseVisualStyleBackColor = true;
+            this.txtCustomerId.Location = new System.Drawing.Point(136, 329);
+            this.txtCustomerId.Name = "txtCustomerId";
+            this.txtCustomerId.Size = new System.Drawing.Size(215, 29);
+            this.txtCustomerId.TabIndex = 14;
+            this.txtCustomerId.Visible = false;
             // 
             // FrmCustomerSave
             // 
@@ -183,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(602, 392);
-            this.Controls.Add(this.btnListe);
+            this.Controls.Add(this.txtCustomerId);
             this.Controls.Add(this.btnClearForm);
             this.Controls.Add(this.txtAdress);
             this.Controls.Add(this.label4);
@@ -224,6 +225,6 @@
         private TextBox txtAdress;
         private Label label4;
         private Button btnClearForm;
-        private Button btnListe;
+        private TextBox txtCustomerId;
     }
 }

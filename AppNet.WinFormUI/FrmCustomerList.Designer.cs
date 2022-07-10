@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTcVergiNo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCustomerType = new System.Windows.Forms.ComboBox();
             this.btnCustomerFilter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gridCustomerList = new System.Windows.Forms.DataGridView();
@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lblTcVergiNo);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cmbCustomerType);
             this.panel1.Controls.Add(this.btnCustomerFilter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 11);
@@ -107,13 +107,16 @@
             this.lblTcVergiNo.TabIndex = 3;
             this.lblTcVergiNo.Text = "TC. Kimlik No";
             // 
-            // comboBox1
+            // cmbCustomerType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 29);
-            this.comboBox1.TabIndex = 2;
+            this.cmbCustomerType.FormattingEnabled = true;
+            this.cmbCustomerType.Items.AddRange(new object[] {
+            "Gerçek Kişi",
+            "Tüzel Kişi"});
+            this.cmbCustomerType.Location = new System.Drawing.Point(127, 109);
+            this.cmbCustomerType.Name = "cmbCustomerType";
+            this.cmbCustomerType.Size = new System.Drawing.Size(236, 29);
+            this.cmbCustomerType.TabIndex = 2;
             // 
             // btnCustomerFilter
             // 
@@ -123,6 +126,7 @@
             this.btnCustomerFilter.TabIndex = 1;
             this.btnCustomerFilter.Text = "Bul";
             this.btnCustomerFilter.UseVisualStyleBackColor = true;
+            this.btnCustomerFilter.Click += new System.EventHandler(this.btnCustomerFilter_Click);
             // 
             // label1
             // 
@@ -155,6 +159,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCustomerList";
             this.Text = "Müşteriler";
+            this.Load += new System.EventHandler(this.FrmCustomerList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomerList)).EndInit();
@@ -171,7 +176,7 @@
         private Label label4;
         private Label label3;
         private Label lblTcVergiNo;
-        private ComboBox comboBox1;
+        private ComboBox cmbCustomerType;
         private Button btnCustomerFilter;
         private Label label1;
         private DataGridView gridCustomerList;

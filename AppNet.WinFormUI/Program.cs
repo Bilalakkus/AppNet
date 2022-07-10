@@ -36,7 +36,6 @@ namespace AppNet.WinFormUI
             services.AddScoped<FrmCategorySave>();
             services.AddScoped<FrmCustomerList>();
             services.AddScoped<FrmCustomerSave>();
-            services.AddScoped<FrmDashbord>();
             services.AddScoped<FrmEmployee>();
             services.AddScoped<FrmOrder>();
             services.AddScoped<FrmProductSave>();

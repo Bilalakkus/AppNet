@@ -1,5 +1,7 @@
 ﻿using AppNet.Bussines.Abstract;
 using AppNet.Bussines.Concrete;
+using AppNet.Bussines.Validation;
+using AppNet.Domain;
 using AppNet.Domain.Entities.Concrete;
 using AppNet.Infrastructer.Logging;
 using System;
@@ -18,12 +20,10 @@ namespace AppNet.WinFormUI
     {
         private readonly IServiceProvider _sp;
         private readonly ICategoriService _categoriService;
-        //private readonly FileLogger _lg;
         public FrmCategorySave(IServiceProvider sp, ICategoriService categoriService)
         {
             this._sp = sp;
             this._categoriService = categoriService;
-            //this._lg = lg;
             InitializeComponent();
 
         }
@@ -32,42 +32,35 @@ namespace AppNet.WinFormUI
         {
             try
             {
-                if (txtCategoriName.Text.Length < 2)
-                {
-                    MessageBox.Show("Kategori adı zorunlu!!!");
-                }
-                else
-                {
-                    if (btnCategorySave.Text == "Kaydet")
+                txtCategoriName.Text.NullOrEmpty(nameof(txtCategoriName.Text));
+                if (btnCategorySave.Text == "Kaydet")
                     {
                         Category category = new Category { CategoryName = txtCategoriName.Text };
                         _categoriService.Add(category.CategoryName);
                         MessageBox.Show($"{txtCategoriName.Text} kategorisi eklendi!!!");
-                        //_lg.AddLog($"{txtCategoriName.Text} kategorisi eklendi!!!");
+                        Loggers.LoggerWrite($"{txtCategoriName.Text} kategorisi eklendi!!!", 1);
                         txtCategoriName.Text = "";
                     }
                     else
                     {
                         _categoriService.Update(Convert.ToInt32(txtCategoryId.Text), txtCategoriName.Text);
+                        Loggers.LoggerWrite($"{txtCategoriName.Text} kategorisi güncellendi!!!", 1);
                         var frmCategoriList = _sp.GetService(typeof(FrmCategoryList)) as FrmCategoryList;
                         frmCategoriList.Show();
                         this.Close();
                     }
-                }
             }
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (Exception xe)
+            catch (Exception ex)
             {
-
-                MessageBox.Show("İşlem gerçekleştirilemedi!!!");
-                //_lg.AddLog($"{txtCategoriName.Text} kategorisi eklenemedi kategorisi eklendi. (Hata:{xe.Message})");
+                MessageBox.Show(ex.Message, "Hata!");
+                Loggers.LoggerWrite("Customer kayıt işleminde hata oluştu(Hata:" + ex.Message + ")", 1);
             }
 
         }
-
         private void FrmCategorySave_Load(object sender, EventArgs e)
         {
 

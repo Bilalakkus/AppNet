@@ -18,14 +18,13 @@ namespace AppNet.WinFormUI
 {
     public partial class FrmEmployee : Form
     {
-        private readonly IEmployeeService _EmployeeService;
+        private readonly IEmployeeService _employeeService;
         public FrmEmployee(IEmployeeService employeeService)
         {
             InitializeComponent();
 
-            this._EmployeeService=employeeService;
+            this._employeeService = employeeService;
         }
-
         private async void BtnSave_Click(object sender, EventArgs e)
         {
             try
@@ -54,10 +53,9 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var result = _EmployeeService.Add(employee);
+                    var result = _employeeService.Add(employee);
                     MessageBox.Show($"{txtName.Text} {txtLastName.Text} eklendi!!!");
                     ClearForm();
-                    
                 }
                 else
                 {
@@ -75,7 +73,7 @@ namespace AppNet.WinFormUI
                         WDate = Convert.ToDateTime(txtWDate.Text),
                         Tc = txtTc.Text.Trim()
                     };
-                    var resaltUpdate =  _EmployeeService.Update(employeeUpdate);
+                    var resaltUpdate = _employeeService.Update(employeeUpdate);
                 }
 
                 EmptyForm();
@@ -100,7 +98,6 @@ namespace AppNet.WinFormUI
             txtuser.Text = "";
             txtWDate.Text = "";
         }
-
         private void FrmEmployee_Load(object sender, EventArgs e)
         {
             LoadEmployee();
@@ -108,7 +105,8 @@ namespace AppNet.WinFormUI
 
         private async void LoadEmployee()
         {
-            //gridEmployee.DataSource = _EmployeeService.GetAll();
+            var list = (await _employeeService.GetAll()).OrderBy(e => e.Name).ToList();
+            gridEmployee.DataSource = list;
         }
         private void gridAddEmployee(Employee model)
         {
@@ -123,12 +121,10 @@ namespace AppNet.WinFormUI
             string[] row = new string[] { model.EmployeeId.ToString(), model.Name, model.Tc, model.DateOfBirth.ToString(), model.WDate.ToString(), model.Salary.ToString() };
             gridEmployee.Rows.Add(row);
         }
-
         private void btnEmployeeSearch_Click(object sender, EventArgs e)
         {
 
         }
-
         private void GuncelleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             txtId.Text = gridEmployee.CurrentRow.Cells[0].Value.ToString();
@@ -143,7 +139,6 @@ namespace AppNet.WinFormUI
             tabControl1.Show();
             tabControl1.SelectedTab = tabNewEmployee;
         }
-
         private void SilToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             var employeeId = Convert.ToInt32(gridEmployee.CurrentRow.Cells[0].Value);
@@ -155,21 +150,27 @@ namespace AppNet.WinFormUI
                  MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                if (_EmployeeService.Remove(employeeId)) MessageBox.Show($"{name} silindi...");
+                if (_employeeService.Remove(employeeId)) MessageBox.Show($"{name} silindi...");
                 else MessageBox.Show("Sorun oluştu!");
             }
         }
-
-        private void btnEmployeeSearch_Click_1(object sender, EventArgs e)
+        private async void btnEmployeeSearch_Click_1(object sender, EventArgs e)
         {
-            //if (txtSearchTc.Text.Length == 11)
-            //    gridEmployee.DataSource = _EmployeeService.SearchTc(txtTc.Text);
-            //if (txtSearchName.Text.Length >= 3)
-            //    gridEmployee.DataSource = _EmployeeService.SearchName(txtName.Text);
-            //if (txtSearchLastName.Text.Length >= 2)
-            //    gridEmployee.DataSource = _EmployeeService.SearchName(txtLastName.Text);
+            var list = (await _employeeService.GetAll()).ToList();
+            if (txtSearchTc.Text.Trim().Length == 11)
+            {
+                gridEmployee.DataSource = list.SingleOrDefault(e => e.Tc == txtSearchTc.Text.Trim());
+            }
+            if (txtSearchName.Text.Trim().Length >=3)
+            {
+                if (txtSearchLastName.Text.Trim().Length >= 2)
+                {
+                    gridEmployee.DataSource = list.FirstOrDefault(e => e.Name == txtSearchName.Text.Trim() && e.LastName == txtSearchLastName.Text.Trim());
+                }
+                else gridEmployee.DataSource = list.FirstOrDefault(e => e.Name == txtSearchName.Text.Trim());
+            }
+            else if(txtSearchLastName.Text.Trim().Length >=2) gridEmployee.DataSource = list.FirstOrDefault(e => e.LastName == txtSearchLastName.Text.Trim());
         }
-
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             ClearForm();
@@ -189,7 +190,6 @@ namespace AppNet.WinFormUI
             txtSalary.Text = "";
             txtSearchLastName.Text = "";
             txtSearchName.Text = "";
-           
         }
     }
 }
