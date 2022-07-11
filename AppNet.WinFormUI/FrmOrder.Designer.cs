@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrderSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.txtCount = new System.Windows.Forms.TextBox();
@@ -82,6 +83,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblCategory);
             this.groupBox2.Controls.Add(this.button22);
             this.groupBox2.Controls.Add(this.button21);
             this.groupBox2.Controls.Add(this.txtCount);
@@ -92,6 +94,14 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürünler";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.Location = new System.Drawing.Point(6, 30);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(441, 21);
+            this.lblCategory.TabIndex = 3;
+            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button22
             // 
@@ -229,5 +239,6 @@
         private Button btnRowCancel;
         private DataGridView dataGridView1;
         private Label label2;
+        private Label lblCategory;
     }
 }

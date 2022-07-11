@@ -1,5 +1,6 @@
 ﻿using AppNet.Bussines;
 using AppNet.Bussines.Abstract;
+using AppNet.Domain.Entities.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,12 @@ namespace AppNet.WinFormUI
             gridProduct.DataSource = productList;
 
         }
+        //private async List<BaseEntity> ProductLoad()
+        //{
+        //    var product = _sp.GetRequiredService<IProductService>();
+        //    var productList = (await product.GetAll()).OrderBy(p => p.ProductName).ToList();
+        //    return List<productList>;
+        //}
         private async void CategoriLoad()
         {
             var Categories = _sp.GetRequiredService<ICategoriService>();
@@ -69,6 +76,7 @@ namespace AppNet.WinFormUI
                     button.FlatAppearance.BorderSize = 5;
                     button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     button.Location = new System.Drawing.Point(i == 0 ? x : i * 125, y);
+                    button.Click += new EventHandler(btnCategor_Click);
                     button.Name = categori.CategoryId.ToString();
                     //button.Size = new System.Drawing.Size(y, i*x);
                     button.TabIndex = 0;
@@ -86,6 +94,7 @@ namespace AppNet.WinFormUI
                     button.FlatAppearance.BorderSize = 5;
                     button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     button.Location = new System.Drawing.Point(i - 4 == 0 ? x : i * 125, y + 70);
+                    button.Click += new EventHandler(btnCategor_Click); ;
                     button.Name = categori.CategoryId.ToString();
                     button.TabIndex = 0;
                     button.Text = categori.CategoryName.ToString(); ;
@@ -102,6 +111,7 @@ namespace AppNet.WinFormUI
                     button.FlatAppearance.BorderSize = 5;
                     button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     button.Location = new System.Drawing.Point(i - 8 == 0 ? x : i * 125, y + 140);
+                    button.Click += new EventHandler(btnCategor_Click);
                     button.Name = categori.CategoryId.ToString();
                     button.TabIndex = 0;
                     button.Text = categori.CategoryName.ToString(); ;
@@ -118,6 +128,7 @@ namespace AppNet.WinFormUI
                     button.FlatAppearance.BorderSize = 5;
                     button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     button.Location = new System.Drawing.Point(i - 16 == 0 ? x : i * 125, y + 140);
+                    button.Click += new EventHandler(btnCategor_Click);
                     button.Name = categori.CategoryId.ToString();
                     button.TabIndex = 0;
                     button.Text = categori.CategoryName.ToString(); ;
@@ -134,6 +145,7 @@ namespace AppNet.WinFormUI
                     button.FlatAppearance.BorderSize = 5;
                     button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     button.Location = new System.Drawing.Point(i - 20 == 0 ? x : i * 125, y + 140);
+                    button.Click += new EventHandler(btnCategor_Click);
                     button.Name = categori.CategoryId.ToString();
                     button.TabIndex = 0;
                     button.Text = categori.CategoryName.ToString(); ;
@@ -143,6 +155,15 @@ namespace AppNet.WinFormUI
                 }
                 i++;
             }
+            
+        }
+public async void btnCategor_Click(object sender, EventArgs e)
+            {
+            Button btn = (Button)sender;
+                    lblCategory.Text= btn.Text;
+            var product = _sp.GetRequiredService<IProductService>();
+            var productList = (await product.GetAll()).ToList();
+            gridProduct.DataSource = productList.SingleOrDefault(p=>p.CategoryId== Convert.ToInt32(btn.Name));
         }
     }
 }
