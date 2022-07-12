@@ -179,6 +179,12 @@ namespace AppNet.WinFormUI
             var list = (await employee.GetAll()).ToList();
             lblCountCustomer.Text = list.Count.ToString();
         }
+        public async void CountOrder()
+        {
+            //var order = _sp.GetRequiredService<IOrderService>();
+            //var list = (await order.GetAll()).ToList();
+            //lblSumOrder.Text = list.Count.ToString();
+        }
         public async void CountEmployee()
         {
             var employee = _sp.GetRequiredService<IEmployeeService>();
@@ -190,6 +196,7 @@ namespace AppNet.WinFormUI
         {
             CountCustomer();
             CountEmployee();
+            CountOrder();
         }
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -202,6 +209,12 @@ namespace AppNet.WinFormUI
         {
             var frmEmployee = _sp.GetRequiredService<FrmEmployee>();
             frmEmployee.Show();
+        }
+
+        private void newToolStripProductSave_Click(object sender, EventArgs e)
+        {
+            var frmProduct = _sp.GetRequiredService<FrmProductSave>();
+            frmProduct.Show();
         }
     }
 }

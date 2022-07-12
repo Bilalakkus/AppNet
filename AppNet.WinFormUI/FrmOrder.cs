@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace AppNet.WinFormUI
             var product = _sp.GetRequiredService<IProductService>();
             var productList = (await product.GetAll()).OrderBy(p => p.ProductName).ToList();
             gridProduct.DataSource = productList;
-
+            gridOrderInisilise();
         }
         //private async List<BaseEntity> ProductLoad()
         //{
@@ -155,15 +156,115 @@ namespace AppNet.WinFormUI
                 }
                 i++;
             }
-            
-        }
-public async void btnCategor_Click(object sender, EventArgs e)
-            {
+
+        }//kategorileri veritabanından al dinamik kategori buton oluştur
+        public async void btnCategor_Click(object sender, EventArgs e)
+        {
             Button btn = (Button)sender;
-                    lblCategory.Text= btn.Text;
+            lblCategory.Text = btn.Text;
             var product = _sp.GetRequiredService<IProductService>();
-            var productList = (await product.GetAll()).ToList();
-            gridProduct.DataSource = productList.SingleOrDefault(p=>p.CategoryId== Convert.ToInt32(btn.Name));
+            var productList = (await product.GetAll()).Where(c => c.CategoryId == Convert.ToInt32(btn.Name)).ToList();
+            //var list= productList.SingleOrDefault(p=>p.CategoryId== Convert.ToInt32(btn.Name));
+            gridProduct.DataSource = productList;
+
+            //foreach (DataGridViewRow row in gridProduct.Rows)
+            //{
+            //    Image img = Image.FromFile(row.Cells["ImgPath"].Value.ToString());
+            //    DataGridViewImageCell cell = row.Cells["ImgPath"] as DataGridViewImageCell;
+            //    cell.Value = img;
+            //}
+
+
+        }
+
+        private void gridProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var productId = Convert.ToInt32(gridProduct.CurrentRow.Cells[0].Value);
+            var productName = gridProduct.CurrentRow.Cells[1].Value;
+            decimal unitPrise = Convert.ToDecimal(gridProduct.CurrentRow.Cells[3].Value);
+            decimal total = unitPrise * Convert.ToInt16(txtCount.Text);
+
+            //gridOrder.Columns.Add("Product", "salary");
+            gridOrder.Rows.Add(productId, productName, unitPrise, txtCount.Text, total);
+            lblGTop.Text = Convert.ToDecimal(lblGTop.Text) + total + "";
+        }
+        private void gridOrderInisilise()
+        {
+            gridOrder.ReadOnly = true;
+            gridOrder.AllowUserToDeleteRows = false;
+            gridOrder.ColumnCount = 5;
+            gridOrder.Columns[0].Name = "Id";
+            gridOrder.Columns[1].Name = "Ürün";
+            gridOrder.Columns[2].Name = "B.Fiyatı";
+            gridOrder.Columns[3].Name = "Miktar";
+            gridOrder.Columns[4].Name = "Tutar";
+        }
+
+        private void AllCencel_Click(object sender, EventArgs e)
+        {
+            if (gridOrder.SelectedRows.Count > 0)
+            {
+                lblGTop.Text = Convert.ToDecimal(lblGTop.Text) - Convert.ToDecimal(gridOrder.CurrentRow.Cells[4].Value) + "";
+                gridOrder.Rows.RemoveAt(gridOrder.SelectedRows[0].Index);
+            }
+            else
+            {
+                MessageBox.Show("Lüffen Silinecek Ürünü Seçin!");
+            }
+        }
+        private void btnRowCancel_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Siparişi iptal etmek istiyor musunuz!!!", "Dikkat!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                gridOrder.Rows.Clear();
+                lblGTop.Text = "0";
+            };
+        }
+
+        private async void btnOrderSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridOrder.RowCount <= 0)
+                {
+                    MessageBox.Show("Kaydedilecek ürün yok");
+                    return;
+                }
+                Order newOrder = new Order
+                {
+                    CustomerId = Convert.ToInt32(cmbCustomers.SelectedValue),
+                    Total = Convert.ToDecimal(lblGTop.Text),
+                };
+                var order = _sp.GetRequiredService<IOrderService>();
+                var result = order.Add(newOrder);
+                foreach (DataGridViewRow row in gridOrder.Rows)
+                {
+                    OrderDetail orderDetail = new OrderDetail
+                    {
+                        OrderId = result.OrderId,
+                        ProductId = Convert.ToInt32(row.Cells[0].Value),
+                        Toquantity = Convert.ToInt32(row.Cells[3].Value),
+                        Total = Convert.ToDecimal(row.Cells[4].Value)
+                    };
+                    OrderToProductAdd(orderDetail);
+                }
+                var safe = _sp.GetRequiredService<ISafeService>();
+                Safe newSafe=new Safe { Total=Convert.ToDecimal(lblGTop.Text) };
+                safe.Add(newSafe);
+                gridOrder.Rows.Clear();
+                lblGTop.Text = "0";
+                MessageBox.Show("Sipariş Kaydedildi","Kayıt Başarılı.");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        private void OrderToProductAdd(OrderDetail newOrderDetail)
+        {
+            var orderDetail = _sp.GetRequiredService<IOrderDetailService>();
+            orderDetail.Add(newOrderDetail);
         }
     }
 }

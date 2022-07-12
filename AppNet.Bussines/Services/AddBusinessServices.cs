@@ -31,6 +31,7 @@ namespace AppNet.Bussines.Services
             services.AddScoped<ISuplierService, SuplierService>();
             services.AddScoped<IDatabaseService, DataBaseService>();
             services.AddScoped<ILoggerDbService, LoggerDbService>();
+            services.AddScoped<IOrderDetailService, OrderDetailServices>();
             //services.AddScoped<Logger, Logger>();
         }
     }

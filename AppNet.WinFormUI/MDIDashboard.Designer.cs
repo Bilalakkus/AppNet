@@ -48,7 +48,7 @@
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripProductSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -315,7 +315,7 @@
             // fileMenu
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
+            this.newToolStripProductSave,
             this.toolStripSeparator3,
             this.toolStripSeparator4,
             this.printPreviewToolStripMenuItem,
@@ -325,16 +325,16 @@
             this.fileMenu.Size = new System.Drawing.Size(80, 25);
             this.fileMenu.Text = "&Ürünler";
             // 
-            // newToolStripMenuItem
+            // newToolStripProductSave
             // 
-            this.newToolStripMenuItem.BackColor = System.Drawing.Color.SpringGreen;
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
-            this.newToolStripMenuItem.Text = "&Ürün Ekle";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
+            this.newToolStripProductSave.BackColor = System.Drawing.Color.SpringGreen;
+            this.newToolStripProductSave.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripProductSave.Image")));
+            this.newToolStripProductSave.ImageTransparentColor = System.Drawing.Color.Black;
+            this.newToolStripProductSave.Name = "newToolStripProductSave";
+            this.newToolStripProductSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripProductSave.Size = new System.Drawing.Size(215, 26);
+            this.newToolStripProductSave.Text = "&Ürün Ekle";
+            this.newToolStripProductSave.Click += new System.EventHandler(this.newToolStripProductSave_Click);
             // 
             // toolStripSeparator3
             // 
@@ -1279,7 +1279,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripProductSave;
         private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editMenu;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;

@@ -16,7 +16,6 @@ namespace AppNet.Domain.Entities.Concrete
             get { return _categoriName; }
             set { _categoriName = value.ToUpper(); }
         }
-
         public ICollection<Product> Products { get; set; }=new List<Product>();
     }
 }

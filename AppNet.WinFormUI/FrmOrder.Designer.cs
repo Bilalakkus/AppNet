@@ -39,14 +39,16 @@
             this.txtCount = new System.Windows.Forms.TextBox();
             this.gridProduct = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblGTop = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.AllCencel = new System.Windows.Forms.Button();
             this.btnRowCancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridOrder = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduct)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbCustomers
@@ -74,12 +76,13 @@
             this.btnOrderSave.BackColor = System.Drawing.Color.White;
             this.btnOrderSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderSave.BackgroundImage")));
             this.btnOrderSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnOrderSave.Location = new System.Drawing.Point(977, 731);
+            this.btnOrderSave.Location = new System.Drawing.Point(977, 761);
             this.btnOrderSave.Name = "btnOrderSave";
             this.btnOrderSave.Size = new System.Drawing.Size(154, 140);
             this.btnOrderSave.TabIndex = 13;
             this.btnOrderSave.Tag = "Sipariş oluştur";
             this.btnOrderSave.UseVisualStyleBackColor = false;
+            this.btnOrderSave.Click += new System.EventHandler(this.btnOrderSave_Click);
             // 
             // groupBox2
             // 
@@ -90,7 +93,7 @@
             this.groupBox2.Controls.Add(this.gridProduct);
             this.groupBox2.Location = new System.Drawing.Point(536, 67);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(595, 356);
+            this.groupBox2.Size = new System.Drawing.Size(595, 328);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ürünler";
@@ -140,53 +143,79 @@
             this.gridProduct.Location = new System.Drawing.Point(6, 53);
             this.gridProduct.Name = "gridProduct";
             this.gridProduct.RowTemplate.Height = 25;
-            this.gridProduct.Size = new System.Drawing.Size(581, 289);
+            this.gridProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProduct.Size = new System.Drawing.Size(581, 265);
             this.gridProduct.TabIndex = 0;
+            this.gridProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProduct_CellContentClick);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblGTop);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.AllCencel);
             this.groupBox3.Controls.Add(this.btnRowCancel);
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(14, 414);
+            this.groupBox3.Controls.Add(this.gridOrder);
+            this.groupBox3.Location = new System.Drawing.Point(537, 391);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1117, 311);
+            this.groupBox3.Size = new System.Drawing.Size(594, 364);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sipariş";
+            // 
+            // lblGTop
+            // 
+            this.lblGTop.ForeColor = System.Drawing.Color.Red;
+            this.lblGTop.Location = new System.Drawing.Point(520, 277);
+            this.lblGTop.Name = "lblGTop";
+            this.lblGTop.Size = new System.Drawing.Size(66, 24);
+            this.lblGTop.TabIndex = 17;
+            this.lblGTop.Text = "0";
+            this.lblGTop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(390, 277);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 24);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Sipariş Toplamı:";
             // 
             // AllCencel
             // 
             this.AllCencel.BackColor = System.Drawing.Color.Red;
             this.AllCencel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AllCencel.BackgroundImage")));
             this.AllCencel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.AllCencel.Location = new System.Drawing.Point(89, 259);
+            this.AllCencel.Location = new System.Drawing.Point(97, 312);
             this.AllCencel.Name = "AllCencel";
             this.AllCencel.Size = new System.Drawing.Size(75, 46);
             this.AllCencel.TabIndex = 15;
             this.AllCencel.Tag = "Siparişi iptal et";
             this.AllCencel.UseVisualStyleBackColor = false;
+            this.AllCencel.Click += new System.EventHandler(this.AllCencel_Click);
             // 
             // btnRowCancel
             // 
             this.btnRowCancel.BackColor = System.Drawing.Color.White;
             this.btnRowCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRowCancel.BackgroundImage")));
             this.btnRowCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRowCancel.Location = new System.Drawing.Point(13, 259);
+            this.btnRowCancel.Location = new System.Drawing.Point(21, 312);
             this.btnRowCancel.Name = "btnRowCancel";
             this.btnRowCancel.Size = new System.Drawing.Size(75, 46);
             this.btnRowCancel.TabIndex = 14;
             this.btnRowCancel.Tag = "Seçili satırı sil";
             this.btnRowCancel.UseVisualStyleBackColor = false;
+            this.btnRowCancel.Click += new System.EventHandler(this.btnRowCancel_Click);
             // 
-            // dataGridView1
+            // gridOrder
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1098, 223);
-            this.dataGridView1.TabIndex = 13;
+            this.gridOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridOrder.Location = new System.Drawing.Point(6, 30);
+            this.gridOrder.Name = "gridOrder";
+            this.gridOrder.RowTemplate.Height = 25;
+            this.gridOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridOrder.Size = new System.Drawing.Size(581, 223);
+            this.gridOrder.TabIndex = 13;
             // 
             // label2
             // 
@@ -202,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1143, 873);
+            this.ClientSize = new System.Drawing.Size(1143, 913);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -219,7 +248,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduct)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,8 +266,10 @@
         private Button button21;
         private Button AllCencel;
         private Button btnRowCancel;
-        private DataGridView dataGridView1;
+        private DataGridView gridOrder;
         private Label label2;
         private Label lblCategory;
+        private Label lblGTop;
+        private Label label3;
     }
 }
