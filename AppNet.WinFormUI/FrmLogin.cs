@@ -56,6 +56,11 @@ namespace AppNet.WinFormUI
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         //private static void LoggerWrite(string moment, int id)
         //{
         //    AfterGetLog islem;

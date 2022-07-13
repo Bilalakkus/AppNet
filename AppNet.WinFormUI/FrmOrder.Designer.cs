@@ -45,6 +45,7 @@
             this.btnRowCancel = new System.Windows.Forms.Button();
             this.gridOrder = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbTahsilatTur = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduct)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -76,9 +77,9 @@
             this.btnOrderSave.BackColor = System.Drawing.Color.White;
             this.btnOrderSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderSave.BackgroundImage")));
             this.btnOrderSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnOrderSave.Location = new System.Drawing.Point(977, 761);
+            this.btnOrderSave.Location = new System.Drawing.Point(1062, 813);
             this.btnOrderSave.Name = "btnOrderSave";
-            this.btnOrderSave.Size = new System.Drawing.Size(154, 140);
+            this.btnOrderSave.Size = new System.Drawing.Size(69, 63);
             this.btnOrderSave.TabIndex = 13;
             this.btnOrderSave.Tag = "Sipariş oluştur";
             this.btnOrderSave.UseVisualStyleBackColor = false;
@@ -226,12 +227,25 @@
             this.label2.Text = "Kategori Listesi";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmbTahsilatTur
+            // 
+            this.cmbTahsilatTur.FormattingEnabled = true;
+            this.cmbTahsilatTur.Items.AddRange(new object[] {
+            "Nakit",
+            "K.Kartı",
+            "Çek"});
+            this.cmbTahsilatTur.Location = new System.Drawing.Point(537, 761);
+            this.cmbTahsilatTur.Name = "cmbTahsilatTur";
+            this.cmbTahsilatTur.Size = new System.Drawing.Size(594, 29);
+            this.cmbTahsilatTur.TabIndex = 18;
+            // 
             // FrmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1143, 913);
+            this.Controls.Add(this.cmbTahsilatTur);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -271,5 +285,6 @@
         private Label lblCategory;
         private Label lblGTop;
         private Label label3;
+        private ComboBox cmbTahsilatTur;
     }
 }

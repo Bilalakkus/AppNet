@@ -98,7 +98,6 @@
             this.lblBorc = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -139,7 +138,6 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -808,7 +806,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.Color.White;
-            this.groupBox6.Controls.Add(this.pictureBox9);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox6.Location = new System.Drawing.Point(4, 241);
@@ -816,15 +813,6 @@
             this.groupBox6.Size = new System.Drawing.Size(640, 511);
             this.groupBox6.TabIndex = 19;
             this.groupBox6.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(6, 135);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(628, 363);
-            this.pictureBox9.TabIndex = 2;
-            this.pictureBox9.TabStop = false;
             // 
             // label11
             // 
@@ -1225,7 +1213,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -1315,7 +1302,6 @@
         private Label label14;
         private GroupBox groupBox9;
         private Label label2;
-        private PictureBox pictureBox9;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem tedarikçiEkleToolStripMenuItem;
         private ToolStripMenuItem tedarikçilerToolStripMenuItem;

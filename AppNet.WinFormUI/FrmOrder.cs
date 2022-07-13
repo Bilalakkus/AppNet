@@ -57,6 +57,7 @@ namespace AppNet.WinFormUI
         {
             var Categories = _sp.GetRequiredService<ICategoriService>();
             var categorilist = (await Categories.GetAll()).ToList();
+            cmbTahsilatTur.SelectedIndex = 0;
 
             int top = 121;
             int left = 56;
@@ -246,6 +247,7 @@ namespace AppNet.WinFormUI
                         ProductId = Convert.ToInt32(row.Cells[0].Value),
                         Toquantity = Convert.ToInt32(row.Cells[3].Value),
                         Total = Convert.ToDecimal(row.Cells[4].Value)
+                        
                     };
                     OrderToProductAdd(orderDetail);
                 }
@@ -256,7 +258,8 @@ namespace AppNet.WinFormUI
                     AddingId=1,
                     Type=(int)SafeType.input,
                     Explanation="Sipariş",
-                    CustomerId= Convert.ToInt32(cmbCustomers.SelectedValue)
+                    CustomerId= Convert.ToInt32(cmbCustomers.SelectedValue),
+                    TahsilatTuru=Convert.ToInt16(cmbTahsilatTur.SelectedValue)
                 };
                 safe.Add(newSafe);
                 gridOrder.Rows.Clear();
