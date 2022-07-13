@@ -66,14 +66,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtAciklama = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.txtMiktar = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.radioCikis = new System.Windows.Forms.RadioButton();
+            this.radioGiris = new System.Windows.Forms.RadioButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cmbTahsilatTur = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -570,13 +572,15 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.button5);
-            this.groupBox9.Controls.Add(this.textBox2);
+            this.groupBox9.Controls.Add(this.cmbTahsilatTur);
+            this.groupBox9.Controls.Add(this.label19);
+            this.groupBox9.Controls.Add(this.btnSave);
+            this.groupBox9.Controls.Add(this.txtAciklama);
             this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.Controls.Add(this.textBox1);
+            this.groupBox9.Controls.Add(this.txtMiktar);
             this.groupBox9.Controls.Add(this.label17);
-            this.groupBox9.Controls.Add(this.radioButton2);
-            this.groupBox9.Controls.Add(this.radioButton1);
+            this.groupBox9.Controls.Add(this.radioCikis);
+            this.groupBox9.Controls.Add(this.radioGiris);
             this.groupBox9.Controls.Add(this.label16);
             this.groupBox9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox9.Location = new System.Drawing.Point(18, 329);
@@ -584,6 +588,76 @@
             this.groupBox9.Size = new System.Drawing.Size(1212, 251);
             this.groupBox9.TabIndex = 26;
             this.groupBox9.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSave.Location = new System.Drawing.Point(1058, 191);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(136, 44);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Kaydet";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtAciklama
+            // 
+            this.txtAciklama.Location = new System.Drawing.Point(358, 172);
+            this.txtAciklama.Multiline = true;
+            this.txtAciklama.Name = "txtAciklama";
+            this.txtAciklama.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAciklama.Size = new System.Drawing.Size(569, 63);
+            this.txtAciklama.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(274, 172);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 21);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Açıklama";
+            // 
+            // txtMiktar
+            // 
+            this.txtMiktar.Location = new System.Drawing.Point(358, 137);
+            this.txtMiktar.Name = "txtMiktar";
+            this.txtMiktar.Size = new System.Drawing.Size(154, 29);
+            this.txtMiktar.TabIndex = 4;
+            this.txtMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(274, 137);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 21);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Miktar";
+            // 
+            // radioCikis
+            // 
+            this.radioCikis.AutoSize = true;
+            this.radioCikis.Location = new System.Drawing.Point(597, 86);
+            this.radioCikis.Name = "radioCikis";
+            this.radioCikis.Size = new System.Drawing.Size(103, 25);
+            this.radioCikis.TabIndex = 2;
+            this.radioCikis.TabStop = true;
+            this.radioCikis.Text = "Kasa Çıkış";
+            this.radioCikis.UseVisualStyleBackColor = true;
+            // 
+            // radioGiris
+            // 
+            this.radioGiris.AutoSize = true;
+            this.radioGiris.Location = new System.Drawing.Point(462, 86);
+            this.radioGiris.Name = "radioGiris";
+            this.radioGiris.Size = new System.Drawing.Size(101, 25);
+            this.radioGiris.TabIndex = 1;
+            this.radioGiris.TabStop = true;
+            this.radioGiris.Text = "Kasa Giriş";
+            this.radioGiris.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -595,73 +669,27 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Kasa İşlemi";
             // 
-            // radioButton1
+            // label19
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(274, 103);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(101, 25);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Kasa Giriş";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(540, 137);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(107, 21);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Tahsilat Türü";
             // 
-            // radioButton2
+            // cmbTahsilatTur
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(409, 103);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 25);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Kasa Çıkış";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(597, 106);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 21);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Miktar";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(689, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 29);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(272, 150);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(81, 21);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Açıklama";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(358, 153);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(569, 82);
-            this.textBox2.TabIndex = 6;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Location = new System.Drawing.Point(1058, 191);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 44);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Kaydet";
-            this.button5.UseVisualStyleBackColor = true;
+            this.cmbTahsilatTur.FormattingEnabled = true;
+            this.cmbTahsilatTur.Items.AddRange(new object[] {
+            "Nakit",
+            "K.Kartı",
+            "Çek"});
+            this.cmbTahsilatTur.Location = new System.Drawing.Point(653, 134);
+            this.cmbTahsilatTur.Name = "cmbTahsilatTur";
+            this.cmbTahsilatTur.Size = new System.Drawing.Size(268, 29);
+            this.cmbTahsilatTur.TabIndex = 9;
             // 
             // FrmSafe
             // 
@@ -753,12 +781,14 @@
         private Button button4;
         private GroupBox groupBox9;
         private Label label16;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Button button5;
-        private TextBox textBox2;
+        private RadioButton radioCikis;
+        private RadioButton radioGiris;
+        private Button btnSave;
+        private TextBox txtAciklama;
         private Label label18;
-        private TextBox textBox1;
+        private TextBox txtMiktar;
         private Label label17;
+        private ComboBox cmbTahsilatTur;
+        private Label label19;
     }
 }

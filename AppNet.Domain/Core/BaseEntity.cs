@@ -11,6 +11,6 @@ namespace AppNet.Domain.Entities.Concrete
     {
         public int AddingId { get; set; }
         public DateTime CreateDate = DateTime.Now;
-        public bool IsItPassive { get; set; }
+        public bool IsItPassive { get; set; }=false;
     }
 }

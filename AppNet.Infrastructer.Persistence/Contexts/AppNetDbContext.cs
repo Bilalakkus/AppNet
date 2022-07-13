@@ -35,9 +35,11 @@ namespace AppNet.Infrastructer.Persistence.Contexts
         public DbSet<CustomerTuzel> CustomerTuzels { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Safe> Safes { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<DataBase> DataBases { get; set; }
+        public DbSet<LoggerDb> LoggerDbs { get; set; }
     }
 }

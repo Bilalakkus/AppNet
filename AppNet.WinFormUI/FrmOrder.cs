@@ -250,7 +250,14 @@ namespace AppNet.WinFormUI
                     OrderToProductAdd(orderDetail);
                 }
                 var safe = _sp.GetRequiredService<ISafeService>();
-                Safe newSafe=new Safe { Total=Convert.ToDecimal(lblGTop.Text) };
+                Safe newSafe=new Safe 
+                { 
+                    Total=Convert.ToDecimal(lblGTop.Text),
+                    AddingId=1,
+                    Type=(int)SafeType.input,
+                    Explanation="Sipariş",
+                    CustomerId= Convert.ToInt32(cmbCustomers.SelectedValue)
+                };
                 safe.Add(newSafe);
                 gridOrder.Rows.Clear();
                 lblGTop.Text = "0";

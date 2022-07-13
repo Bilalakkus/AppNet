@@ -181,9 +181,9 @@ namespace AppNet.WinFormUI
         }
         public async void CountOrder()
         {
-            //var order = _sp.GetRequiredService<IOrderService>();
-            //var list = (await order.GetAll()).ToList();
-            //lblSumOrder.Text = list.Count.ToString();
+            var order = _sp.GetRequiredService<IOrderService>();
+            var list = (await order.GetAll()).ToList();
+            lblSumOrder.Text = list.Count.ToString();
         }
         public async void CountEmployee()
         {
@@ -191,12 +191,19 @@ namespace AppNet.WinFormUI
             var list = (await employee.GetAll()).ToList();
             lblCountEmployee.Text = list.Count.ToString();
         }
+        public async void SumCustomer()
+        {
+            var safe = _sp.GetRequiredService<ISafeService>();
+            var list = (await safe.GetAll()).ToList();
+            lblKasa.Text = list.Sum(s=>s.Total).ToString();
+        }
 
         private void MDIDashboard_Load(object sender, EventArgs e)
         {
             CountCustomer();
             CountEmployee();
             CountOrder();
+            SumCustomer();
         }
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -215,6 +222,12 @@ namespace AppNet.WinFormUI
         {
             var frmProduct = _sp.GetRequiredService<FrmProductSave>();
             frmProduct.Show();
+        }
+
+        private void kasaIslemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmSafe = _sp.GetRequiredService<FrmSafe>();
+            frmSafe.Show();
         }
     }
 }

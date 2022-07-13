@@ -414,14 +414,15 @@
             // kasaDurumToolStripMenuItem
             // 
             this.kasaDurumToolStripMenuItem.Name = "kasaDurumToolStripMenuItem";
-            this.kasaDurumToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.kasaDurumToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.kasaDurumToolStripMenuItem.Text = "Kasa Durum";
             // 
             // kasaİşlemToolStripMenuItem
             // 
             this.kasaİşlemToolStripMenuItem.Name = "kasaİşlemToolStripMenuItem";
-            this.kasaİşlemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.kasaİşlemToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.kasaİşlemToolStripMenuItem.Text = "Kasa İşlem";
+            this.kasaİşlemToolStripMenuItem.Click += new System.EventHandler(this.kasaIslemToolStripMenuItem_Click);
             // 
             // toolStrip
             // 
