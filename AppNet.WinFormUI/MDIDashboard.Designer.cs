@@ -101,14 +101,12 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lblCountEmployee = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -143,11 +141,9 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -414,13 +410,13 @@
             // kasaDurumToolStripMenuItem
             // 
             this.kasaDurumToolStripMenuItem.Name = "kasaDurumToolStripMenuItem";
-            this.kasaDurumToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.kasaDurumToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.kasaDurumToolStripMenuItem.Text = "Kasa Durum";
             // 
             // kasaİşlemToolStripMenuItem
             // 
             this.kasaİşlemToolStripMenuItem.Name = "kasaİşlemToolStripMenuItem";
-            this.kasaİşlemToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.kasaİşlemToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.kasaİşlemToolStripMenuItem.Text = "Kasa İşlem";
             this.kasaİşlemToolStripMenuItem.Click += new System.EventHandler(this.kasaIslemToolStripMenuItem_Click);
             // 
@@ -846,7 +842,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.BackColor = System.Drawing.Color.White;
-            this.groupBox7.Controls.Add(this.pictureBox7);
             this.groupBox7.Controls.Add(this.label12);
             this.groupBox7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox7.Location = new System.Drawing.Point(644, 241);
@@ -854,15 +849,6 @@
             this.groupBox7.Size = new System.Drawing.Size(644, 511);
             this.groupBox7.TabIndex = 20;
             this.groupBox7.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(10, 135);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(628, 363);
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
             // 
             // label12
             // 
@@ -923,7 +909,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.BackColor = System.Drawing.Color.White;
-            this.groupBox9.Controls.Add(this.pictureBox6);
             this.groupBox9.Controls.Add(this.label2);
             this.groupBox9.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox9.Location = new System.Drawing.Point(1289, 241);
@@ -931,15 +916,6 @@
             this.groupBox9.Size = new System.Drawing.Size(635, 511);
             this.groupBox9.TabIndex = 23;
             this.groupBox9.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(4, 135);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(625, 363);
-            this.pictureBox6.TabIndex = 1;
-            this.pictureBox6.TabStop = false;
             // 
             // label2
             // 
@@ -1252,13 +1228,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
@@ -1334,14 +1308,12 @@
         private GroupBox groupBox6;
         private Label label11;
         private GroupBox groupBox7;
-        private PictureBox pictureBox7;
         private Label label12;
         private GroupBox groupBox8;
         private PictureBox pictureBox8;
         private Label lblCountEmployee;
         private Label label14;
         private GroupBox groupBox9;
-        private PictureBox pictureBox6;
         private Label label2;
         private PictureBox pictureBox9;
         private ToolStripMenuItem toolStripMenuItem1;
