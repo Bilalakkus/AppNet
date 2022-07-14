@@ -200,12 +200,9 @@ namespace AppNet.WinFormUI
 
         private void MDIDashboard_Load(object sender, EventArgs e)
         {
-            CountCustomer();
-            CountEmployee();
-            CountOrder();
-            SumCustomer();
+           
         }
-
+        
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
             var frmCustomer = _sp.GetRequiredService<FrmCustomerSave>();
@@ -228,6 +225,14 @@ namespace AppNet.WinFormUI
         {
             var frmSafe = _sp.GetRequiredService<FrmSafe>();
             frmSafe.Show();
+        }
+
+        private void MDIDashboard_Activated_1(object sender, EventArgs e)
+        {
+            CountCustomer();
+            CountEmployee();
+            CountOrder();
+            SumCustomer();
         }
     }
 }

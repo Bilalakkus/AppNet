@@ -1189,6 +1189,7 @@
             this.Name = "MDIDashboard";
             this.Text = "MDIDashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.MDIDashboard_Activated_1);
             this.Load += new System.EventHandler(this.MDIDashboard_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

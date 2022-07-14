@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Maikebing.System.Windows.Forms.DataVisualization" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
